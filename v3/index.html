@@ -15,6 +15,7 @@
     rel="stylesheet"
   />
   <link rel="stylesheet" href="styles.css" />
+  <script>if(localStorage.getItem('akar-theme')==='light')document.documentElement.classList.add('light');</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
@@ -37,8 +38,30 @@
       <div class="nav-actions">
         <a href="#b2b" class="nav-cta nav-cta--shop">B2B Shop</a>
         <a href="#contact" class="nav-cta">Partner werden</a>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Farbmodus wechseln" title="Dunkel / Hell">
+          <div class="theme-toggle-track">
+            <span class="theme-toggle-icon theme-toggle-icon--moon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </span>
+            <span class="theme-toggle-icon theme-toggle-icon--sun">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </span>
+          </div>
+          <span class="theme-toggle-thumb"></span>
+        </button>
       </div>
 
+      <button class="theme-toggle theme-toggle--mobile" id="theme-toggle-mobile" aria-label="Farbmodus wechseln" title="Dunkel / Hell">
+          <div class="theme-toggle-track">
+            <span class="theme-toggle-icon theme-toggle-icon--moon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </span>
+            <span class="theme-toggle-icon theme-toggle-icon--sun">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </span>
+          </div>
+          <span class="theme-toggle-thumb"></span>
+        </button>
       <button
         class="hamburger"
         id="hamburger"
@@ -534,6 +557,23 @@
   </footer>
 
   <script>
+    // Theme toggle
+    (function() {
+      const saved = localStorage.getItem('akar-theme');
+      if (saved === 'light') document.documentElement.classList.add('light');
+
+      function toggleTheme() {
+        document.documentElement.classList.add('transitioning');
+        document.documentElement.classList.toggle('light');
+        const isLight = document.documentElement.classList.contains('light');
+        localStorage.setItem('akar-theme', isLight ? 'light' : 'dark');
+        setTimeout(() => document.documentElement.classList.remove('transitioning'), 500);
+      }
+
+      document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+      document.getElementById('theme-toggle-mobile').addEventListener('click', toggleTheme);
+    })();
+
     const header = document.getElementById('site-header');
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
