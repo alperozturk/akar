@@ -68,11 +68,13 @@ h1, h2, h3, h4, h5, h6 {
   transform-origin: center;
   z-index: 9999;
   mix-blend-mode: difference;
-  transition: transform .25s ease, background-color .25s ease, box-shadow .25s ease;
+  /* transform is driven by GSAP (position + scale); only animate paint props in CSS */
+  transition: background-color .25s ease, box-shadow .25s ease;
   will-change: transform;
 }
 .cursor.is-active {
-  transform: scale(2.5);
+  background: var(--pink);
+  box-shadow: 0 0 0 10px rgba(240, 64, 140, .18);
 }
 
 /* === MOTION PREFERENCES === */
