@@ -9,7 +9,7 @@ export function initCursor({ gsap, reduceMotion }) {
   const xTo = gsap.quickTo(cursor, 'x', { duration: 0.25, ease: 'power3' });
   const yTo = gsap.quickTo(cursor, 'y', { duration: 0.25, ease: 'power3' });
   window.addEventListener('mousemove', (e) => { xTo(e.clientX); yTo(e.clientY); });
-  const scaleTo = gsap.quickTo(cursor, 'scale', { duration: 0.25, ease: 'power3' });
+  const scaleTo = (v) => gsap.to(cursor, { scale: v, duration: 0.25, ease: 'power3', overwrite: 'auto' });
   document.querySelectorAll('a, button, [data-magnetic]').forEach((el) => {
     el.addEventListener('mouseenter', () => { cursor.classList.add('is-active'); scaleTo(2.5); });
     el.addEventListener('mouseleave', () => { cursor.classList.remove('is-active'); scaleTo(1); });
