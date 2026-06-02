@@ -2,6 +2,7 @@ import Lenis from './vendor/lenis.mjs'; // self-hosted lenis@1.1.13 (supply-chai
 import { initReveals } from './reveals.js';
 import { initCounters } from './counters.js';
 import { initCursor } from './cursor.js';
+import { initHero, initMobileMenu } from './hero.js';
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -18,6 +19,8 @@ function boot() {
   initReveals({ gsap, ST, reduceMotion });
   initCounters({ gsap, ST });
   initCursor({ gsap, reduceMotion });
+  initHero({ gsap, reduceMotion });
+  initMobileMenu();
 }
 
 window.addEventListener('load', () => {

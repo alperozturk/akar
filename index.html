@@ -14,6 +14,92 @@
 </head>
 <body>
   <div class="cursor" aria-hidden="true"></div>
-  <main><!-- sections appended in later tasks --></main>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#top" class="nav__brand" aria-label="AKAR GmbH — Startseite">AKAR</a>
+
+      <nav class="nav__links" aria-label="Hauptnavigation">
+        <a href="#unternehmen">Unternehmen</a>
+        <a href="#marken">Marken</a>
+        <a href="#sortiment">Produkte</a>
+        <a href="#praesenz">Präsenz</a>
+        <a href="#karriere">Karriere</a>
+      </nav>
+
+      <div class="nav__actions">
+        <button class="nav__lang" type="button" aria-label="Sprache wählen: Deutsch">DE</button>
+        <a href="#kontakt" class="btn btn--fill nav__cta" data-magnetic>Kontakt</a>
+        <button class="nav__burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <button class="mobile-menu__close" type="button" aria-label="Menü schließen">
+      <span></span><span></span>
+    </button>
+    <nav class="mobile-menu__links" aria-label="Mobile Navigation">
+      <a href="#unternehmen">Unternehmen</a>
+      <a href="#marken">Marken</a>
+      <a href="#sortiment">Produkte</a>
+      <a href="#praesenz">Präsenz</a>
+      <a href="#karriere">Karriere</a>
+      <a href="#kontakt" class="mobile-menu__cta">Kontakt</a>
+    </nav>
+  </div>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__blobs" aria-hidden="true">
+        <span class="blob blob--pink" data-parallax="0.18"></span>
+        <span class="blob blob--mint" data-parallax="0.26"></span>
+        <span class="blob blob--cream" data-parallax="0.14"></span>
+      </div>
+
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <p class="hero__eyebrow">INTERNATIONAL · SEIT 1992</p>
+          <h1 class="hero__title" id="hero-title">
+            <span class="hero__line">Bringing <span class="pink">Turkish</span></span>
+            <span class="hero__line">Brands to the</span>
+            <span class="hero__line"><span class="italic">World.</span></span>
+          </h1>
+          <p class="hero__lead">
+            Über 30 Jahre Erfahrung im Import und Vertrieb türkischer und
+            internationaler Lebensmittel — mit einem europaweiten Vertriebsnetz
+            für den Handel.
+          </p>
+          <div class="hero__cta">
+            <a href="#sortiment" class="btn btn--fill" data-magnetic>Sortiment entdecken</a>
+            <a href="#kontakt" class="btn btn--outline">Kontakt aufnehmen</a>
+          </div>
+          <ul class="hero__stats">
+            <li class="chip">30+ Jahre</li>
+            <li class="chip">7 Länder</li>
+            <li class="chip">800+ Produkte</li>
+          </ul>
+        </div>
+
+        <div class="hero__visual" aria-hidden="true">
+          <div class="box">
+            <div class="box__back"></div>
+            <div class="box__flap"></div>
+            <div class="box__front"></div>
+          </div>
+          <div class="packets">
+            <div class="packet packet--lokum" data-parallax="0.10"><span>Lokum</span></div>
+            <div class="packet packet--halley" data-parallax="0.20"><span>Halley</span></div>
+            <div class="packet packet--cola" data-parallax="0.06"><span>Cola Turka</span></div>
+            <div class="packet packet--hobby" data-parallax="0.16"><span>Hobby</span></div>
+            <div class="packet packet--metro" data-parallax="0.12"><span>Metro</span></div>
+            <div class="packet packet--ulker" data-parallax="0.22"><span>Ülker</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
