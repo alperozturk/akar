@@ -51,21 +51,38 @@ export function initMobileMenu() {
   const close = document.querySelector('.mobile-menu__close');
   if (!burger || !menu) return;
 
+  const focusable = () => menu.querySelectorAll('a, button');
+
   const open = () => {
     menu.classList.add('is-open');
     menu.setAttribute('aria-hidden', 'false');
     burger.setAttribute('aria-expanded', 'true');
     document.body.style.overflow = 'hidden';
+    // defer to next frame so the menu is visible/focusable before moving focus
+    requestAnimationFrame(() => (close || focusable()[0])?.focus());
   };
   const shut = () => {
     menu.classList.remove('is-open');
     menu.setAttribute('aria-hidden', 'true');
     burger.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
+    burger.focus(); // restore focus to the trigger
+  };
+
+  // Simple focus trap: keep Tab within the menu while it's open
+  const onKeydown = (e) => {
+    if (!menu.classList.contains('is-open')) return;
+    if (e.key === 'Escape') { shut(); return; }
+    if (e.key !== 'Tab') return;
+    const items = Array.from(focusable());
+    if (!items.length) return;
+    const first = items[0], last = items[items.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   };
 
   burger.addEventListener('click', open);
   close && close.addEventListener('click', shut);
   menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', shut));
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') shut(); });
+  document.addEventListener('keydown', onKeydown);
 }
