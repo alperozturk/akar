@@ -1,4 +1,4 @@
-import Lenis from 'https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.mjs';
+import Lenis from './vendor/lenis.mjs'; // self-hosted lenis@1.1.13 (supply-chain hardening; no third-party runtime fetch)
 import { initReveals } from './reveals.js';
 import { initCounters } from './counters.js';
 import { initCursor } from './cursor.js';
