@@ -2,32 +2,35 @@ export function initHero({ gsap, reduceMotion }) {
   const hero = document.querySelector('.hero');
   if (!hero) return;
 
-  const lines = hero.querySelectorAll('.hero__line > span, .hero__line');
   const lineEls = hero.querySelectorAll('.hero__line');
-  const eyebrow = hero.querySelector('.hero__eyebrow');
   const lead = hero.querySelector('.hero__lead');
-  const ctas = hero.querySelectorAll('.hero__cta .btn');
-  const chips = hero.querySelectorAll('.hero__stats .chip');
   const packets = hero.querySelectorAll('.packet');
+  const seal = hero.querySelector('.seal');
+
+  // Only animate targets that actually exist (markup may vary across pages).
+  const targets = [lineEls, lead, packets, seal].filter(
+    (t) => t && (t.length === undefined ? true : t.length > 0)
+  );
 
   if (reduceMotion) {
-    gsap.set([eyebrow, lineEls, lead, ctas, chips, packets], { opacity: 1, y: 0, scale: 1, clearProps: 'clipPath' });
+    gsap.set(targets, { opacity: 1, y: 0, scale: 1, clearProps: 'clipPath' });
     return;
   }
 
   // Initial hidden state
-  gsap.set(eyebrow, { opacity: 0, y: 14 });
   gsap.set(lineEls, { opacity: 0, yPercent: 110 });
-  gsap.set([lead, ctas, chips], { opacity: 0, y: 24 });
+  if (lead) gsap.set(lead, { opacity: 0, y: 24 });
   gsap.set(packets, { opacity: 0, y: 60, scale: 0.6 });
+  if (seal) gsap.set(seal, { opacity: 0, scale: 0.5, rotate: -30 });
 
   const tl = gsap.timeline({ defaults: { ease: 'power3.out' }, delay: 0.15 });
-  tl.to(eyebrow, { opacity: 1, y: 0, duration: 0.5 })
-    .to(lineEls, { opacity: 1, yPercent: 0, duration: 0.7, stagger: 0.08 }, '-=0.25')
+  tl.to(lineEls, { opacity: 1, yPercent: 0, duration: 0.7, stagger: 0.08 })
     .to(lead, { opacity: 1, y: 0, duration: 0.6 }, '-=0.35')
-    .to(ctas, { opacity: 1, y: 0, duration: 0.5, stagger: 0.08 }, '-=0.3')
-    .to(chips, { opacity: 1, y: 0, duration: 0.5, stagger: 0.07 }, '-=0.35')
     .to(packets, { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: 'back.out(1.6)', stagger: 0.07 }, '-=0.55');
+  if (seal) tl.to(seal, {
+    opacity: 1, scale: 1, rotate: -10, duration: 0.6, ease: 'back.out(1.7)',
+    onComplete: () => gsap.set(seal, { clearProps: 'transform,opacity' })
+  }, '-=0.4');
 
   // Gentle cursor-parallax on packets (skip on touch / reduced motion)
   const touch = window.matchMedia('(hover: none)').matches;

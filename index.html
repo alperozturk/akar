@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AKAR GmbH — Türkische & internationale Lebensmittel für den Handel in Europa</title>
   <meta name="description" content="AKAR GmbH — Ihr Full-Service-Partner für türkische und internationale Lebensmittel und Distribution in Europa. Über 30 Jahre Erfahrung." />
-  <link rel="preconnect" href="https://api.fontshare.com" />
-  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,800,900&f[]=general-sans@400,500,600&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" defer></script>
@@ -19,21 +20,14 @@
     <div class="container nav">
       <a href="#top" class="nav__brand" aria-label="AKAR GmbH — Startseite">AKAR</a>
 
-      <nav class="nav__links" aria-label="Hauptnavigation">
-        <a href="#unternehmen">Unternehmen</a>
-        <a href="#marken">Marken</a>
-        <a href="#sortiment">Produkte</a>
-        <a href="#praesenz">Präsenz</a>
-        <a href="#karriere">Karriere</a>
-      </nav>
+      <button class="nav__burger menu-pill" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
 
-      <div class="nav__actions">
-        <button class="nav__lang" type="button" aria-label="Sprache wählen: Deutsch">DE</button>
-        <a href="#kontakt" class="btn btn--fill nav__cta" data-magnetic>Kontakt</a>
-        <button class="nav__burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
+      <nav class="nav__links" aria-label="Hauptnavigation">
+        <a href="#sortiment">sortiment</a>
+        <a href="#kontakt">kontakt</a>
+      </nav>
     </div>
   </header>
 
@@ -44,65 +38,79 @@
     <nav class="mobile-menu__links" aria-label="Mobile Navigation">
       <a href="#unternehmen">Unternehmen</a>
       <a href="#marken">Marken</a>
-      <a href="#sortiment">Produkte</a>
+      <a href="#sortiment">Sortiment</a>
       <a href="#praesenz">Präsenz</a>
       <a href="#karriere">Karriere</a>
       <a href="#kontakt" class="mobile-menu__cta">Kontakt</a>
     </nav>
   </div>
 
+  <!-- decorative fixed pink edge line -->
+  <span class="edge-line" aria-hidden="true"></span>
+
+  <!-- bottom-left music toggle (visual only) -->
+  <button class="music-toggle is-muted" type="button" aria-label="Musik an/aus" aria-pressed="false">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M9 17.5V6.5l9-2v9" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="6.5" cy="17.5" r="2.5" stroke="#fff" stroke-width="1.8"/>
+      <circle cx="15.5" cy="15.5" r="2.5" stroke="#fff" stroke-width="1.8"/>
+      <line class="music-toggle__slash" x1="3" y1="21" x2="21" y2="3" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+  </button>
+
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero__blobs" aria-hidden="true">
-        <span class="blob blob--pink" data-parallax="0.18"></span>
-        <span class="blob blob--mint" data-parallax="0.26"></span>
-        <span class="blob blob--cream" data-parallax="0.14"></span>
+      <!-- soft cloud atmosphere -->
+      <div class="hero__clouds" aria-hidden="true">
+        <span class="cloud cloud--tl"></span>
+        <span class="cloud cloud--tl2"></span>
+        <span class="cloud cloud--band"></span>
+        <span class="cloud cloud--band2"></span>
+        <span class="cloud cloud--band3"></span>
+      </div>
+
+      <!-- floating product packshots (keep .packet + data-parallax for hero.js) -->
+      <div class="packets" aria-hidden="true">
+        <figure class="packet packet--yupo" data-parallax="0.10"><img src="img/products/yupo.webp" width="440" height="600" alt="Ülker Yupo Fruit Garden" /></figure>
+        <figure class="packet packet--halley" data-parallax="0.20"><img src="img/products/halley.webp" width="600" height="186" alt="Ülker Halley" /></figure>
+        <figure class="packet packet--redbull" data-parallax="0.06"><img src="img/products/redbull.webp" width="228" height="600" alt="Red Bull Energy Drink" /></figure>
+        <figure class="packet packet--biskrem" data-parallax="0.16"><img src="img/products/biskrem.webp" width="425" height="600" alt="Ülker Biskrem Duo" /></figure>
+        <figure class="packet packet--mis" data-parallax="0.12"><img src="img/products/mis-ayran.webp" width="417" height="582" alt="MİS Ayran" /></figure>
+        <figure class="packet packet--cizi" data-parallax="0.22"><img src="img/products/cizi.webp" width="600" height="330" alt="Ülker Çizi Cheese Crackers" /></figure>
       </div>
 
       <div class="container hero__inner">
-        <div class="hero__copy">
-          <p class="hero__eyebrow">INTERNATIONAL · SEIT 1992</p>
-          <h1 class="hero__title" id="hero-title">
-            <span class="hero__line">Bringing <span class="pink">Turkish</span></span>
-            <span class="hero__line">Brands to the</span>
-            <span class="hero__line"><span class="italic">World.</span></span>
-          </h1>
-          <p class="hero__lead">
-            Über 30 Jahre Erfahrung im Import und Vertrieb türkischer und
-            internationaler Lebensmittel — mit einem europaweiten Vertriebsnetz
-            für den Handel.
-          </p>
-          <div class="hero__cta">
-            <a href="#sortiment" class="btn btn--fill" data-magnetic>Sortiment entdecken</a>
-            <a href="#kontakt" class="btn btn--outline">Kontakt aufnehmen</a>
-          </div>
-          <ul class="hero__stats">
-            <li class="chip">30+ Jahre</li>
-            <li class="chip">7 Länder</li>
-            <li class="chip">800+ Produkte</li>
-          </ul>
-        </div>
-
-        <div class="hero__visual" aria-hidden="true">
-          <div class="box">
-            <div class="box__back"></div>
-            <div class="box__flap"></div>
-            <div class="box__front"></div>
-          </div>
-          <div class="packets">
-            <div class="packet packet--lokum" data-parallax="0.10"><span>Lokum</span></div>
-            <div class="packet packet--halley" data-parallax="0.20"><span>Halley</span></div>
-            <div class="packet packet--cola" data-parallax="0.06"><span>Cola Turka</span></div>
-            <div class="packet packet--hobby" data-parallax="0.16"><span>Hobby</span></div>
-            <div class="packet packet--metro" data-parallax="0.12"><span>Metro</span></div>
-            <div class="packet packet--ulker" data-parallax="0.22"><span>Ülker</span></div>
-          </div>
-        </div>
+        <h1 class="hero__title" id="hero-title">
+          <span class="hero__line">BRINGING</span>
+          <span class="hero__line">TURKISH BRANDS</span>
+          <span class="hero__line">TO THE WORLD</span>
+        </h1>
+        <p class="hero__lead">
+          Über 30 Jahre Erfahrung im Import und Vertrieb türkischer und
+          internationaler Lebensmittel — mit einem europaweiten Vertriebsnetz
+          für den Handel.
+        </p>
       </div>
+
+      <!-- lavender stand-up pouch rising from the clouds -->
+      <div class="pouch" aria-hidden="true">
+        <span class="pouch__peek"></span>
+        <span class="pouch__body"></span>
+        <span class="pouch__seam"></span>
+      </div>
+
+      <!-- lime sticker seal, bottom-right -->
+      <a href="#sortiment" class="seal" aria-label="Jetzt entdecken — zum Sortiment">
+        <svg class="seal__bg" viewBox="0 0 200 200" aria-hidden="true">
+          <path d="M100 4 L116 18 L137 12 L146 32 L168 33 L169 55 L188 66 L181 86 L195 103 L181 119 L191 139 L171 148 L168 170 L146 168 L133 186 L114 177 L100 196 L86 177 L67 186 L54 168 L32 170 L29 148 L9 139 L19 119 L5 103 L19 86 L12 66 L31 55 L32 33 L54 32 L63 12 L84 18 Z"/>
+        </svg>
+        <span class="seal__text"><small>JETZT</small><strong>entdecken</strong></span>
+      </a>
     </section>
 
     <!-- ============ A) STORY ============ -->
     <section id="unternehmen" class="story section">
+      <span class="blob blob--mint float-shape" data-parallax="0.16" aria-hidden="true"></span>
       <div class="container story__inner">
         <div class="story__media" data-reveal="scale">
           <div class="photo-blob photo-blob--a" aria-hidden="true">
@@ -216,6 +224,13 @@
 
     <!-- ============ C) CATEGORIES ============ -->
     <section id="sortiment" class="categories section">
+      <!-- lime seal sticker top-right -->
+      <a href="#kontakt" class="seal seal--inline seal--top-right" aria-label="800+ Produkte im Sortiment">
+        <svg class="seal__bg" viewBox="0 0 200 200" aria-hidden="true">
+          <path d="M100 4 L116 18 L137 12 L146 32 L168 33 L169 55 L188 66 L181 86 L195 103 L181 119 L191 139 L171 148 L168 170 L146 168 L133 186 L114 177 L100 196 L86 177 L67 186 L54 168 L32 170 L29 148 L9 139 L19 119 L5 103 L19 86 L12 66 L31 55 L32 33 L54 32 L63 12 L84 18 Z"/>
+        </svg>
+        <span class="seal__text"><small>ÜBER</small><strong>800+</strong></span>
+      </a>
       <div class="container">
         <div class="section-head" data-reveal>
           <p class="eyebrow">UNSER SORTIMENT</p>
@@ -225,6 +240,22 @@
             im Handel — von Süßwaren und salzigen Snacks über Getränke bis zu ethnischen
             Spezialitäten und ausgewählten Non-Food-Artikeln.
           </p>
+        </div>
+
+        <!-- big "realms" category cards -->
+        <div class="realms" data-reveal-group>
+          <article class="realm realm--pink">
+            <span class="realm__tag">Süßwaren</span>
+            <span class="realm__word">SÜSSES</span>
+          </article>
+          <article class="realm realm--lime">
+            <span class="realm__tag">Drinks</span>
+            <span class="realm__word">GETRÄNKE</span>
+          </article>
+          <article class="realm realm--lav">
+            <span class="realm__tag">Snacks</span>
+            <span class="realm__word">SALZGEBÄCK</span>
+          </article>
         </div>
 
         <div class="cat-grid" data-reveal-group>
@@ -408,6 +439,12 @@
     <section id="kontakt" class="cta section">
       <span class="blob blob--cream cta__blob" data-parallax="0.16" aria-hidden="true"></span>
       <span class="blob blob--pink float-shape float-shape--3" data-parallax="0.22" aria-hidden="true"></span>
+      <a href="#kontakt" class="seal seal--inline seal--top-right" aria-label="Jetzt Kontakt aufnehmen">
+        <svg class="seal__bg" viewBox="0 0 200 200" aria-hidden="true">
+          <path d="M100 4 L116 18 L137 12 L146 32 L168 33 L169 55 L188 66 L181 86 L195 103 L181 119 L191 139 L171 148 L168 170 L146 168 L133 186 L114 177 L100 196 L86 177 L67 186 L54 168 L32 170 L29 148 L9 139 L19 119 L5 103 L19 86 L12 66 L31 55 L32 33 L54 32 L63 12 L84 18 Z"/>
+        </svg>
+        <span class="seal__text"><small>LET'S</small><strong>talk</strong></span>
+      </a>
       <div class="container cta__inner" data-reveal>
         <h2 class="h2 cta__title">Let's build success <span class="pink">together.</span></h2>
         <p class="lead lead--center">Werden Sie Teil unseres europaweiten Vertriebsnetzes.</p>

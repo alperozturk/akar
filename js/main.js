@@ -3,6 +3,7 @@ import { initReveals } from './reveals.js';
 import { initCounters } from './counters.js';
 import { initCursor } from './cursor.js';
 import { initHero, initMobileMenu } from './hero.js';
+import { initV2 } from './v2.js';
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -21,6 +22,7 @@ function boot() {
   initCursor({ gsap, reduceMotion });
   initHero({ gsap, reduceMotion });
   initMobileMenu();
+  initV2();
 }
 
 window.addEventListener('load', () => {
