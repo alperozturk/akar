@@ -2,3 +2,6 @@
 _slice_*.png
 node_modules/
 .playwright-mcp/
+
+# Original full-size category photos — only the generated WebP thumbnails are used by the site
+img/backwaren-photos/*.png
