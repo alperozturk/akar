@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=DM+Sans:wght@400;500;700&family=Montserrat:wght@500;600;800&family=Pacifico&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=20260703" />
+  <link rel="stylesheet" href="css/styles.css?v=20260707a" />
   <style>
     /* index2: cinematic hero — full-bleed background video, title revealed on end */
     .hero--cinematic {
@@ -132,7 +132,7 @@
   </style>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" defer></script>
-  <script type="module" src="js/main.js?v=20260626"></script>
+  <script type="module" src="js/main.js?v=20260707a"></script>
 </head>
 <body class="nav--full">
   <div class="cursor" aria-hidden="true"></div>
@@ -287,12 +287,59 @@
     <!-- ============ E) STATS STRIP (trust bar) ============ -->
     <section class="stats section">
       <span class="blob blob--mint stats__blob" data-parallax="0.2" aria-hidden="true"></span>
+
+      <!-- floating sweets (see .floater in styles.css) -->
+      <span class="floater floater--lolly" data-parallax="0.8" style="--dur:9s" aria-hidden="true">
+        <svg viewBox="0 0 100 150" fill="none">
+          <defs>
+            <linearGradient id="flLolStick" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e3dcec"/>
+            </linearGradient>
+            <radialGradient id="flLolFace" cx="0.35" cy="0.3" r="0.9">
+              <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#ffe9f1"/>
+            </radialGradient>
+          </defs>
+          <rect x="45" y="88" width="10" height="56" rx="5" fill="url(#flLolStick)"/>
+          <circle cx="50" cy="50" r="42" fill="url(#flLolFace)"/>
+          <path d="M50 50c1-7 10-7 10 1 0 11-19 11-19 0 0-17 28-17 28 1 0 21-37 21-37-1 0-27 46-27 46 1" stroke="#fe4686" stroke-width="10" stroke-linecap="round"/>
+          <circle cx="50" cy="50" r="42" stroke="#fdd6e4" stroke-width="3"/>
+          <ellipse cx="36" cy="30" rx="12" ry="7" fill="#fff" opacity=".55" transform="rotate(-28 36 30)"/>
+        </svg>
+      </span>
+      <span class="floater floater--ball-a" data-parallax="-0.6" style="--dur:6.4s;--delay:-2.2s" aria-hidden="true">
+        <svg viewBox="0 0 100 100" fill="none">
+          <defs>
+            <radialGradient id="flBallA" cx="0.34" cy="0.3" r="1">
+              <stop offset="0" stop-color="#ff8fb3"/><stop offset="1" stop-color="#e8437f"/>
+            </radialGradient>
+          </defs>
+          <circle cx="50" cy="50" r="46" fill="url(#flBallA)"/>
+          <ellipse cx="36" cy="32" rx="12" ry="8" fill="#fff" opacity=".7" transform="rotate(-30 36 32)"/>
+        </svg>
+      </span>
+      <span class="floater floater--wafer" data-parallax="1.1" style="--dur:10.5s;--delay:-4s" aria-hidden="true">
+        <svg viewBox="0 0 120 130" fill="none">
+          <defs>
+            <linearGradient id="flWaf" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#eebb72"/><stop offset=".5" stop-color="#d99a4e"/><stop offset="1" stop-color="#b0742a"/>
+            </linearGradient>
+          </defs>
+          <g transform="rotate(38 60 65)">
+            <rect x="49" y="8" width="22" height="112" rx="11" fill="url(#flWaf)"/>
+            <path d="M54 18v66" stroke="#f7d9a8" stroke-width="3" stroke-linecap="round" opacity=".6"/>
+            <path d="M49 30l22-9M49 48l22-9M49 66l22-9M49 84l22-9" stroke="#a5691f" stroke-width="4" stroke-linecap="round" opacity=".7"/>
+            <path d="M49 92h22v17a11 11 0 0 1-22 0z" fill="#4a2a12"/>
+          </g>
+        </svg>
+      </span>
       <div class="container">
+        <p class="stats__lead" data-reveal>Mit über 30 Jahren Erfahrung im FMCG-Sektor und einem Vertriebsnetz in 7 europäischen Ländern sind wir Vorreiter in unserer Branche.</p>
         <div class="stats__grid" data-reveal-group>
-          <div class="stat"><span class="stat__num" data-count="15" data-suffix="+">15+</span><span class="stat__label">Länder</span></div>
-          <div class="stat"><span class="stat__num" data-count="10000" data-suffix="+">10.000+</span><span class="stat__label">Produkte</span></div>
-          <div class="stat"><span class="stat__num" data-count="1000" data-suffix="+">1.000+</span><span class="stat__label">Kunden</span></div>
           <div class="stat"><span class="stat__num" data-count="30" data-suffix="+">30+</span><span class="stat__label">Jahre Erfahrung</span></div>
+          <div class="stat"><span class="stat__num" data-count="14">14</span><span class="stat__label">Vertriebsniederlassungen</span></div>
+          <div class="stat"><span class="stat__num" data-count="7">7</span><span class="stat__label">Europäische Länder</span></div>
+          <div class="stat"><span class="stat__num" data-count="15000" data-suffix="+">15.000+</span><span class="stat__label">Verkaufsstellen</span></div>
+          <div class="stat"><span class="stat__num" data-count="800">800</span><span class="stat__label">Aktive Produkte</span></div>
         </div>
       </div>
     </section>
@@ -300,19 +347,143 @@
     <!-- ============ A) STORY ============ -->
     <section id="unternehmen" class="story section">
       <span class="blob blob--mint float-shape" data-parallax="0.16" aria-hidden="true"></span>
+
+      <!-- floating sweets (see .floater in styles.css) -->
+      <span class="floater floater--choc" data-parallax="1" style="--dur:8.4s;--delay:-1.4s" aria-hidden="true">
+        <svg viewBox="0 0 110 104" fill="none">
+          <defs>
+            <linearGradient id="flChoc" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#7d4b1f"/><stop offset="1" stop-color="#46270d"/>
+            </linearGradient>
+            <mask id="flChocBite">
+              <rect width="110" height="104" fill="#fff"/>
+              <circle cx="93" cy="15" r="13" fill="#000"/>
+              <circle cx="74" cy="6" r="9" fill="#000"/>
+            </mask>
+          </defs>
+          <g mask="url(#flChocBite)">
+            <rect x="8" y="8" width="88" height="88" rx="12" fill="url(#flChoc)"/>
+            <rect x="16" y="16" width="34" height="34" rx="7" fill="#6b3d13"/>
+            <rect x="54" y="16" width="34" height="34" rx="7" fill="#6b3d13"/>
+            <rect x="16" y="54" width="34" height="34" rx="7" fill="#6b3d13"/>
+            <rect x="54" y="54" width="34" height="34" rx="7" fill="#6b3d13"/>
+            <rect x="16" y="16" width="34" height="14" rx="7" fill="#7d4b1f"/>
+            <rect x="54" y="16" width="34" height="14" rx="7" fill="#7d4b1f"/>
+            <rect x="16" y="54" width="34" height="14" rx="7" fill="#7d4b1f"/>
+            <rect x="54" y="54" width="34" height="14" rx="7" fill="#7d4b1f"/>
+          </g>
+          <ellipse cx="30" cy="22" rx="14" ry="8" fill="#fff" opacity=".18" transform="rotate(-24 30 22)"/>
+          <circle cx="100" cy="34" r="4" fill="#5c3410"/>
+          <circle cx="105" cy="46" r="2.5" fill="#4e2c10"/>
+        </svg>
+      </span>
+      <span class="floater floater--ball-b" data-parallax="-0.7" style="--dur:7.2s;--delay:-3s" aria-hidden="true">
+        <svg viewBox="0 0 100 100" fill="none">
+          <defs>
+            <radialGradient id="flBallB" cx="0.34" cy="0.3" r="1">
+              <stop offset="0" stop-color="#ffe07a"/><stop offset="1" stop-color="#f0a818"/>
+            </radialGradient>
+          </defs>
+          <circle cx="50" cy="50" r="46" fill="url(#flBallB)"/>
+          <ellipse cx="36" cy="32" rx="12" ry="8" fill="#fff" opacity=".7" transform="rotate(-30 36 32)"/>
+        </svg>
+      </span>
+      <span class="floater floater--berry" data-parallax="0.7" style="--dur:7.8s;--delay:-5.2s" aria-hidden="true">
+        <svg viewBox="0 0 100 100" fill="none">
+          <defs>
+            <radialGradient id="flBerry" cx="0.36" cy="0.3" r="1">
+              <stop offset="0" stop-color="#ff7d9e"/><stop offset="1" stop-color="#e01547"/>
+            </radialGradient>
+          </defs>
+          <g fill="url(#flBerry)">
+            <circle cx="38" cy="22" r="12"/><circle cx="60" cy="22" r="12"/>
+            <circle cx="27" cy="38" r="12"/><circle cx="49" cy="36" r="12"/><circle cx="70" cy="38" r="12"/>
+            <circle cx="24" cy="56" r="12"/><circle cx="46" cy="54" r="12"/><circle cx="68" cy="56" r="12"/>
+            <circle cx="34" cy="72" r="12"/><circle cx="56" cy="72" r="12"/>
+            <circle cx="46" cy="84" r="11"/>
+          </g>
+          <ellipse cx="34" cy="18" rx="5" ry="3.5" fill="#fff" opacity=".5" transform="rotate(-26 34 18)"/>
+          <ellipse cx="45" cy="32" rx="4" ry="3" fill="#fff" opacity=".4" transform="rotate(-26 45 32)"/>
+        </svg>
+      </span>
+      <span class="floater floater--prinz" data-parallax="1.4" style="--dur:11s;--delay:-6s" aria-hidden="true">
+        <svg viewBox="0 0 120 112" fill="none">
+          <defs>
+            <radialGradient id="flPrzTop" cx="0.38" cy="0.32" r="1">
+              <stop offset="0" stop-color="#e8b066"/><stop offset="1" stop-color="#c98c3f"/>
+            </radialGradient>
+          </defs>
+          <g transform="rotate(-12 60 56)">
+            <ellipse cx="60" cy="86" rx="43" ry="15" fill="#a86a28"/>
+            <ellipse cx="60" cy="80" rx="43" ry="15" fill="#d99a4e"/>
+            <rect x="24" y="58" width="72" height="14" fill="#46280f"/>
+            <ellipse cx="60" cy="72" rx="36" ry="12" fill="#3a2008"/>
+            <ellipse cx="60" cy="62" rx="43" ry="15" fill="#b87b33"/>
+            <ellipse cx="60" cy="55" rx="43" ry="15" fill="url(#flPrzTop)"/>
+            <ellipse cx="60" cy="55" rx="35" ry="11.5" stroke="#b0742a" stroke-width="2.5" stroke-dasharray="1 7" stroke-linecap="round"/>
+            <circle cx="60" cy="55" r="4" fill="#b0742a" opacity=".55"/>
+            <circle cx="47" cy="52" r="2.2" fill="#b0742a" opacity=".55"/>
+            <circle cx="73" cy="52" r="2.2" fill="#b0742a" opacity=".55"/>
+            <circle cx="60" cy="47" r="2.2" fill="#b0742a" opacity=".55"/>
+            <circle cx="60" cy="63" r="2.2" fill="#b0742a" opacity=".55"/>
+          </g>
+        </svg>
+      </span>
+      <span class="floater floater--ball-c" data-parallax="-0.5" style="--dur:6s;--delay:-1s" aria-hidden="true">
+        <svg viewBox="0 0 100 100" fill="none">
+          <defs>
+            <radialGradient id="flBallC" cx="0.34" cy="0.3" r="1">
+              <stop offset="0" stop-color="#f0c4ff"/><stop offset="1" stop-color="#c95cf0"/>
+            </radialGradient>
+          </defs>
+          <circle cx="50" cy="50" r="46" fill="url(#flBallC)"/>
+          <ellipse cx="36" cy="32" rx="12" ry="8" fill="#fff" opacity=".7" transform="rotate(-30 36 32)"/>
+        </svg>
+      </span>
+      <span class="floater floater--bisk" data-parallax="0.9" style="--dur:9.6s;--delay:-7s" aria-hidden="true">
+        <svg viewBox="0 0 100 100" fill="none">
+          <defs>
+            <radialGradient id="flBiskB" cx="0.38" cy="0.32" r="1">
+              <stop offset="0" stop-color="#e8b066"/><stop offset="1" stop-color="#c08434"/>
+            </radialGradient>
+            <radialGradient id="flBiskC" cx="0.38" cy="0.3" r="1">
+              <stop offset="0" stop-color="#6b3d13"/><stop offset="1" stop-color="#2f1706"/>
+            </radialGradient>
+          </defs>
+          <circle cx="50" cy="52" r="45" fill="#a86a28"/>
+          <circle cx="50" cy="49" r="45" fill="url(#flBiskB)"/>
+          <circle cx="50" cy="49" r="39" stroke="#b0742a" stroke-width="3" stroke-dasharray="2 8" stroke-linecap="round" opacity=".8"/>
+          <circle cx="50" cy="49" r="22" fill="url(#flBiskC)"/>
+          <ellipse cx="42" cy="41" rx="7" ry="4.5" fill="#fff" opacity=".35" transform="rotate(-24 42 41)"/>
+        </svg>
+      </span>
+      <span class="floater floater--bear" data-parallax="1.6" style="--dur:8.8s;--delay:-2.6s" aria-hidden="true">
+        <svg viewBox="0 0 100 115" fill="none">
+          <defs>
+            <radialGradient id="flBear" cx="0.35" cy="0.25" r="1.1">
+              <stop offset="0" stop-color="#b9e86a"/><stop offset="1" stop-color="#6fbf2e"/>
+            </radialGradient>
+          </defs>
+          <g fill="url(#flBear)">
+            <circle cx="33" cy="20" r="11"/><circle cx="67" cy="20" r="11"/>
+            <circle cx="50" cy="34" r="23"/>
+            <ellipse cx="24" cy="63" rx="10" ry="17" transform="rotate(24 24 63)"/>
+            <ellipse cx="76" cy="63" rx="10" ry="17" transform="rotate(-24 76 63)"/>
+            <ellipse cx="50" cy="72" rx="27" ry="31"/>
+            <ellipse cx="35" cy="99" rx="11" ry="13"/>
+            <ellipse cx="65" cy="99" rx="11" ry="13"/>
+          </g>
+          <ellipse cx="50" cy="42" rx="10" ry="7" fill="#d3f39b" opacity=".9"/>
+          <ellipse cx="40" cy="24" rx="7" ry="5" fill="#fff" opacity=".4" transform="rotate(-24 40 24)"/>
+        </svg>
+      </span>
       <div class="container story__inner">
-        <div class="story__media" data-reveal="scale">
-          <div class="photo-blob photo-blob--a" aria-hidden="true">
-            <svg class="photo-blob__pattern" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-              <defs><pattern id="dotsA" width="10" height="10" patternUnits="userSpaceOnUse">
-                <circle cx="2" cy="2" r="1.2" fill="rgba(255,255,255,.5)"/></pattern></defs>
-              <rect width="100" height="100" fill="url(#dotsA)"/>
-            </svg>
-          </div>
-        </div>
         <div class="story__copy" data-reveal>
           <p class="eyebrow">ÜBER AKAR</p>
           <h2 class="h2">Seit 1992 machen wir Leute <span class="teal">glücklich.</span></h2>
+          <svg class="squiggle" width="132" height="18" viewBox="0 0 132 18" fill="none" aria-hidden="true">
+            <path d="M3 11 Q 13 2 23 11 T 43 11 T 63 11 T 83 11 T 103 11 T 129 11" stroke="#fe4686" stroke-width="4" stroke-linecap="round"/>
+          </svg>
           <p class="lead">
             AKAR ist Ihr internationaler Distributions- und Lösungspartner mit Sitz in
             Langenbach bei München. Mit über 30 Jahren Erfahrung verbinden wir starke Marken
@@ -324,7 +495,15 @@
             zusammenbringt. Vom Import bis zur Auslieferung steht unser Team für Partnerschaft
             auf Augenhöhe.
           </p>
-          <a href="#unternehmen" class="btn btn--outline">Mehr über AKAR</a>
+          <a href="#unternehmen" class="btn btn--pill" data-magnetic>Mehr über uns
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="story__media" data-reveal="scale">
+          <span class="story-candy story-candy--gum" aria-hidden="true"></span>
+          <span class="story-candy story-candy--choc" aria-hidden="true"></span>
+          <span class="story-candy story-candy--drop" aria-hidden="true"></span>
+          <div class="story__photo" role="img" aria-label="Junge Frau genießt Schokolade"></div>
         </div>
       </div>
 
@@ -360,6 +539,83 @@
           </article>
         </div>
       </div>
+    </section>
+
+    <!-- ============ A2) CUSTOMERS / KUNDEN ============ -->
+    <section id="kunden" class="customers section">
+      <span class="blob blob--pink float-shape" data-parallax="0.14" aria-hidden="true"></span>
+      <div class="container customers__inner">
+        <div class="customers__copy" data-reveal>
+          <p class="eyebrow">UNSERE KUNDEN</p>
+          <h2 class="h2">Dort, wo Verbraucher <span class="pink">einkaufen.</span></h2>
+          <p class="lead">
+            Die AKAR GmbH mit Sitz nähe München ist ein international tätiger
+            Distributions- und Lösungspartner im FMCG-Sektor. Mit über 30 Jahren
+            Erfahrung, einem europaweiten Vertriebsnetz und einer klaren Leidenschaft
+            für Qualität gehört AKAR zu den führenden Anbietern im internationalen
+            Lebensmittelhandel.
+          </p>
+          <a href="#kontakt" class="btn btn--pill" data-magnetic>Mehr erfahren
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+
+        <div class="customers__media" data-reveal="scale">
+          <div class="customers__photo" role="img" aria-label="Supermarktregale voller Markenprodukte"></div>
+          <div class="customers__stats">
+            <div class="cust-stat">
+              <span class="cust-stat__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h2l1.6 9.3a1.5 1.5 0 0 0 1.5 1.2h7.7a1.5 1.5 0 0 0 1.5-1.2L21 8H7"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+              </span>
+              <span class="cust-stat__num" data-count="15000" data-suffix="+">15.000+</span>
+              <span class="cust-stat__label">Verkaufsstellen</span>
+            </div>
+            <div class="cust-stat">
+              <span class="cust-stat__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18"/></svg>
+              </span>
+              <span class="cust-stat__num" data-count="7">7</span>
+              <span class="cust-stat__label">Länder</span>
+            </div>
+            <div class="cust-stat">
+              <span class="cust-stat__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M8.5 13.5 7 22l5-2.6L17 22l-1.5-8.5"/></svg>
+              </span>
+              <span class="cust-stat__num" data-count="30" data-suffix="+">30+</span>
+              <span class="cust-stat__label">Jahre Erfahrung</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cust-carousel" data-reveal>
+        <button class="cust-carousel__arrow cust-carousel__arrow--prev" type="button" aria-label="Vorherige Marken anzeigen">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+        </button>
+        <div class="cust-carousel__viewport">
+          <div class="cust-carousel__track">
+            <span class="wordmark">Edeka</span>
+            <span class="wordmark">Rewe</span>
+            <span class="wordmark">Lidl</span>
+            <span class="wordmark">Netto</span>
+            <span class="wordmark">Kaufland</span>
+            <span class="wordmark">Norma</span>
+            <span class="wordmark">Globus</span>
+            <span class="wordmark">V-Markt</span>
+            <span class="wordmark">Bartels-Langness</span>
+            <span class="wordmark">Hit</span>
+            <span class="wordmark">MixMarkt</span>
+            <span class="wordmark">Utz</span>
+            <span class="wordmark">GEHO</span>
+            <span class="wordmark">Picnic</span>
+            <span class="wordmark">Dallmayr</span>
+          </div>
+        </div>
+        <button class="cust-carousel__arrow cust-carousel__arrow--next" type="button" aria-label="Weitere Marken anzeigen">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+      <p class="cust-carousel__note"><span aria-hidden="true">✳</span> Und viele weitere Partner in ganz Europa <span aria-hidden="true">✳</span></p>
     </section>
 
     <!-- ============ B) BRANDS ============ -->
@@ -413,6 +669,12 @@
 
     <!-- ============ C) CATEGORIES ============ -->
     <section id="sortiment" class="categories section">
+      <!-- floating candy confetti (decorative) -->
+      <span class="cat-candy cat-candy--gum1" aria-hidden="true"></span>
+      <span class="cat-candy cat-candy--gum2" aria-hidden="true"></span>
+      <span class="cat-candy cat-candy--gum3" aria-hidden="true"></span>
+      <span class="cat-candy cat-candy--choc1" aria-hidden="true"></span>
+      <span class="cat-candy cat-candy--choc2" aria-hidden="true"></span>
       <!-- lime seal sticker top-right -->
       <a href="#kontakt" class="seal seal--inline seal--top-right" aria-label="800+ Produkte im Sortiment">
         <svg class="seal__bg" viewBox="0 0 200 200" aria-hidden="true">
@@ -448,20 +710,20 @@
         </div>
 
         <div class="cat-grid" data-reveal-group>
-          <article class="cat-tile"><span class="cat-tile__icon"><img src="img/backwaren-photos/thumbs/S%C3%BC%C3%9Fgeb%C3%A4ck%20%26%20Schokolade.webp" alt="Süßgebäck &amp; Schokolade" loading="lazy"></span><span class="cat-tile__label">Süßes</span></article>
-          <article class="cat-tile"><span class="cat-tile__icon"><img src="img/backwaren-photos/thumbs/Salzgeb%C3%A4ck.webp" alt="Salzgebäck" loading="lazy"></span><span class="cat-tile__label">Salzgebäck</span></article>
-          <article class="cat-tile"><span class="cat-tile__icon"><img src="img/backwaren-photos/thumbs/Grundnahrungsmittel.webp" alt="Grundnahrungsmittel" loading="lazy"></span><span class="cat-tile__label">Grundnahrungsmittel</span></article>
-          <article class="cat-tile"><span class="cat-tile__icon"><img src="img/backwaren-photos/thumbs/H%C3%BClsenfr%C3%BCchte.webp" alt="Hülsenfrüchte" loading="lazy"></span><span class="cat-tile__label">Hülsenfrüchte</span></article>
-          <article class="cat-tile"><span class="cat-tile__icon"><img src="img/backwaren-photos/thumbs/Brotaufstriche.webp" alt="Brotaufstriche" loading="lazy"></span><span class="cat-tile__label">Brotaufstriche</span></article>
-          <article class="cat-tile"><span class="cat-tile__icon"><img src="img/backwaren-photos/thumbs/Fertiggerichte.webp" alt="Fertiggerichte" loading="lazy"></span><span class="cat-tile__label">Fertiggerichte</span></article>
-          <article class="cat-tile"><span class="cat-tile__icon"><img src="img/backwaren-photos/thumbs/Suppen.webp" alt="Suppen" loading="lazy"></span><span class="cat-tile__label">Suppen</span></article>
-          <article class="cat-tile"><span class="cat-tile__icon"><img src="img/backwaren-photos/thumbs/%C3%96l.webp" alt="Speiseöle" loading="lazy"></span><span class="cat-tile__label">Speiseöle</span></article>
-          <article class="cat-tile"><span class="cat-tile__icon"><img src="img/backwaren-photos/thumbs/Saucen%20%26%20W%C3%BCrzmittel.webp" alt="Saucen &amp; Gewürze" loading="lazy"></span><span class="cat-tile__label">Saucen &amp; Gewürze</span></article>
-          <article class="cat-tile"><span class="cat-tile__icon"><img src="img/backwaren-photos/thumbs/Eingelegtes.webp" alt="Eingelegtes" loading="lazy"></span><span class="cat-tile__label">Eingelegtes</span></article>
-          <article class="cat-tile"><span class="cat-tile__icon"><img src="img/backwaren-photos/thumbs/Getr%C3%A4nke.webp" alt="Getränke" loading="lazy"></span><span class="cat-tile__label">Getränke</span></article>
-          <article class="cat-tile"><span class="cat-tile__icon"><img src="img/backwaren-photos/thumbs/Tee%20%26%20Kaffee.webp" alt="Tee &amp; Kaffee" loading="lazy"></span><span class="cat-tile__label">Tee &amp; Kaffee</span></article>
-          <article class="cat-tile"><span class="cat-tile__icon"><img src="img/backwaren-photos/thumbs/Backwaren.webp" alt="Backwaren" loading="lazy"></span><span class="cat-tile__label">Backwaren</span></article>
-          <article class="cat-tile"><span class="cat-tile__icon"><img src="img/backwaren-photos/thumbs/Haushaltswaren.webp" alt="Haushaltswaren" loading="lazy"></span><span class="cat-tile__label">Haushaltswaren</span></article>
+          <article class="cat-tile"><span class="cat-tile__icon"><img src="img/backwaren-photos/cutouts/S%C3%BC%C3%9Fgeb%C3%A4ck%20%26%20Schokolade.png" alt="Süßgebäck &amp; Schokolade" loading="lazy"></span><span class="cat-tile__label">Süßes</span><span class="cat-tile__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></article>
+          <article class="cat-tile"><span class="cat-tile__icon"><img src="img/backwaren-photos/cutouts/Salzgeb%C3%A4ck.png" alt="Salzgebäck" loading="lazy"></span><span class="cat-tile__label">Salzgebäck</span><span class="cat-tile__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></article>
+          <article class="cat-tile"><span class="cat-tile__icon"><img src="img/backwaren-photos/cutouts/Grundnahrungsmittel.png" alt="Grundnahrungsmittel" loading="lazy"></span><span class="cat-tile__label">Grundnahrungsmittel</span><span class="cat-tile__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></article>
+          <article class="cat-tile"><span class="cat-tile__icon"><img src="img/backwaren-photos/cutouts/H%C3%BClsenfr%C3%BCchte.png" alt="Hülsenfrüchte" loading="lazy"></span><span class="cat-tile__label">Hülsenfrüchte</span><span class="cat-tile__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></article>
+          <article class="cat-tile"><span class="cat-tile__icon"><img src="img/backwaren-photos/cutouts/Brotaufstriche.png" alt="Brotaufstriche" loading="lazy"></span><span class="cat-tile__label">Brotaufstriche</span><span class="cat-tile__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></article>
+          <article class="cat-tile"><span class="cat-tile__icon"><img src="img/backwaren-photos/cutouts/Fertiggerichte.png" alt="Fertiggerichte" loading="lazy"></span><span class="cat-tile__label">Fertiggerichte</span><span class="cat-tile__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></article>
+          <article class="cat-tile"><span class="cat-tile__icon"><img src="img/backwaren-photos/cutouts/Suppen.png" alt="Suppen" loading="lazy"></span><span class="cat-tile__label">Suppen</span><span class="cat-tile__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></article>
+          <article class="cat-tile"><span class="cat-tile__icon"><img src="img/backwaren-photos/cutouts/%C3%96l.png" alt="Speiseöle" loading="lazy"></span><span class="cat-tile__label">Speiseöle</span><span class="cat-tile__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></article>
+          <article class="cat-tile"><span class="cat-tile__icon"><img src="img/backwaren-photos/cutouts/Saucen%20%26%20W%C3%BCrzmittel.png" alt="Saucen &amp; Gewürze" loading="lazy"></span><span class="cat-tile__label">Saucen &amp; Gewürze</span><span class="cat-tile__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></article>
+          <article class="cat-tile"><span class="cat-tile__icon"><img src="img/backwaren-photos/cutouts/Eingelegtes.png" alt="Eingelegtes" loading="lazy"></span><span class="cat-tile__label">Eingelegtes</span><span class="cat-tile__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></article>
+          <article class="cat-tile"><span class="cat-tile__icon"><img src="img/backwaren-photos/cutouts/Getr%C3%A4nke.png" alt="Getränke" loading="lazy"></span><span class="cat-tile__label">Getränke</span><span class="cat-tile__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></article>
+          <article class="cat-tile"><span class="cat-tile__icon"><img src="img/backwaren-photos/cutouts/Tee%20%26%20Kaffee.png" alt="Tee &amp; Kaffee" loading="lazy"></span><span class="cat-tile__label">Tee &amp; Kaffee</span><span class="cat-tile__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></article>
+          <article class="cat-tile"><span class="cat-tile__icon"><img src="img/backwaren-photos/cutouts/Backwaren.png" alt="Backwaren" loading="lazy"></span><span class="cat-tile__label">Backwaren</span><span class="cat-tile__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></article>
+          <article class="cat-tile"><span class="cat-tile__icon"><img src="img/backwaren-photos/cutouts/Haushaltswaren.png" alt="Haushaltswaren" loading="lazy"></span><span class="cat-tile__label">Haushaltswaren</span><span class="cat-tile__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></article>
         </div>
 
         <div class="cat-cta" data-reveal>
