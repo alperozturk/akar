@@ -4,7 +4,6 @@ import { initCounters } from './counters.js';
 import { initCursor } from './cursor.js';
 import { initHero } from './hero.js';
 import { initV2 } from './v2.js';
-import { initCarousel } from './carousel.js';
 import { initFloaters } from './floaters.js';
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -28,7 +27,6 @@ function boot() {
   initCursor({ gsap, reduceMotion });
   initHero({ gsap, reduceMotion });
   initV2();
-  initCarousel({ gsap });
   initFloaters();
 }
 

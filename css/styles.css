@@ -15,10 +15,10 @@ p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
   --lav: #E7E3F1;        /* page background */
   --ink: #141414;        /* near-black headings/text */
   --ink-soft: #3a3a3a;   /* body */
-  --lime: #D4F24E;       /* sticker seals / accents */
+  --lime: #c8e7e3;       /* sticker seals / accents */
   --pink: #fe4686;       /* pink kräftig — edge line + accents */
   --card-pink: #fea8c3;  /* pink pastell */
-  --card-lime: #E3EFAE;
+  --card-lime: #c8e7e3;
   --card-lav: #e7cded;   /* lila pastell */
 
   /* legacy aliases so untouched sections below still resolve */
@@ -31,8 +31,8 @@ p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
   --bg: var(--lav);
   --card: #FFFFFF;
 
-  --disp: 'Baloo 2', system-ui, sans-serif;
-  --body: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --disp: 'Montserrat', system-ui, sans-serif;
+  --body: 'Montserrat', system-ui, -apple-system, sans-serif;
   --shadow-card: 0 20px 44px -26px rgba(40, 28, 70, .35);
   --shadow-soft: 0 16px 36px -20px rgba(40, 28, 70, .30);
 }
@@ -40,7 +40,7 @@ p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
 /* === BASE === */
 body {
   font-family: var(--body);
-  font-weight: 400;
+  font-weight: 500;
   color: var(--ink-soft);
   background: var(--lav);
   -webkit-font-smoothing: antialiased;
@@ -99,7 +99,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: .85rem 1.6rem;
   border-radius: 999px;
   font-family: var(--disp);
-  font-weight: 700;
+  font-weight: 600;
   font-size: .98rem;
   line-height: 1;
   white-space: nowrap;
@@ -189,7 +189,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   gap: .4rem;
   font-family: var(--disp);
-  font-weight: 700;
+  font-weight: 600;
   font-size: 1.02rem;
   color: var(--ink);
   padding: .55rem .9rem;
@@ -313,7 +313,7 @@ body.nav--burger .menu-pill { display: flex !important; }
 }
 .nav-switch__label {
   font-family: var(--disp);
-  font-weight: 700;
+  font-weight: 600;
   font-size: .78rem;
   letter-spacing: .04em;
   text-transform: uppercase;
@@ -322,7 +322,7 @@ body.nav--burger .menu-pill { display: flex !important; }
 }
 .nav-switch__opt {
   font-family: var(--disp);
-  font-weight: 700;
+  font-weight: 600;
   font-size: .82rem;
   color: var(--ink-soft);
   padding: .4rem .85rem;
@@ -409,7 +409,7 @@ body.nav--burger .menu-pill { display: flex !important; }
 .mm-col a {
   display: block;
   font-family: var(--disp);
-  font-weight: 700;
+  font-weight: 600;
   font-size: 1.15rem;
   line-height: 1.35;
   color: var(--ink);
@@ -613,7 +613,7 @@ body.nav--burger .menu-pill { display: flex !important; }
   color: var(--ink);
   line-height: .9;
 }
-.seal__text small { font-size: .78rem; font-weight: 700; letter-spacing: .14em; }
+.seal__text small { font-size: .78rem; font-weight: 600; letter-spacing: .14em; }
 .seal__text strong { font-size: 1.5rem; font-weight: 800; }
 .seal:hover { transform: rotate(2deg) scale(1.05); }
 
@@ -687,7 +687,7 @@ body.nav--burger .menu-pill { display: flex !important; }
 .eyebrow {
   display: inline-block;
   font-family: var(--disp);
-  font-weight: 700;
+  font-weight: 600;
   font-size: .8rem;
   letter-spacing: .16em;
   text-transform: uppercase;
@@ -730,7 +730,7 @@ body.nav--burger .menu-pill { display: flex !important; }
   box-shadow: var(--shadow-soft), inset 0 8px 18px rgba(255,255,255,.55);
 }
 .blob--pink { background: linear-gradient(150deg, #fea8c3, var(--pink)); }
-.blob--mint { background: linear-gradient(150deg, #E8F5A4, var(--lime)); }
+.blob--mint { background: linear-gradient(150deg, #dff0ee, var(--lime)); }
 .blob--cream { background: linear-gradient(150deg, #e7cded, #e7cded); }
 .float-shape { position: absolute; z-index: 0; pointer-events: none; }
 .float-shape { top: 8%; right: -4%; width: 22vw; height: 22vw; max-width: 320px; max-height: 320px; opacity: .85; }
@@ -761,7 +761,7 @@ body.nav--burger .menu-pill { display: flex !important; }
 }
 .photo-blob__pattern { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .5; }
 .photo-blob--a { background: linear-gradient(150deg, #fea8c3, var(--pink) 55%, #fe4686); }
-.photo-blob--b { background: linear-gradient(150deg, #EEF6C2, var(--card-lime) 55%, #D4E68C); border-radius: 38px; }
+.photo-blob--b { background: linear-gradient(150deg, #dff0ee, var(--card-lime) 55%, #a9d6d0); border-radius: 38px; }
 
 /* === CARD → boxless value block (icon tile + text) === */
 .card {
@@ -791,7 +791,7 @@ body.nav--burger .menu-pill { display: flex !important; }
 .chip {
   display: inline-block;
   font-family: var(--disp);
-  font-weight: 700;
+  font-weight: 600;
   font-size: .76rem;
   letter-spacing: .08em;
   padding: .32rem .8rem;
@@ -862,51 +862,69 @@ body.nav--burger .menu-pill { display: flex !important; }
 .story-candy--choc { width: 30px; height: 30px; top: 9%;  left: 40%; background: radial-gradient(circle at 34% 30%, #a9713f, #5c3410 78%); }
 .story-candy--drop { width: 20px; height: 20px; top: 26%; left: 22%; background: radial-gradient(circle at 34% 30%, #ffe07a, #f5b21f 78%); }
 
-/* === FLOATERS: unpackaged sweets drifting at the section edges ===
-   outer .floater gets the GSAP data-parallax transform; the inner svg
-   runs the ambient bob so the two transforms never fight. */
+/* === FLOATERS: unpackaged snacks drifting across every section ===
+   outer .floater gets the GSAP data-parallax scroll transform; the inner img
+   runs the ambient bob so the two transforms never fight. Size (width) and
+   position (top + left/right) are set inline per floater; the shared motion
+   and responsive thinning live here. */
 .floater {
   position: absolute;
   z-index: 3;
   pointer-events: none;
 }
-.floater svg {
+.floater img {
   display: block;
   width: 100%;
   height: auto;
-  overflow: visible;
-  animation: floater-bob var(--dur, 8s) ease-in-out var(--delay, 0s) infinite alternate;
-  filter: drop-shadow(0 14px 16px rgba(40, 28, 70, .25));
+  animation: floater-drift var(--dur, 9s) ease-in-out var(--delay, 0s) infinite;
+  filter: drop-shadow(0 16px 18px rgba(40, 28, 70, .22));
+  will-change: transform;
 }
-.floater.is-paused svg { animation-play-state: paused; }
-@keyframes floater-bob {
-  from { transform: translateY(calc(var(--bob, 8px) * -1)) rotate(calc(var(--tilt, 5deg) * -1)); }
-  to   { transform: translateY(var(--bob, 8px)) rotate(var(--tilt, 5deg)); }
+.floater.is-paused img { animation-play-state: paused; }
+
+/* give each floater a different horizontal-drift range so neighbours don't
+   sway in lockstep (nth-child spans all section children — that's fine, it
+   just spreads the values pseudo-randomly across the floaters) */
+.floater:nth-child(3n)   { --dx: 24px; }
+.floater:nth-child(3n+1) { --dx: 15px; }
+.floater:nth-child(3n+2) { --dx: -20px; }
+
+/* organic float + fly: wander through X and Y with a lively tilt, looping
+   seamlessly. Amplitudes scale off the per-floater --bob / --tilt / --dx. */
+@keyframes floater-drift {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  20%  { transform: translate(calc(var(--dx, 18px) *  .55), calc(var(--bob, 10px) * -1.5)) rotate(calc(var(--tilt, 7deg) *  1.1)); }
+  40%  { transform: translate(var(--dx, 18px),               calc(var(--bob, 10px) *  -.4)) rotate(calc(var(--tilt, 7deg) *   .2)); }
+  60%  { transform: translate(calc(var(--dx, 18px) *  .35), calc(var(--bob, 10px) *  1.3)) rotate(calc(var(--tilt, 7deg) *  -.9)); }
+  80%  { transform: translate(calc(var(--dx, 18px) * -.70), calc(var(--bob, 10px) *   .5)) rotate(calc(var(--tilt, 7deg) * -1.2)); }
+  100% { transform: translate(0, 0) rotate(0deg); }
 }
 
-/* stats strip (lime) */
-.floater--lolly  { width: 56px; left: 2.5%; top: 16%; --tilt: 7deg; }
-.floater--ball-a { width: 28px; right: 5%; top: 16%; --bob: 6px; }
-.floater--wafer  { width: 80px; right: 1.8%; top: 48%; --bob: 6px; --tilt: 3deg; }
-
-/* story section (lavender) */
-.floater--choc   { width: 66px; left: 3%; top: 3.5%; }
-.floater--ball-b { width: 30px; right: 5.5%; top: 5%; --bob: 10px; }
-.floater--berry  { width: 46px; right: 2.5%; top: 24%; --tilt: 8deg; }
-.floater--prinz  { width: 82px; left: 1.8%; top: 33%; --tilt: 3deg; }
-.floater--ball-c { width: 24px; left: 6%; top: 56%; --bob: 9px; }
-.floater--bisk   { width: 60px; right: 4.5%; top: 50%; --tilt: 6deg; }
-.floater--bear   { width: 46px; right: 2%; top: 70%; --tilt: 6deg; }
-
-@media (max-width: 1100px) {
-  .floater--wafer, .floater--prinz, .floater--bisk, .floater--bear { display: none; }
+/* alternate cohort traces a mirrored path for extra variety */
+.floater:nth-child(even) img { animation-name: floater-drift-alt; }
+@keyframes floater-drift-alt {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  22%  { transform: translate(calc(var(--dx, 18px) * -.65), var(--bob, 10px))             rotate(calc(var(--tilt, 7deg) * -1.1)); }
+  45%  { transform: translate(calc(var(--dx, 18px) * -1),   calc(var(--bob, 10px) *  -.7)) rotate(calc(var(--tilt, 7deg) *  -.2)); }
+  65%  { transform: translate(calc(var(--dx, 18px) *  .45), calc(var(--bob, 10px) * -1.4)) rotate(calc(var(--tilt, 7deg) *  1.1)); }
+  85%  { transform: translate(calc(var(--dx, 18px) *  .80), calc(var(--bob, 10px) *  .55)) rotate(calc(var(--tilt, 7deg) *   .7)); }
+  100% { transform: translate(0, 0) rotate(0deg); }
 }
-@media (max-width: 720px) {
-  .floater--ball-a, .floater--ball-c { display: none; }
-  .floater--lolly { width: 38px; }
-  .floater--choc  { width: 42px; top: 34%; }
-  .floater--berry { width: 34px; }
-  .floater--ball-b { width: 22px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .floater img { animation: none; }
+}
+
+/* thin the field out on smaller screens so it stays light and legible
+   (scaling the outer .floater would fight GSAP's parallax transform, so we
+   just drop the denser ones and shrink the survivors via their img) */
+@media (max-width: 1000px) {
+  .floater--md { display: none; }
+  .floater img { max-width: 68px; }
+}
+@media (max-width: 680px) {
+  .floater--sm { display: none; }
+  .floater img { max-width: 52px; }
 }
 .values {
   display: grid;
@@ -1046,69 +1064,60 @@ body.nav--burger .menu-pill { display: flex !important; }
   line-height: 1;
   color: var(--ink);
 }
-.cust-stat__label { font-family: var(--disp); font-weight: 700; font-size: .78rem; color: var(--ink-soft); }
+.cust-stat__label { font-family: var(--disp); font-weight: 600; font-size: .78rem; color: var(--ink-soft); }
 
-/* logo carousel */
-.cust-carousel {
+/* logo marquee — partner supermarket logos scroll continuously, forever */
+.logo-marquee {
   position: relative;
   z-index: 1;
-  display: flex;
-  align-items: center;
-  gap: clamp(.6rem, 2vw, 1.4rem);
+  overflow: hidden;
   max-width: var(--maxw, 1200px);
   margin: 0 auto;
   padding-inline: clamp(1rem, 4vw, 2rem);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
 }
-.cust-carousel__viewport {
-  flex: 1 1 0;
-  min-width: 0;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
-          mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
-}
-.cust-carousel__viewport::-webkit-scrollbar { display: none; }
-.cust-carousel__track {
-  display: inline-flex;
+.logo-marquee__track {
+  display: flex;
   align-items: center;
-  gap: .9rem;
-  padding: .6rem .2rem;
+  width: max-content;
+  padding: .6rem 0;
+  animation: logo-marquee 42s linear infinite;
 }
-.cust-carousel__track .wordmark { flex: 0 0 auto; white-space: nowrap; }
-.cust-carousel__arrow {
-  flex: 0 0 auto;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  border: 2px solid var(--pink);
-  background: transparent;
-  color: var(--pink);
-  cursor: pointer;
-  transition: background .25s, color .25s, transform .25s;
+/* pause on hover so viewers can read a logo they're interested in */
+.logo-marquee:hover .logo-marquee__track { animation-play-state: paused; }
+/* each pill carries its own trailing gap via margin (not flex `gap`) so the
+   duplicated second set makes translateX(-50%) loop perfectly seamlessly */
+.logo-marquee__track .wordmark { flex: 0 0 auto; white-space: nowrap; margin-right: .9rem; }
+/* one full set is exactly half the track width → shift by 50% and repeat */
+@keyframes logo-marquee { to { transform: translateX(-50%); } }
+
+/* partner supermarket logos sit on a clean white pill so brand colours read true */
+.wordmark--logo {
+  background: #fff;
+  padding: .75rem 1.4rem;
 }
-.cust-carousel__arrow svg { width: 20px; height: 20px; }
-.cust-carousel__arrow:hover { background: var(--pink); color: #fff; transform: translateY(-2px); }
-.cust-carousel__arrow[disabled] { opacity: .3; cursor: default; pointer-events: none; }
-.cust-carousel__note {
+.wordmark--logo img {
+  height: 38px;
+  width: auto;
+  max-width: 150px;
+  object-fit: contain;
+}
+.logo-marquee__note {
   margin: 1.6rem auto 0;
   text-align: center;
   font-family: var(--disp);
-  font-weight: 700;
+  font-weight: 600;
   font-size: .82rem;
   letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--muted);
 }
-.cust-carousel__note span { color: var(--pink); margin-inline: .5rem; }
+.logo-marquee__note span { color: var(--pink); margin-inline: .5rem; }
 
 @media (max-width: 860px) {
   .customers__inner { grid-template-columns: 1fr; }
   .customers__stats { position: static; margin-top: 1rem; padding: 0; }
-  .cust-carousel__arrow { display: none; }
-  .cust-carousel__viewport { -webkit-mask-image: none; mask-image: none; }
 }
 
 /* === C) CATEGORIES === */
@@ -1139,7 +1148,7 @@ body.nav--burger .menu-pill { display: flex !important; }
   background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.16) 0 22px, transparent 22px 44px);
 }
 .realm--pink { background: linear-gradient(150deg, #fea8c3, var(--pink)); }
-.realm--lime { background: linear-gradient(150deg, #E8F5A4, var(--lime)); }
+.realm--lime { background: linear-gradient(150deg, #dff0ee, var(--lime)); }
 .realm--lav  { background: linear-gradient(150deg, #e7cded, #e290ff); }
 .realm__word {
   position: relative;
@@ -1163,7 +1172,7 @@ body.nav--burger .menu-pill { display: flex !important; }
   left: 1.6rem;
   z-index: 1;
   font-family: var(--disp);
-  font-weight: 700;
+  font-weight: 600;
   font-size: .8rem;
   letter-spacing: .12em;
   text-transform: uppercase;
@@ -1235,23 +1244,6 @@ body.nav--burger .menu-pill { display: flex !important; }
   line-height: 1.15;
   color: var(--ink);
 }
-/* circular arrow button under each label, colour cycles every 4 tiles */
-.cat-tile__go {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 34px; height: 34px;
-  border-radius: 50%;
-  color: #fff;
-  background: #ec3b83;
-  box-shadow: 0 8px 16px -6px rgba(40,28,70,.5), inset 0 1px 0 rgba(255,255,255,.4);
-  transition: transform .3s ease, box-shadow .3s ease;
-}
-.cat-tile__go svg { width: 16px; height: 16px; }
-.cat-tile:nth-child(4n+2) .cat-tile__go { background: #f5872b; }
-.cat-tile:nth-child(4n+3) .cat-tile__go { background: #16b6a6; }
-.cat-tile:nth-child(4n+4) .cat-tile__go { background: #9b52d6; }
-.cat-tile:hover .cat-tile__go { transform: translateY(-2px) scale(1.1); box-shadow: 0 12px 22px -6px rgba(40,28,70,.55); }
 .cat-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: .9rem; }
 
 /* floating candy confetti — glossy CSS gumballs & chocolate balls */
@@ -1304,7 +1296,7 @@ body.nav--burger .menu-pill { display: flex !important; }
   background: var(--pink);
   box-shadow: 0 0 0 4px rgba(254,70,134,.22);
 }
-.pin:nth-child(even) b { background: var(--lime); box-shadow: 0 0 0 4px rgba(212,242,78,.4); }
+.pin:nth-child(even) b { background: var(--lime); box-shadow: 0 0 0 4px rgba(200,231,227,.4); }
 .pin b::after {
   content: '';
   position: absolute;
@@ -1322,7 +1314,7 @@ body.nav--burger .menu-pill { display: flex !important; }
   font-style: normal;
   font-family: var(--disp);
   font-size: .72rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--ink);
   background: #fff;
   padding: .15rem .5rem;
@@ -1346,7 +1338,7 @@ body.nav--burger .menu-pill { display: flex !important; }
 }
 .legend li {
   font-family: var(--disp);
-  font-weight: 700;
+  font-weight: 600;
   font-size: .85rem;
   color: var(--ink);
   background: var(--card-pink);
@@ -1365,7 +1357,7 @@ body.nav--burger .menu-pill { display: flex !important; }
   letter-spacing: -.02em;
 }
 .kpi:nth-child(even) .kpi__num { color: var(--ink); }
-.kpi__label { font-family: var(--disp); font-weight: 700; font-size: .95rem; color: var(--ink-soft); }
+.kpi__label { font-family: var(--disp); font-weight: 600; font-size: .95rem; color: var(--ink-soft); }
 
 /* === E) STATS STRIP === */
 .stats { overflow: hidden; background: var(--lime); }
@@ -1403,7 +1395,7 @@ body.nav--burger .menu-pill { display: flex !important; }
 .stats .container { position: relative; z-index: 1; }
 .stats__lead {
   font-family: var(--disp);
-  font-weight: 700;
+  font-weight: 600;
   font-size: clamp(1.15rem, 2.2vw, 1.6rem);
   line-height: 1.4;
   color: var(--ink);
@@ -1422,7 +1414,7 @@ body.nav--burger .menu-pill { display: flex !important; }
   letter-spacing: -.02em;
 }
 .stat:nth-child(even) .stat__num { color: var(--pink); }
-.stat__label { font-family: var(--disp); font-weight: 700; font-size: 1rem; color: var(--ink); margin-top: .4rem; display: block; }
+.stat__label { font-family: var(--disp); font-weight: 600; font-size: 1rem; color: var(--ink); margin-top: .4rem; display: block; }
 
 /* === F) CULTURE === */
 .story__inner--mirror { margin-bottom: clamp(3rem, 6vw, 4.5rem); }
@@ -1447,14 +1439,14 @@ body.nav--burger .menu-pill { display: flex !important; }
 .news-card:hover .news-card__media .photo-blob { transform: scale(1.06); }
 .photo-blob--news1 { background: linear-gradient(150deg, #fea8c3, var(--pink)); }
 .photo-blob--news2 { background: linear-gradient(150deg, #e7cded, #e290ff); }
-.photo-blob--news3 { background: linear-gradient(150deg, #E8F5A4, var(--lime)); }
+.photo-blob--news3 { background: linear-gradient(150deg, #dff0ee, var(--lime)); }
 .news-card__body { padding: 1.6rem; }
 .news-card__tag { margin-bottom: 1rem; }
 .news-card:nth-child(3n+2) .news-card__tag { background: var(--pink); color: #fff; }
 .news-card:nth-child(3n+3) .news-card__tag { background: var(--card-lav); color: var(--ink); }
 .news-card__title { font-family: var(--disp); font-size: 1.22rem; font-weight: 800; line-height: 1.15; color: var(--ink); margin-bottom: .6rem; }
 .news-card__text { color: var(--ink-soft); font-size: .95rem; margin-bottom: 1rem; }
-.news-card__link { font-family: var(--disp); font-weight: 700; color: var(--pink); font-size: .95rem; }
+.news-card__link { font-family: var(--disp); font-weight: 600; color: var(--pink); font-size: .95rem; }
 .news-card__link:hover { color: var(--ink); }
 
 /* === H) FINAL CTA === */
@@ -1490,7 +1482,7 @@ body.nav--burger .menu-pill { display: flex !important; }
   display: block;
   margin-bottom: .9rem;
 }
-.footer__tag { font-family: var(--disp); font-weight: 700; color: var(--ink); margin-bottom: .5rem; }
+.footer__tag { font-family: var(--disp); font-weight: 600; color: var(--ink); margin-bottom: .5rem; }
 .footer__desc { color: var(--ink-soft); font-size: .95rem; max-width: 22rem; }
 .footer__cols {
   display: grid;
@@ -1560,7 +1552,8 @@ body.nav--burger .menu-pill { display: flex !important; }
 
 /* === MOTION PREFERENCES === */
 @media (prefers-reduced-motion: reduce) {
-  .marquee__track { animation: none !important; }
+  .marquee__track,
+  .logo-marquee__track { animation: none !important; }
   .pin b::after { animation: none !important; }
   * {
     animation-duration: .01ms !important;

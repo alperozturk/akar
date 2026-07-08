@@ -7,128 +7,8 @@
   <meta name="description" content="AKAR GmbH — Ihr Full-Service-Partner für türkische und internationale Lebensmittel und Distribution in Europa. Über 30 Jahre Erfahrung." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=DM+Sans:wght@400;500;700&family=Montserrat:wght@500;600;800&family=Pacifico&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
-  <style>
-    /* index2: cinematic hero — full-bleed background video, title revealed on end */
-    .hero--cinematic {
-      position: relative;
-      min-height: 100vh;
-      height: 100svh;
-      padding: 0;
-      overflow: hidden;
-      background: #000;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      text-align: left;
-    }
-    /* drop the lavender wash from the base .hero */
-    .hero--cinematic::before { content: none; }
-
-    .hero__bg-video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center center;
-      z-index: 0;
-      transform: none;
-    }
-
-    /* dark scrim fades in with the title to keep it legible over the freeze-frame */
-    .hero__scrim {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 1.1s ease;
-      background:
-        radial-gradient(80% 70% at 35% 50%, rgba(255,255,255,.92), rgba(255,255,255,.7) 60%, rgba(255,255,255,.25)),
-        linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,.2) 35%, transparent 70%, rgba(255,255,255,.3));
-    }
-    .hero--cinematic.is-revealed .hero__scrim { opacity: 1; }
-
-    .hero__overlay {
-      position: relative;
-      z-index: 2;
-      max-width: 760px;
-      padding: 0 clamp(1.5rem, 6vw, 5rem);
-    }
-
-    /* eyebrow above the title */
-    .hero__eyebrow {
-      margin: 0 0 .75rem;
-      font-family: "Montserrat", sans-serif;
-      font-weight: 600;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-      color: #00BDAB;
-      font-size: clamp(.95rem, 2.2vw, 1.35rem);
-    }
-
-    .hero__title--reveal {
-      font-family: "Montserrat", sans-serif;
-      font-weight: 800;
-      text-transform: none;
-      color: #111;
-      margin: 0;
-      line-height: 1.02;
-      font-size: clamp(2.75rem, 8vw, 6rem);
-      text-shadow: 0 6px 40px rgba(255,255,255,.45);
-    }
-    /* "Best" set in a flowing script */
-    .hero__title-script {
-      font-family: "Pacifico", cursive;
-      font-weight: 400;
-      color: #FF66C4;
-    }
-
-    /* supporting copy under the title */
-    .hero__lead-reveal {
-      margin: 1.5rem 0 0;
-      font-family: "Montserrat", sans-serif;
-      font-weight: 500;
-      color: #1a1a1a;
-      font-size: clamp(1.05rem, 2.4vw, 1.6rem);
-      line-height: 1.4;
-      max-width: 38ch;
-    }
-
-    /* reveal stagger: applies to every animated block in the overlay */
-    .hero__overlay .hero__word {
-      display: block;
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1);
-    }
-    .hero__title-script { display: inline; }
-    .hero--cinematic.is-revealed .hero__overlay .hero__word {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    /* gentle line-by-line stagger once revealed */
-    .hero--cinematic.is-revealed .hero__eyebrow { transition-delay: .05s; }
-    .hero--cinematic.is-revealed .hero__title--reveal .hero__word { transition-delay: .18s; }
-    .hero--cinematic.is-revealed .hero__lead-reveal { transition-delay: .31s; }
-
-    @media (prefers-reduced-motion: reduce) {
-      .hero__overlay .hero__word,
-      .hero__scrim { transition: opacity .2s linear; }
-      .hero__overlay .hero__word { transform: none; }
-    }
-
-    /* second section (story) background */
-    .story { --section-bg: #f5e8e3; }
-
-    /* Drop the section wave lower at the hero boundary so it doesn't cover
-       the lower part of the video (other section waves are unaffected). */
-    .hero--cinematic + .story::after {
-      transform: translateY(calc(-35% + 1px));
-    }
-  </style>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" defer></script>
   <script type="module" src="js/main.js"></script>
@@ -179,24 +59,53 @@
   </button>
 
   <main id="top">
-    <section class="hero hero--cinematic" aria-labelledby="hero-title">
-      <!-- full-bleed background video: autoplays once, then freezes on its last frame -->
-      <video class="hero__bg-video" src="hero-video.mp4" autoplay muted playsinline preload="auto"></video>
+    <section class="hero" aria-labelledby="hero-title">
+      <!-- soft cloud atmosphere -->
+      <div class="hero__clouds" aria-hidden="true">
+        <span class="cloud cloud--tl"></span>
+        <span class="cloud cloud--tl2"></span>
+        <span class="cloud cloud--band"></span>
+        <span class="cloud cloud--band2"></span>
+        <span class="cloud cloud--band3"></span>
+      </div>
 
-      <!-- dark scrim, fades in together with the title -->
-      <div class="hero__scrim" aria-hidden="true"></div>
+      <!-- floating product packshots (keep .packet + data-parallax for hero.js) -->
+      <div class="packets" aria-hidden="true">
+        <figure class="packet packet--yupo" data-parallax="0.10"><img src="img/products/yupo.webp" width="440" height="600" alt="Ülker Yupo Fruit Garden" /></figure>
+        <figure class="packet packet--halley" data-parallax="0.20"><img src="img/products/halley.webp" width="600" height="186" alt="Ülker Halley" /></figure>
+        <figure class="packet packet--redbull" data-parallax="0.06"><img src="img/products/redbull.webp" width="228" height="600" alt="Red Bull Energy Drink" /></figure>
+        <figure class="packet packet--biskrem" data-parallax="0.16"><img src="img/products/biskrem.webp" width="425" height="600" alt="Ülker Biskrem Duo" /></figure>
+        <figure class="packet packet--mis" data-parallax="0.12"><img src="img/products/mis-ayran.webp" width="417" height="582" alt="MİS Ayran" /></figure>
+        <figure class="packet packet--cizi" data-parallax="0.22"><img src="img/products/cizi.webp" width="600" height="330" alt="Ülker Çizi Cheese Crackers" /></figure>
+      </div>
 
-      <!-- title appears only after the video has finished -->
-      <div class="hero__overlay">
-        <p class="hero__eyebrow hero__word">EUROPÄISCHE FMCG-DISTRIBUTION</p>
-        <h1 class="hero__title hero__title--reveal" id="hero-title">
-          <span class="hero__word">Passion for the <span class="hero__title-script">Best</span>.</span>
+      <div class="container hero__inner">
+        <h1 class="hero__title" id="hero-title">
+          <span class="hero__line">BRINGING</span>
+          <span class="hero__line">TURKISH BRANDS</span>
+          <span class="hero__line">TO THE WORLD</span>
         </h1>
-        <p class="hero__lead-reveal hero__word">
-          Ihr Full-Service-Partner für türkische und internationale
-          Lebensmittel und Distribution in Europa.
+        <p class="hero__lead">
+          Über 30 Jahre Erfahrung im Import und Vertrieb türkischer und
+          internationaler Lebensmittel — mit einem europaweiten Vertriebsnetz
+          für den Handel.
         </p>
       </div>
+
+      <!-- lavender stand-up pouch rising from the clouds -->
+      <div class="pouch" aria-hidden="true">
+        <span class="pouch__peek"></span>
+        <span class="pouch__body"></span>
+        <span class="pouch__seam"></span>
+      </div>
+
+      <!-- lime sticker seal, bottom-right -->
+      <a href="#sortiment" class="seal" aria-label="Jetzt entdecken — zum Sortiment">
+        <svg class="seal__bg" viewBox="0 0 200 200" aria-hidden="true">
+          <path d="M100 4 L116 18 L137 12 L146 32 L168 33 L169 55 L188 66 L181 86 L195 103 L181 119 L191 139 L171 148 L168 170 L146 168 L133 186 L114 177 L100 196 L86 177 L67 186 L54 168 L32 170 L29 148 L9 139 L19 119 L5 103 L19 86 L12 66 L31 55 L32 33 L54 32 L63 12 L84 18 Z"/>
+        </svg>
+        <span class="seal__text"><small>JETZT</small><strong>entdecken</strong></span>
+      </a>
     </section>
 
     <!-- ============ A) STORY ============ -->
@@ -598,40 +507,5 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    // Cinematic hero: keep the title hidden until the background video finishes,
-    // then let the paused video's last frame stand in as a still background.
-    (function () {
-      var hero = document.querySelector('.hero--cinematic');
-      if (!hero) return;
-      var video = hero.querySelector('.hero__bg-video');
-      var revealed = false;
-      var reveal = function () {
-        if (revealed) return;
-        revealed = true;
-        hero.classList.add('is-revealed');
-      };
-
-      if (!video) { reveal(); return; }
-
-      // Reveal the title once playback reaches the 17s mark.
-      var REVEAL_AT = 15; // seconds
-      video.addEventListener('timeupdate', function () {
-        if (video.currentTime >= REVEAL_AT) reveal();
-      });
-      // Safety net: if the clip is shorter than 17s, reveal when it ends.
-      video.addEventListener('ended', reveal);
-      // If the video can't load/decode, don't leave the title hidden forever.
-      video.addEventListener('error', reveal);
-
-      // Autoplay should work because the video is muted; if the browser blocks
-      // it (or there's no media), reveal the title so content is never lost.
-      var tryPlay = video.play();
-      if (tryPlay && typeof tryPlay.catch === 'function') {
-        tryPlay.catch(reveal);
-      }
-    })();
-  </script>
 </body>
 </html>
