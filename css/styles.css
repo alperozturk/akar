@@ -869,7 +869,7 @@ body.nav--burger .menu-pill { display: flex !important; }
    and responsive thinning live here. */
 .floater {
   position: absolute;
-  z-index: 3;
+  z-index: 0; /* below .section > .container so snacks never cover copy or headlines */
   pointer-events: none;
 }
 .floater img {
@@ -920,11 +920,11 @@ body.nav--burger .menu-pill { display: flex !important; }
    just drop the denser ones and shrink the survivors via their img) */
 @media (max-width: 1000px) {
   .floater--md { display: none; }
-  .floater img { max-width: 68px; }
+  .floater img { max-width: 102px; }
 }
 @media (max-width: 680px) {
   .floater--sm { display: none; }
-  .floater img { max-width: 52px; }
+  .floater img { max-width: 78px; }
 }
 .values {
   display: grid;
@@ -1082,7 +1082,7 @@ body.nav--burger .menu-pill { display: flex !important; }
   align-items: center;
   width: max-content;
   padding: .6rem 0;
-  animation: logo-marquee 42s linear infinite;
+  animation: logo-marquee 80s linear infinite; /* track is ~2× wider since the logo doubling — keep the same reading pace */
 }
 /* pause on hover so viewers can read a logo they're interested in */
 .logo-marquee:hover .logo-marquee__track { animation-play-state: paused; }
@@ -1095,14 +1095,21 @@ body.nav--burger .menu-pill { display: flex !important; }
 /* partner supermarket logos sit on a clean white pill so brand colours read true */
 .wordmark--logo {
   background: #fff;
-  padding: .75rem 1.4rem;
+  padding: .75rem 1.6rem;
+  overflow: hidden; /* clips the zoomed-in --crop variants to the pill */
 }
 .wordmark--logo img {
-  height: 38px;
+  height: 80px;
   width: auto;
-  max-width: 150px;
+  max-width: 340px;
   object-fit: contain;
 }
+/* some source files bury a wide wordmark inside a square canvas with heavy
+   built-in whitespace (Netto, Bartels-Langness, V-Markt) — render those larger
+   and crop the empty border with negative margins so their small text is
+   readable and the artwork visually matches its neighbours */
+.wordmark--logo-crop img    { height: 150px; margin-block: -35px; } /* mild padding */
+.wordmark--logo-crop-xl img { height: 250px; margin-block: -85px; } /* mostly padding */
 .logo-marquee__note {
   margin: 1.6rem auto 0;
   text-align: center;
