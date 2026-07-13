@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;800&family=Pacifico&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=20260711a" />
+  <link rel="stylesheet" href="css/styles.css?v=20260713a" />
   <style>
     /* index2: cinematic hero — full-bleed background video, title revealed on end */
     .hero--cinematic {
@@ -478,59 +478,74 @@
       <p class="logo-marquee__note"><span aria-hidden="true">✳</span> Und viele weitere Partner in ganz Europa <span aria-hidden="true">✳</span></p>
     </section>
 
-    <!-- ============ B) BRANDS ============ -->
+    <!-- ============ B) BRANDS — hero collage ============ -->
     <section id="marken" class="brands section">
-      <span class="blob blob--pink float-shape" data-parallax="0.18" aria-hidden="true"></span>
-      <span class="blob blob--mint float-shape float-shape--2" data-parallax="0.26" aria-hidden="true"></span>
-      <!-- floating snacks (see .floater in styles.css) -->
-      <span class="floater" data-parallax="0.9" style="top:8%; left:3%; width:90px; --dur:8.6s; --delay:-1.6s; --bob:9px; --tilt:6deg;" aria-hidden="true"><img src="img/snacks-images/gummy-cola.webp" alt="" loading="lazy"></span>
-      <span class="floater floater--md" data-parallax="-0.7" style="top:14%; left:54%; width:81px; --dur:7.4s; --delay:-3.2s; --bob:8px; --tilt:5deg;" aria-hidden="true"><img src="img/snacks-images/gummy-drops.webp" alt="" loading="lazy"></span>
-      <span class="floater" data-parallax="1.1" style="top:20%; right:4%; width:105px; --dur:10.2s; --delay:-5s; --bob:6px; --tilt:4deg;" aria-hidden="true"><img src="img/snacks-images/cracker-flat.webp" alt="" loading="lazy"></span>
-      <span class="floater floater--sm" data-parallax="0.7" style="top:60%; left:44%; width:87px; --dur:9s; --delay:-6.4s; --bob:9px; --tilt:7deg;" aria-hidden="true"><img src="img/snacks-images/choc-swirl-cookies.webp" alt="" loading="lazy"></span>
-      <span class="floater floater--md" data-parallax="0.8" style="top:44%; left:2%; width:87px; --dur:8.4s; --delay:-2.8s; --bob:8px; --tilt:5deg;" aria-hidden="true"><img src="img/snacks-images/jam-biscuit.webp" alt="" loading="lazy"></span>
-      <span class="floater" data-parallax="-0.5" style="top:76%; right:5%; width:96px; --dur:10.6s; --delay:-4.2s; --bob:7px; --tilt:6deg;" aria-hidden="true"><img src="img/snacks-images/gummy-bear-red.webp" alt="" loading="lazy"></span>
-      <div class="container">
-        <div class="section-head" data-reveal>
-          <p class="eyebrow">STARKE PARTNER</p>
-          <h2 class="h2">Starke Marken. <span class="pink">Grenzenlos im Handel.</span></h2>
-          <p class="lead lead--center">Wir vertreten ein Portfolio internationaler Markenhersteller — vereint unter einem starken Vertriebsnetz.</p>
+      <div class="brands-stage">
+
+        <!-- background waves (candy palette) -->
+        <svg class="brands-waves" viewBox="0 0 1150 742" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <filter id="bh-soft" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="18"/>
+            </filter>
+            <linearGradient id="bh-pinkwash" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0" stop-color="#fdd7e5"/>
+              <stop offset="1" stop-color="#fef0f5"/>
+            </linearGradient>
+          </defs>
+          <!-- pink wash, bottom-left -->
+          <path filter="url(#bh-soft)" fill="url(#bh-pinkwash)" opacity=".8"
+            d="M-60,400 C120,360 300,380 430,460 C530,530 530,660 470,780 L-80,780 Z"/>
+          <!-- lavender wave, right side -->
+          <path filter="url(#bh-soft)" fill="#e7cded" opacity=".55"
+            d="M560,560 C600,430 720,420 830,430 C900,300 1000,240 1120,270 C1220,300 1220,780 1150,780 L520,780 C500,680 520,610 560,560 Z"/>
+          <!-- lime blob, top-right -->
+          <path filter="url(#bh-soft)" fill="#c8e7e3" opacity=".6"
+            d="M1010,60 C1090,30 1180,60 1190,160 C1195,240 1120,290 1040,270 C960,250 940,120 1010,60 Z"/>
+          <!-- white blob behind Red Bull -->
+          <path filter="url(#bh-soft)" fill="#ffffff" opacity=".9"
+            d="M330,400 C330,320 400,275 480,285 C570,295 610,360 600,440 C590,520 510,560 430,545 C360,530 330,470 330,400 Z"/>
+          <!-- white blob behind Yupo -->
+          <path filter="url(#bh-soft)" fill="#ffffff" opacity=".85"
+            d="M910,400 C920,330 990,300 1060,315 C1130,330 1150,400 1130,460 C1105,525 1010,535 955,500 C915,475 905,440 910,400 Z"/>
+        </svg>
+
+        <!-- copy -->
+        <div class="brands-copy" data-reveal>
+          <p class="eyebrow">UNSERE MARKEN</p>
+          <h2 class="h2">Starke Marken.<br><span class="pink">Grenzenlos</span> im Handel.</h2>
+          <p class="lead">Wir bringen führende Marken aus verschiedenen Kategorien in die Regale der Welt – zuverlässig, effizient und mit Leidenschaft.</p>
+          <a class="btn btn--outline" href="#sortiment">Alle Marken ansehen <span class="bh-arrow" aria-hidden="true">→</span></a>
         </div>
 
-        <div class="brand-grid" data-reveal-group>
-          <span class="wordmark wm-ulker">Ülker</span>
-          <span class="wordmark wm-uludag">Uludağ</span>
-          <span class="wordmark wm-torku">Torku</span>
-          <span class="wordmark wm-halley">Halley</span>
-          <span class="wordmark wm-bebeto">Bebeto</span>
-          <span class="wordmark wm-redbull">Red Bull</span>
-          <span class="wordmark wm-pinar">Pınar</span>
-          <span class="wordmark wm-cola">Cola Turka</span>
-          <span class="wordmark wm-komili">Komili</span>
-          <span class="wordmark wm-tat">Tat</span>
-          <span class="wordmark wm-superfresh">Superfresh</span>
-          <span class="wordmark wm-godiva">Godiva</span>
+        <!-- brand logos + one product each: Ülker, Red Bull, Kızılay, Yupo -->
+        <div class="brands-collage">
+          <span class="bh-item bh-logo" style="--x:14%; --y:62%; --w:17%; --rot:-2deg; --dur:9.5s; --delay:-1.2s; --crop:-26%;"><img src="img/markenlogos/%C3%BClker-logo.webp" alt="Ülker" loading="lazy"></span>
+          <span class="bh-item bh-prod" style="--x:9.5%; --y:83%; --w:10%; --rot:-5deg; --dur:8.6s; --delay:-3.4s;"><img src="img/products/biskrem.webp" alt="Ülker Biskrem" loading="lazy"></span>
+          <span class="bh-item bh-logo" style="--x:39%; --y:63%; --w:12%; --rot:2deg; --dur:10s; --delay:-2s;"><img src="img/markenlogos/RedBullEnergyDrink-logo.svg.webp" alt="Red Bull" loading="lazy"></span>
+          <span class="bh-item bh-prod" style="--x:33%; --y:83%; --w:5.2%; --rot:5deg; --dur:8.2s; --delay:-5.1s;"><img src="img/products/redbull.webp" alt="Red Bull Energy Drink" loading="lazy"></span>
+          <span class="bh-item bh-logo" style="--x:63%; --y:60%; --w:15%; --rot:-2deg; --dur:9s; --delay:-4.4s; --crop:-18%;"><img src="img/markenlogos/kizilay-logo.webp" alt="Kızılay" loading="lazy"></span>
+          <span class="bh-item bh-prod" style="--x:57%; --y:84%; --w:7.4%; --rot:-4deg; --dur:9.8s; --delay:-1.8s;"><img src="img/products/mis-ayran.webp" alt="Mis Ayran" loading="lazy"></span>
+          <span class="bh-item bh-logo" style="--x:87%; --y:60%; --w:14%; --rot:3deg; --dur:8.8s; --delay:-6s; --crop:-14%;"><img src="img/markenlogos/yupo-logo.webp" alt="Ülker Yupo" loading="lazy"></span>
+          <span class="bh-item bh-prod" style="--x:82%; --y:84%; --w:9.6%; --rot:4deg; --dur:9.4s; --delay:-2.6s;"><img src="img/products/yupo.webp" alt="Yupo Fruit Garden Fruchtgummi" loading="lazy"></span>
         </div>
-      </div>
 
-      <div class="marquee" aria-hidden="true">
-        <div class="marquee__track">
-          <span class="marquee__item">Ülker</span><span class="marquee__sep">•</span>
-          <span class="marquee__item">Uludağ</span><span class="marquee__sep">•</span>
-          <span class="marquee__item">Torku</span><span class="marquee__sep">•</span>
-          <span class="marquee__item">Halley</span><span class="marquee__sep">•</span>
-          <span class="marquee__item">Red Bull</span><span class="marquee__sep">•</span>
-          <span class="marquee__item">Pınar</span><span class="marquee__sep">•</span>
-          <span class="marquee__item">Cola Turka</span><span class="marquee__sep">•</span>
-          <span class="marquee__item">Godiva</span><span class="marquee__sep">•</span>
-          <span class="marquee__item">Ülker</span><span class="marquee__sep">•</span>
-          <span class="marquee__item">Uludağ</span><span class="marquee__sep">•</span>
-          <span class="marquee__item">Torku</span><span class="marquee__sep">•</span>
-          <span class="marquee__item">Halley</span><span class="marquee__sep">•</span>
-          <span class="marquee__item">Red Bull</span><span class="marquee__sep">•</span>
-          <span class="marquee__item">Pınar</span><span class="marquee__sep">•</span>
-          <span class="marquee__item">Cola Turka</span><span class="marquee__sep">•</span>
-          <span class="marquee__item">Godiva</span><span class="marquee__sep">•</span>
-        </div>
+        <!-- candy dots -->
+        <span class="bh-dot bh-dot--choc bh-dot--s" style="left:28.5%; top:44.5%;" aria-hidden="true"></span>
+        <span class="bh-dot bh-dot--choc bh-dot--s" style="left:30%; top:48%;" aria-hidden="true"></span>
+        <span class="bh-dot bh-dot--pink bh-dot--m" style="left:25%; top:60%;" aria-hidden="true"></span>
+        <span class="bh-dot bh-dot--lila bh-dot--m" style="left:3.5%; top:62%;" aria-hidden="true"></span>
+        <span class="bh-dot bh-dot--choc bh-dot--s" style="left:34%; top:68%;" aria-hidden="true"></span>
+        <span class="bh-dot bh-dot--pink bh-dot--m" style="left:46%; top:74%;" aria-hidden="true"></span>
+        <span class="bh-dot bh-dot--mint bh-dot--s" style="left:48%; top:90%;" aria-hidden="true"></span>
+        <span class="bh-dot bh-dot--pink bh-dot--l" style="left:70%; top:46%;" aria-hidden="true"></span>
+        <span class="bh-dot bh-dot--lila bh-dot--s" style="left:74%; top:43%;" aria-hidden="true"></span>
+        <span class="bh-dot bh-dot--mint bh-dot--m" style="left:89%; top:89%;" aria-hidden="true"></span>
+        <span class="bh-dot bh-dot--pink bh-dot--l" style="left:96.5%; top:44%;" aria-hidden="true"></span>
+        <span class="bh-dot bh-dot--choc bh-dot--s" style="left:76%; top:66%;" aria-hidden="true"></span>
+        <span class="bh-dot bh-dot--pink bh-dot--s" style="left:17%; top:71%;" aria-hidden="true"></span>
+        <span class="bh-dot bh-dot--lila bh-dot--m" style="left:97%; top:79%;" aria-hidden="true"></span>
+        <span class="bh-dot bh-dot--mint bh-dot--s" style="left:57%; top:93%;" aria-hidden="true"></span>
       </div>
     </section>
 
