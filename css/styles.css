@@ -133,8 +133,11 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
+  gap: 1rem;
 }
+/* header spans wider than the 1240px content container so the full inline nav
+   (brand + 6 menu items + CTA) has room and the B2B CTA never overflows */
+.site-header .container.nav { max-width: 1440px; }
 .nav__brand {
   font-family: var(--disp);
   font-weight: 800;
@@ -181,7 +184,7 @@ h1, h2, h3, h4, h5, h6 {
 .nav__menu {
   display: flex;
   align-items: center;
-  gap: clamp(.25rem, 1.4vw, 1rem);
+  gap: clamp(.1rem, .9vw, .6rem);
 }
 .nav-item { position: relative; }
 .nav-item__trigger {
@@ -192,7 +195,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   font-size: 1.02rem;
   color: var(--ink);
-  padding: .55rem .9rem;
+  padding: .5rem .7rem;
   border-radius: 999px;
   white-space: nowrap;
   transition: background-color .25s ease, color .25s ease;
@@ -291,9 +294,10 @@ body.nav--burger .menu-pill { display: flex !important; }
 
 /* on narrow screens, always fall back to the hamburger regardless of switch
    (raised for the longer label set so the inline nav only shows with room) */
-@media (max-width: 1140px) {
+@media (max-width: 1440px) {
   .nav__full { display: none !important; }
-  .menu-pill { display: flex !important; }
+  body.nav--full .menu-pill,
+  body.nav--burger .menu-pill { display: flex !important; }
 }
 
 /* subtle stuck state */
