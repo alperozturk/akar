@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;800&family=Pacifico&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=20260715d" />
+  <link rel="stylesheet" href="css/styles.css?v=20260717b" />
   <style>
     /* index2: cinematic hero — full-bleed background video, title revealed on end */
     .hero--cinematic {
@@ -132,7 +132,7 @@
   </style>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" defer></script>
-  <script type="module" src="js/main.js?v=20260708a"></script>
+  <script type="module" src="js/main.js?v=20260717a"></script>
 </head>
 <body class="nav--full">
   <div class="cursor" aria-hidden="true"></div>
@@ -199,13 +199,6 @@
     </div>
   </header>
 
-  <!-- nav style switch — toggle full inline nav vs hamburger menu to preview both -->
-  <div class="nav-switch" role="group" aria-label="Navigationsstil umschalten">
-    <span class="nav-switch__label">Nav</span>
-    <button class="nav-switch__opt is-active" type="button" data-nav-mode="full">Voll</button>
-    <button class="nav-switch__opt" type="button" data-nav-mode="burger">Menü</button>
-  </div>
-
   <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
     <button class="mobile-menu__close" type="button" aria-label="Menü schließen">
       <span></span><span></span>
@@ -252,16 +245,6 @@
 
   <!-- decorative fixed pink edge line -->
   <span class="edge-line" aria-hidden="true"></span>
-
-  <!-- bottom-left music toggle (visual only) -->
-  <button class="music-toggle is-muted" type="button" aria-label="Musik an/aus" aria-pressed="false">
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M9 17.5V6.5l9-2v9" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="6.5" cy="17.5" r="2.5" stroke="#fff" stroke-width="1.8"/>
-      <circle cx="15.5" cy="15.5" r="2.5" stroke="#fff" stroke-width="1.8"/>
-      <line class="music-toggle__slash" x1="3" y1="21" x2="21" y2="3" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
-    </svg>
-  </button>
 
   <main id="top">
     <section class="hero hero--cinematic" aria-labelledby="hero-title">
@@ -492,7 +475,7 @@
       <!-- brand logos + product cutouts scroll edge to edge, like the partner marquee -->
       <div class="brands-marquee" data-reveal>
         <div class="brands-marquee__track">
-          <!-- set A: the nine brand pairs, twice, so one set outruns wide viewports -->
+          <!-- set A: the thirteen brand pairs, twice, so one set outruns wide viewports -->
           <span class="bm-pair" style="--dur:9.5s; --delay:-1.2s;">
             <span class="bm-logo" style="--lw:196px; --crop:-51px;"><img src="img/markenlogos/%C3%BClker-logo.webp" alt="Ülker" loading="lazy"></span>
             <span class="bm-prod" style="--pw:115px; --dur:8.6s; --delay:-3.4s;"><img src="img/products/biskrem.webp" alt="Ülker Biskrem" loading="lazy"></span>
@@ -529,6 +512,22 @@
             <span class="bm-logo" style="--lw:112px; --crop:-8px;"><img src="img/markenlogos/caml%C4%B1ca-logo.svg" alt="Ülker Çamlıca" loading="lazy"></span>
             <span class="bm-prod" style="--pw:150px; --dur:8.5s; --delay:-5.8s;"><img src="img/markenlogos/Camlica.webp" alt="Çamlıca Gazoz 1,5-Liter-Flasche" loading="lazy"></span>
           </span>
+          <span class="bm-pair" style="--dur:9.3s; --delay:-3s;">
+            <span class="bm-logo" style="--lw:120px; --crop:-13px;"><img src="img/markenlogos/gourmet-celebi.webp" alt="Gourmet Çelebi" loading="lazy"></span>
+            <span class="bm-prod" style="--pw:95px; --dur:8.8s; --delay:-4.6s;"><img src="img/markenlogos/Gourmet_Celebi.webp" alt="Gourmet Çelebi Pistaziencreme" loading="lazy"></span>
+          </span>
+          <span class="bm-pair" style="--dur:9.7s; --delay:-1.6s;">
+            <span class="bm-logo" style="--lw:150px; --crop:-22px;"><img src="img/markenlogos/Saka-logo.webp" alt="Saka" loading="lazy"></span>
+            <span class="bm-prod" style="--pw:42px; --dur:9.2s; --delay:-2.8s;"><img src="img/markenlogos/SAKA-cutout.webp" alt="Saka Doğal Mineralli Su 1,5-Liter-Flasche" loading="lazy"></span>
+          </span>
+          <span class="bm-pair" style="--dur:8.9s; --delay:-5.4s;">
+            <span class="bm-logo" style="--lw:140px; --crop:-35px;"><img src="img/markenlogos/almarai.webp" alt="Almarai" loading="lazy"></span>
+            <span class="bm-prod" style="--pw:52px; --dur:9.7s; --delay:-1s;"><img src="img/markenlogos/Almarai-product-cutout.webp" alt="Almarai Mango-Saft" loading="lazy"></span>
+          </span>
+          <span class="bm-pair" style="--dur:9.1s; --delay:-4s;">
+            <span class="bm-logo" style="--lw:160px; --crop:-9px;"><img src="img/markenlogos/Softline%20Fresher-Akar%20Logo-01.webp" alt="Softline Fresher" loading="lazy"></span>
+            <span class="bm-prod" style="--pw:125px; --dur:8.3s; --delay:-6.4s;"><img src="img/markenlogos/Softline.webp" alt="Softline Fresher Feuchttücher" loading="lazy"></span>
+          </span>
           <span class="bm-pair" style="--dur:9.5s; --delay:-1.2s;" aria-hidden="true">
             <span class="bm-logo" style="--lw:196px; --crop:-51px;"><img src="img/markenlogos/%C3%BClker-logo.webp" alt="" loading="lazy"></span>
             <span class="bm-prod" style="--pw:115px; --dur:8.6s; --delay:-3.4s;"><img src="img/products/biskrem.webp" alt="" loading="lazy"></span>
@@ -564,6 +563,22 @@
           <span class="bm-pair" style="--dur:9.8s; --delay:-3.6s;" aria-hidden="true">
             <span class="bm-logo" style="--lw:112px; --crop:-8px;"><img src="img/markenlogos/caml%C4%B1ca-logo.svg" alt="" loading="lazy"></span>
             <span class="bm-prod" style="--pw:150px; --dur:8.5s; --delay:-5.8s;"><img src="img/markenlogos/Camlica.webp" alt="" loading="lazy"></span>
+          </span>
+          <span class="bm-pair" style="--dur:9.3s; --delay:-3s;" aria-hidden="true">
+            <span class="bm-logo" style="--lw:120px; --crop:-13px;"><img src="img/markenlogos/gourmet-celebi.webp" alt="" loading="lazy"></span>
+            <span class="bm-prod" style="--pw:95px; --dur:8.8s; --delay:-4.6s;"><img src="img/markenlogos/Gourmet_Celebi.webp" alt="" loading="lazy"></span>
+          </span>
+          <span class="bm-pair" style="--dur:9.7s; --delay:-1.6s;" aria-hidden="true">
+            <span class="bm-logo" style="--lw:150px; --crop:-22px;"><img src="img/markenlogos/Saka-logo.webp" alt="" loading="lazy"></span>
+            <span class="bm-prod" style="--pw:42px; --dur:9.2s; --delay:-2.8s;"><img src="img/markenlogos/SAKA-cutout.webp" alt="" loading="lazy"></span>
+          </span>
+          <span class="bm-pair" style="--dur:8.9s; --delay:-5.4s;" aria-hidden="true">
+            <span class="bm-logo" style="--lw:140px; --crop:-35px;"><img src="img/markenlogos/almarai.webp" alt="" loading="lazy"></span>
+            <span class="bm-prod" style="--pw:52px; --dur:9.7s; --delay:-1s;"><img src="img/markenlogos/Almarai-product-cutout.webp" alt="" loading="lazy"></span>
+          </span>
+          <span class="bm-pair" style="--dur:9.1s; --delay:-4s;" aria-hidden="true">
+            <span class="bm-logo" style="--lw:160px; --crop:-9px;"><img src="img/markenlogos/Softline%20Fresher-Akar%20Logo-01.webp" alt="" loading="lazy"></span>
+            <span class="bm-prod" style="--pw:125px; --dur:8.3s; --delay:-6.4s;"><img src="img/markenlogos/Softline.webp" alt="" loading="lazy"></span>
           </span>
           <!-- set B: duplicate of set A for a seamless continuous loop -->
           <span class="bm-pair" style="--dur:9.5s; --delay:-1.2s;" aria-hidden="true">
@@ -602,6 +617,22 @@
             <span class="bm-logo" style="--lw:112px; --crop:-8px;"><img src="img/markenlogos/caml%C4%B1ca-logo.svg" alt="" loading="lazy"></span>
             <span class="bm-prod" style="--pw:150px; --dur:8.5s; --delay:-5.8s;"><img src="img/markenlogos/Camlica.webp" alt="" loading="lazy"></span>
           </span>
+          <span class="bm-pair" style="--dur:9.3s; --delay:-3s;" aria-hidden="true">
+            <span class="bm-logo" style="--lw:120px; --crop:-13px;"><img src="img/markenlogos/gourmet-celebi.webp" alt="" loading="lazy"></span>
+            <span class="bm-prod" style="--pw:95px; --dur:8.8s; --delay:-4.6s;"><img src="img/markenlogos/Gourmet_Celebi.webp" alt="" loading="lazy"></span>
+          </span>
+          <span class="bm-pair" style="--dur:9.7s; --delay:-1.6s;" aria-hidden="true">
+            <span class="bm-logo" style="--lw:150px; --crop:-22px;"><img src="img/markenlogos/Saka-logo.webp" alt="" loading="lazy"></span>
+            <span class="bm-prod" style="--pw:42px; --dur:9.2s; --delay:-2.8s;"><img src="img/markenlogos/SAKA-cutout.webp" alt="" loading="lazy"></span>
+          </span>
+          <span class="bm-pair" style="--dur:8.9s; --delay:-5.4s;" aria-hidden="true">
+            <span class="bm-logo" style="--lw:140px; --crop:-35px;"><img src="img/markenlogos/almarai.webp" alt="" loading="lazy"></span>
+            <span class="bm-prod" style="--pw:52px; --dur:9.7s; --delay:-1s;"><img src="img/markenlogos/Almarai-product-cutout.webp" alt="" loading="lazy"></span>
+          </span>
+          <span class="bm-pair" style="--dur:9.1s; --delay:-4s;" aria-hidden="true">
+            <span class="bm-logo" style="--lw:160px; --crop:-9px;"><img src="img/markenlogos/Softline%20Fresher-Akar%20Logo-01.webp" alt="" loading="lazy"></span>
+            <span class="bm-prod" style="--pw:125px; --dur:8.3s; --delay:-6.4s;"><img src="img/markenlogos/Softline.webp" alt="" loading="lazy"></span>
+          </span>
           <span class="bm-pair" style="--dur:9.5s; --delay:-1.2s;" aria-hidden="true">
             <span class="bm-logo" style="--lw:196px; --crop:-51px;"><img src="img/markenlogos/%C3%BClker-logo.webp" alt="" loading="lazy"></span>
             <span class="bm-prod" style="--pw:115px; --dur:8.6s; --delay:-3.4s;"><img src="img/products/biskrem.webp" alt="" loading="lazy"></span>
@@ -637,6 +668,22 @@
           <span class="bm-pair" style="--dur:9.8s; --delay:-3.6s;" aria-hidden="true">
             <span class="bm-logo" style="--lw:112px; --crop:-8px;"><img src="img/markenlogos/caml%C4%B1ca-logo.svg" alt="" loading="lazy"></span>
             <span class="bm-prod" style="--pw:150px; --dur:8.5s; --delay:-5.8s;"><img src="img/markenlogos/Camlica.webp" alt="" loading="lazy"></span>
+          </span>
+          <span class="bm-pair" style="--dur:9.3s; --delay:-3s;" aria-hidden="true">
+            <span class="bm-logo" style="--lw:120px; --crop:-13px;"><img src="img/markenlogos/gourmet-celebi.webp" alt="" loading="lazy"></span>
+            <span class="bm-prod" style="--pw:95px; --dur:8.8s; --delay:-4.6s;"><img src="img/markenlogos/Gourmet_Celebi.webp" alt="" loading="lazy"></span>
+          </span>
+          <span class="bm-pair" style="--dur:9.7s; --delay:-1.6s;" aria-hidden="true">
+            <span class="bm-logo" style="--lw:150px; --crop:-22px;"><img src="img/markenlogos/Saka-logo.webp" alt="" loading="lazy"></span>
+            <span class="bm-prod" style="--pw:42px; --dur:9.2s; --delay:-2.8s;"><img src="img/markenlogos/SAKA-cutout.webp" alt="" loading="lazy"></span>
+          </span>
+          <span class="bm-pair" style="--dur:8.9s; --delay:-5.4s;" aria-hidden="true">
+            <span class="bm-logo" style="--lw:140px; --crop:-35px;"><img src="img/markenlogos/almarai.webp" alt="" loading="lazy"></span>
+            <span class="bm-prod" style="--pw:52px; --dur:9.7s; --delay:-1s;"><img src="img/markenlogos/Almarai-product-cutout.webp" alt="" loading="lazy"></span>
+          </span>
+          <span class="bm-pair" style="--dur:9.1s; --delay:-4s;" aria-hidden="true">
+            <span class="bm-logo" style="--lw:160px; --crop:-9px;"><img src="img/markenlogos/Softline%20Fresher-Akar%20Logo-01.webp" alt="" loading="lazy"></span>
+            <span class="bm-prod" style="--pw:125px; --dur:8.3s; --delay:-6.4s;"><img src="img/markenlogos/Softline.webp" alt="" loading="lazy"></span>
           </span>
         </div>
       </div>
@@ -1030,27 +1077,6 @@
       if (tryPlay && typeof tryPlay.catch === 'function') {
         tryPlay.catch(reveal);
       }
-    })();
-
-    // Nav style switch: flip the page between the full inline nav and the
-    // hamburger-menu version so both layouts can be previewed side by side.
-    (function () {
-      var sw = document.querySelector('.nav-switch');
-      if (!sw) return;
-      var opts = sw.querySelectorAll('.nav-switch__opt');
-      var body = document.body;
-
-      function setMode(mode) {
-        body.classList.toggle('nav--full', mode === 'full');
-        body.classList.toggle('nav--burger', mode === 'burger');
-        opts.forEach(function (b) {
-          b.classList.toggle('is-active', b.dataset.navMode === mode);
-        });
-      }
-
-      opts.forEach(function (b) {
-        b.addEventListener('click', function () { setMode(b.dataset.navMode); });
-      });
     })();
 
     // Hamburger / overlay menu. Kept inline (not in the JS module) so it works

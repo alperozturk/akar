@@ -8,6 +8,16 @@ import { initFloaters } from './floaters.js';
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+// frosted header once the page leaves the very top (see .site-header.is-stuck)
+function initHeader() {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+  const update = () => header.classList.toggle('is-stuck', window.scrollY > 24);
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+}
+initHeader();
+
 function boot() {
   const gsap = window.gsap;
   const ST = window.ScrollTrigger;
