@@ -488,7 +488,6 @@ body.nav--burger .menu-pill { display: flex !important; }
   font-size: clamp(2.8rem, 9vw, 6.5rem);
   line-height: .9;
   letter-spacing: -0.01em;
-  text-transform: uppercase;
   color: var(--ink);
   margin-bottom: 1.6rem;
 }
@@ -666,9 +665,8 @@ body.nav--burger .menu-pill { display: flex !important; }
   font-family: var(--disp);
   font-weight: 800;
   font-size: clamp(2.1rem, 5vw, 3.7rem);
-  line-height: .94;
+  line-height: 1.02; /* mixed-case needs a touch more leading than the old all-caps */
   letter-spacing: -.01em;
-  text-transform: uppercase;
   color: var(--ink);
   margin-bottom: 1.2rem;
 }
@@ -832,27 +830,6 @@ body.nav--burger .menu-pill { display: flex !important; }
 }
 .btn--pill svg { width: 18px; height: 18px; }
 .btn--pill:hover { background: var(--pink); color: #fff; transform: translateY(-2px); }
-
-/* floating candy over the story photo */
-.story-candy {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 2;
-  box-shadow: inset -4px -5px 8px rgba(0,0,0,.18), inset 3px 3px 6px rgba(255,255,255,.55), 0 12px 20px -8px rgba(40,28,70,.4);
-}
-.story-candy::after {
-  content: '';
-  position: absolute;
-  top: 16%; left: 20%;
-  width: 30%; height: 24%;
-  border-radius: 50%;
-  background: rgba(255,255,255,.75);
-  filter: blur(1px);
-}
-.story-candy--gum  { width: 34px; height: 34px; top: 14%; left: 8%;  background: radial-gradient(circle at 34% 30%, #ff8fb3, #e8437f 78%); }
-.story-candy--choc { width: 30px; height: 30px; top: 9%;  left: 40%; background: radial-gradient(circle at 34% 30%, #a9713f, #5c3410 78%); }
-.story-candy--drop { width: 20px; height: 20px; top: 26%; left: 22%; background: radial-gradient(circle at 34% 30%, #ffe07a, #f5b21f 78%); }
 
 /* === FLOATERS: unpackaged snacks drifting across every section ===
    outer .floater gets the GSAP data-parallax scroll transform; the inner img
@@ -1238,9 +1215,8 @@ body.nav--burger .menu-pill { display: flex !important; }
   max-width: 100%;
   font-family: var(--disp);
   font-weight: 800;
-  font-size: .92rem;
-  letter-spacing: .04em;
-  text-transform: uppercase;
+  font-size: .98rem;
+  letter-spacing: .02em;
   line-height: 1.15;
   color: var(--ink);
   hyphens: auto; /* Grundnahrungsmittel & Co. on narrow columns */
@@ -1360,40 +1336,40 @@ body.nav--burger .menu-pill { display: flex !important; }
 .kpi:nth-child(even) .kpi__num { color: var(--ink); }
 .kpi__label { font-family: var(--disp); font-weight: 600; font-size: .95rem; color: var(--ink-soft); }
 
-/* === E) STATS STRIP === */
-.stats { overflow: hidden; background: var(--lime); }
-/* This thin band has waves overlapping its top and bottom edges; bias the
-   padding up by half a wave so the figures optically center in the visible band.
-   (.stats.section needed to outweigh the generic .section padding.) */
-.stats.section {
-  padding-top: calc(clamp(4.5rem, 10vh, 8rem) - var(--wave-height) * 0.5);
-  padding-bottom: calc(clamp(4.5rem, 10vh, 8rem) + var(--wave-height) * 0.5);
+/* === E) TRUST BAR (rebuilt from scratch) ===
+   One painted layer: the section box itself carries the top wave via a single
+   two-part mask — the wave image over the top band and a solid rect below,
+   unioned with a 2px overlap INSIDE the same mask. No pseudo-element wave, no
+   second composited layer, so no joint that DPR/zoom rounding can open into a
+   hairline, and nothing that can stack above the floaters. The box starts one
+   wave-height above the hero's bottom edge (negative margin); everything above
+   the curve is masked away so the hero shows through. */
+.trustbar {
+  --tb-wave: clamp(56px, 6vw, 96px);
+  --section-bg: var(--section-surface-a);
+  position: relative;
+  z-index: 1; /* paints over the hero band it overlaps; the story wave still overlays its bottom */
+  overflow: hidden;
+  margin-top: calc(-1 * var(--tb-wave));
+  background: var(--section-bg);
+  padding-top: calc(clamp(4.5rem, 10vh, 8rem) + var(--tb-wave) * .5);
+  padding-bottom: calc(clamp(4.5rem, 10vh, 8rem) + var(--tb-wave) * .5);
+  pointer-events: none; /* the masked-away band must not steal clicks from the hero */
+  -webkit-mask:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 160' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0 112C162 92 268 58 444 58c180 0 250 42 416 42 186 0 252-46 418-46 78 0 122 10 162 18v88H0Z'/%3E%3C/svg%3E")
+      center top / 100% calc(var(--tb-wave) + 2px) no-repeat,
+    linear-gradient(#000, #000) left 0 top var(--tb-wave) / 100% calc(100% - var(--tb-wave)) no-repeat;
+  mask:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 160' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0 112C162 92 268 58 444 58c180 0 250 42 416 42 186 0 252-46 418-46 78 0 122 10 162 18v88H0Z'/%3E%3C/svg%3E")
+      center top / 100% calc(var(--tb-wave) + 2px) no-repeat,
+    linear-gradient(#000, #000) left 0 top var(--tb-wave) / 100% calc(100% - var(--tb-wave)) no-repeat;
 }
-/* wavy transitions: long, low lavender waves flowing into the lime band */
-.stats::before,
-.stats::after {
-  display: block;
-  content: '';
-  position: absolute;
-  left: -2%;
-  right: -2%;
-  width: 104%;
-  height: clamp(28px, 5vw, 48px);
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  z-index: 2;
-  pointer-events: none;
-}
-.stats::before {
-  top: -1px;
-  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201440%2050'%20preserveAspectRatio='none'%3E%3Cpath%20fill='%23E7E3F1'%20d='M0%200H1440V24Q1080%2044%20720%2024T0%2024Z'/%3E%3C/svg%3E");
-}
-.stats::after {
-  bottom: -1px;
-  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201440%2050'%20preserveAspectRatio='none'%3E%3Cpath%20fill='%23E7E3F1'%20d='M0%2050H1440V26Q1080%206%20720%2026T0%2026Z'/%3E%3C/svg%3E");
-}
+.trustbar .container,
+.trustbar .cs-pill { pointer-events: auto; }
+.trustbar .container { position: relative; z-index: 2; }
+/* the temporary color-switcher pill must sit below the masked-away wave band */
+.trustbar .cs-pill { top: calc(var(--tb-wave) + 10px); }
 .stats__blob { top: -30%; left: 30%; opacity: .35; }
-.stats .container { position: relative; z-index: 1; }
 .stats__lead {
   font-family: var(--disp);
   font-weight: 600;
@@ -1581,7 +1557,6 @@ body.nav--burger .menu-pill { display: flex !important; }
 /* hafif renk farkı: dalga görünür olsun ama sert görünmesin */
 .story,
 .categories,
-.stats,
 .news {
   --section-bg: var(--section-surface-a);
 }
@@ -1631,17 +1606,23 @@ body.nav--burger .menu-pill { display: flex !important; }
   top: 0;
   width: 100%;
   height: var(--wave-height);
-  transform: translateY(calc(-100% + 1px));
+  /* 2px overlap: the wave is a separately-rasterized masked layer, and with a
+     fractional 6vw height + subpixel compositing (retina/zoom) its antialiased
+     bottom row can fall outside a 1px overlap and let the page show through
+     as a hairline. Two px survive the worst-case rounding. */
+  transform: translateY(calc(-100% + 2px));
   background: var(--section-bg, #fff);
   pointer-events: none;
   z-index: 1;
 
+  /* mask is 3px taller than the box so its antialiased bottom edge lands
+     outside the painted area — the wave's bottom rows stay fully opaque */
   -webkit-mask:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 160' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0 112C162 92 268 58 444 58c180 0 250 42 416 42 186 0 252-46 418-46 78 0 122 10 162 18v88H0Z'/%3E%3C/svg%3E")
-    center top / 100% 100% no-repeat;
+    center top / 100% calc(100% + 3px) no-repeat;
   mask:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 160' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0 112C162 92 268 58 444 58c180 0 250 42 416 42 186 0 252-46 418-46 78 0 122 10 162 18v88H0Z'/%3E%3C/svg%3E")
-    center top / 100% 100% no-repeat;
+    center top / 100% calc(100% + 3px) no-repeat;
 }
 
 .section > .container {
@@ -1660,6 +1641,12 @@ body.nav--burger .menu-pill { display: flex !important; }
    brand logos and product cutouts scroll edge to edge in a continuous
    marquee (same mechanics as .logo-marquee: duplicated set + -50% loop),
    while each image keeps its gentle floater bob. */
+/* the left-aligned brands intro read smaller than the centered section heads
+   (e.g. Unsere Kunden) — give its headline and lead more presence */
+.brands .section-head--left { max-width: 52rem; }
+.brands .section-head--left .h2 { font-size: clamp(2.5rem, 5.8vw, 4.3rem); }
+.brands .section-head--left .lead { font-size: clamp(1.08rem, 1.5vw, 1.3rem); max-width: 42rem; }
+
 .brands .bh-arrow { color: var(--pink); transition: transform .25s ease; }
 .brands .btn:hover .bh-arrow { transform: translateX(4px); }
 

@@ -73,7 +73,7 @@
   const saved = load();
   const persist = () => localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
 
-  document.querySelectorAll('.section').forEach((section, i) => {
+  document.querySelectorAll('.section, .trustbar').forEach((section, i) => {
     const key = section.id || section.classList[0] || `section-${i}`;
 
     const apply = (color) => {
