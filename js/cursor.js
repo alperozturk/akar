@@ -1,8 +1,6 @@
 export function initCursor({ gsap, reduceMotion }) {
-  const header = document.querySelector('header');
-  const onScroll = () => header && header.classList.toggle('is-stuck', window.scrollY > window.innerHeight * 0.85);
-  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
-
+  // header's stuck state is owned by initHeader() in main.js — a second toggle
+  // here fought it and kept the bar transparent over the page content
   const touch = window.matchMedia('(hover: none)').matches;
   const cursor = document.querySelector('.cursor');
   if (touch || reduceMotion || !cursor) { if (cursor) cursor.style.display = 'none'; return; }

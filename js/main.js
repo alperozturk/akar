@@ -1,10 +1,10 @@
 import Lenis from './vendor/lenis.mjs';
 import { initReveals } from './reveals.js';
 import { initCounters } from './counters.js';
-import { initCursor } from './cursor.js';
+import { initCursor } from './cursor.js?v=20260722a';
 import { initHero } from './hero.js';
 import { initV2 } from './v2.js';
-import { initFloaters } from './floaters.js';
+import { initFloaters } from './floaters.js?v=20260722a';
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
