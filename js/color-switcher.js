@@ -17,6 +17,8 @@
     ['Lila pastell',  '#e7cded'],
     ['Mint',          '#c8e7e3'],
     ['Rosa pastell',  '#fea8c3'],
+    ['Puder',         '#F3DBD6'],
+    ['Rosé hell',     '#f2e6e8'],
   ];
 
   const css = `
