@@ -468,7 +468,7 @@
           <p class="eyebrow">UNSERE MARKEN</p>
           <h2 class="h2">Starke Marken.<br><span class="script-accent">Grenzenlos</span> im Handel.</h2>
           <p class="lead">Wir bringen führende Marken aus verschiedenen Kategorien in die Regale der Welt – zuverlässig, effizient und mit Leidenschaft.</p>
-          <a class="btn btn--outline" href="#sortiment">Alle Marken ansehen <span class="bh-arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn--outline" href="marken.html">Alle Marken ansehen <span class="bh-arrow" aria-hidden="true">→</span></a>
         </div>
       </div>
 
@@ -881,7 +881,9 @@
         </div>
 
         <div class="footprint__grid">
-          <div class="footprint__map" data-reveal="scale">
+          <!-- Karten-Variante A: dunkle amCharts-Karte (per `hidden` getauscht
+               gegen Variante B weiter unten) -->
+          <div class="footprint__map" data-reveal="scale" hidden>
             <svg class="eumap" viewBox="320 233 300 242" role="img" aria-label="Karte der AKAR Vertriebsstandorte in Europa">
               <path class="eumap__land" data-cc="AD" d="M395.806,485.82L393.37,486.781L392.719,484.522Z"/>
               <path class="eumap__land" data-cc="AL" d="M599.729,485.206L604.759,489.743L606.028,494.641L605.094,499.585L608.629,507.917L611.566,509.014L612.521,511.709L608.887,519.318L601.918,525.06L599.911,520.357L594.579,516.963L593.532,511.636L594.657,507.849L593.938,500.942L595.103,495.854L592.401,494.708L591.409,490.452L595.095,484.067Z"/>
@@ -944,6 +946,29 @@
               <span class="pin" style="top:71.7%;left:77.4%" tabindex="0" data-loc="wien"><b></b><i>Wien · 2.500 Paletten</i></span>
               <span class="pin" style="top:77.3%;left:50.1%" tabindex="0" data-loc="waedenswil"><b></b><i>Wädenswil</i></span>
               <span class="pin" style="top:18.5%;left:58.2%" tabindex="0" data-loc="goeteborg"><b></b><i>Göteborg</i></span>
+            </div>
+          </div>
+
+          <!-- Karten-Variante B: unverändertes iStock-Artwork (helle Karte) -->
+          <div class="footprint__map footprint__map--istock" data-reveal="scale">
+            <img class="eumap-istock" src="img/eumap-istock.webp" alt="Karte der AKAR Vertriebsstandorte in Europa" width="3852" height="3236" loading="lazy">
+            <div class="footprint__pins" data-reveal-group>
+              <span class="pin pin--hq" style="top:63.4%;left:40.0%" tabindex="0" data-loc="langenbach"><b></b><i>Langenbach (München) · Hauptsitz · 24.000 Paletten</i></span>
+              <span class="pin" style="top:57.0%;left:33.1%" tabindex="0" data-loc="koeln"><b></b><i>Köln · 1.500 Paletten</i></span>
+              <span class="pin" style="top:53.3%;left:37.0%" tabindex="0" data-loc="hannover"><b></b><i>Hannover · 1.500 Paletten</i></span>
+              <span class="pin" style="top:50.3%;left:37.4%" tabindex="0" data-loc="hamburg"><b></b><i>Hamburg · 4.000 Paletten</i></span>
+              <span class="pin" style="top:52.9%;left:42.1%" tabindex="0" data-loc="berlin"><b></b><i>Berlin · 3.000 Paletten</i></span>
+              <span class="pin" style="top:55.6%;left:33.5%" tabindex="0" data-loc="bochum"><b></b><i>Bochum · 1.700 Paletten</i></span>
+              <span class="pin" style="top:62.6%;left:36.2%" tabindex="0" data-loc="stuttgart"><b></b><i>Stuttgart · 1.100 Paletten</i></span>
+              <span class="pin" style="top:60.7%;left:35.2%" tabindex="0" data-loc="mannheim"><b></b><i>Mannheim · 2.500 Paletten</i></span>
+              <span class="pin" style="top:63.2%;left:34.5%" tabindex="0" data-loc="appenweier"><b></b><i>Appenweier · 1.100 Paletten</i></span>
+              <span class="pin" style="top:62.1%;left:25.7%" tabindex="0" data-loc="paris"><b></b><i>Paris · 3.000 Paletten</i></span>
+              <span class="pin" style="top:69.5%;left:29.6%" tabindex="0" data-loc="lyon"><b></b><i>Lyon · 1.000 Paletten</i></span>
+              <span class="pin" style="top:55.7%;left:29.2%" tabindex="0" data-loc="bruessel"><b></b><i>Brüssel · 2.500 Paletten</i></span>
+              <span class="pin" style="top:51.8%;left:28.2%" tabindex="0" data-loc="zoeterwoude"><b></b><i>Zoeterwoude · 1.100 Paletten</i></span>
+              <span class="pin" style="top:64.1%;left:46.5%" tabindex="0" data-loc="wien"><b></b><i>Wien · 2.500 Paletten</i></span>
+              <span class="pin" style="top:66.2%;left:34.5%" tabindex="0" data-loc="waedenswil"><b></b><i>Wädenswil</i></span>
+              <span class="pin" style="top:39.5%;left:41.6%" tabindex="0" data-loc="goeteborg"><b></b><i>Göteborg</i></span>
             </div>
           </div>
 

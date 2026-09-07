@@ -1265,16 +1265,13 @@ body.nav--burger .menu-pill { display: flex !important; }
 .cat-candy--choc2 { width: 20px; height: 20px; bottom: 8%; right: 8%;  left: auto; background: radial-gradient(circle at 34% 30%, #c98a52, #6b3f18 78%); }
 @media (max-width: 640px) { .cat-candy { display: none; } }
 
-/* === D) EUROPE FOOTPRINT === */
-.footprint__grid {
-  display: grid;
-  grid-template-columns: 1.15fr .85fr;
-  gap: clamp(2rem, 5vw, 4rem);
-  align-items: start;
-}
+/* === D) EUROPE FOOTPRINT ===
+   centered map card on top, country columns + KPIs below it */
+.footprint__grid { display: block; }
 .footprint__map {
   position: relative;
-  width: 100%;
+  width: min(100%, 720px);
+  margin-inline: auto;
   padding: 1.2rem;
   background: #2d2d2d; /* sea — matches the original amCharts artwork */
   border-radius: 38px;
@@ -1291,6 +1288,17 @@ body.nav--burger .menu-pill { display: flex !important; }
 .eumap__land--akar { fill: #68acb1; transition: fill .25s ease; }
 .eumap__land--akar:hover,
 .eumap__land--akar.is-hot { fill: var(--pink); }
+
+/* Variante B: unverändertes iStock-Artwork — kein dunkles Karten-Panel,
+   das Bild steht frei auf dem Sektionsgrund */
+.footprint__map--istock {
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+.eumap-istock { display: block; width: 100%; height: auto; }
+.footprint__map--istock .footprint__pins { inset: 0; }
 
 .footprint__pins { position: absolute; inset: 1.2rem; }
 .pin { position: absolute; transform: translate(-50%, -50%); }
@@ -1372,8 +1380,22 @@ body.nav--burger .menu-pill { display: flex !important; }
 }
 .legend li:nth-child(even) { background: var(--card-lime); }
 
-/* interactive Standort list — chips linked to their map pins */
-.standorte { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+/* interactive Standort list — chips linked to their map pins, laid out in
+   country columns beneath the full-width map */
+.footprint__side { margin-top: clamp(2.5rem, 6vw, 4rem); }
+.standorte {
+  /* multi-column flow: several countries stack in each column,
+     the whole block centered in the page */
+  columns: 3;
+  column-gap: 3rem;
+  max-width: 56rem;
+  margin-inline: auto;
+  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+.standorte__group {
+  break-inside: avoid;
+  margin-bottom: 1.6rem;
+}
 .standorte__country {
   font-family: var(--disp);
   font-weight: 700;
@@ -1418,7 +1440,7 @@ body.nav--burger .menu-pill { display: flex !important; }
 }
 .standorte .loc-chip:hover small, .standorte .loc-chip.is-hot small, .standorte .loc-chip:focus-visible small { color: rgba(255,255,255,.85); }
 .loc-chip--hq { box-shadow: inset 0 0 0 2px var(--pink); }
-.kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem 1.4rem; }
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.6rem 1.4rem; }
 .kpi__num {
   display: block;
   font-family: var(--disp);
@@ -1598,13 +1620,14 @@ body.nav--burger .menu-pill { display: flex !important; }
 /* === RESPONSIVE (sections) === */
 @media (max-width: 980px) {
   .values { grid-template-columns: repeat(2, 1fr); }
+  .standorte { columns: 2; }
   .cat-card { flex: 0 0 calc((100% - 3 * var(--cgap)) / 4); max-width: calc((100% - 3 * var(--cgap)) / 4); }
   .stats__grid { grid-template-columns: repeat(3, 1fr); gap: 2rem 1.5rem; }
   .realms { grid-template-columns: 1fr; }
   .footer__cols { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 860px) {
-  .story__inner, .footprint__grid { grid-template-columns: 1fr; }
+  .story__inner { grid-template-columns: 1fr; }
   .story__inner--mirror .story__copy { order: 2; }
   .story__inner--mirror .story__media { order: 1; }
   .story__media { max-width: 460px; margin-inline: auto; }
@@ -1623,6 +1646,8 @@ body.nav--burger .menu-pill { display: flex !important; }
   .cat-card { flex: 0 0 calc((100% - var(--cgap)) / 2); max-width: calc((100% - var(--cgap)) / 2); }
   .news-grid { grid-template-columns: 1fr; }
   .stats__grid { grid-template-columns: repeat(2, 1fr); gap: 2rem 1.5rem; }
+  .standorte { columns: 1; }
+  .kpis { grid-template-columns: 1fr 1fr; }
   .footer__cols { grid-template-columns: repeat(2, 1fr); }
   .footer__legal { margin-left: 0; }
   .realm { min-height: 180px; }
@@ -1804,4 +1829,195 @@ body.nav--burger .menu-pill { display: flex !important; }
 
 @media (max-width: 680px) {
   .bm-pair { --s: .68; margin-right: 1.6rem; }
+}
+
+/* === MARKEN SUBPAGE (marken.html) === */
+/* no hero here, so the page head clears the fixed header itself. Head and grid
+   share one lavender surface so their section waves vanish and the two read
+   as a single flowing canvas — no visible seam between them. */
+.marken-hero {
+  --section-bg: var(--lav);
+  padding-top: clamp(9rem, 18vh, 12rem);
+  padding-bottom: clamp(2.5rem, 5vh, 4rem);
+  overflow: hidden;
+}
+.marken-hero .section-head { max-width: 56rem; }
+
+/* three-column brand directory: pastel logo tile, name underneath.
+   No overflow clip here — it would truncate the section's own top wave to a
+   hard 2px hairline (nothing inside the grid overflows anyway). */
+.marken-grid-section {
+  --section-bg: var(--lav);
+  padding-top: 0;
+}
+/* the closing CTA steps only one shade up from the lavender grid (like the
+   story section does on the homepage), so its wave reads soft, not stark */
+.marken-grid-section + .cta { --section-bg: var(--section-surface-a); }
+.marken-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.4rem, 3vw, 2.4rem);
+}
+.marken-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .9rem;
+  text-align: center;
+  padding: 0;
+  cursor: pointer;
+  transition: transform .3s cubic-bezier(.34, 1.4, .64, 1);
+}
+.marken-tile:hover,
+.marken-tile:focus-visible { transform: translateY(-6px) rotate(-1.2deg); }
+.marken-tile:focus-visible { outline: 3px solid var(--pink); outline-offset: 6px; border-radius: 30px; }
+.marken-tile__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: #fff;
+  border-radius: 28px;
+  box-shadow: var(--shadow-card), inset 0 2px 0 rgba(255, 255, 255, .8);
+  transition: background-color .3s ease;
+}
+.marken-tile__logo img {
+  max-width: 62%;
+  max-height: 58%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 16px rgba(40, 28, 70, .14));
+}
+/* pastel wash on hover rotates through the candy palette like .brand-grid */
+.marken-grid .marken-tile:nth-child(3n+1):hover .marken-tile__logo,
+.marken-grid .marken-tile:nth-child(3n+1):focus-visible .marken-tile__logo { background: var(--card-lime); }
+.marken-grid .marken-tile:nth-child(3n+2):hover .marken-tile__logo,
+.marken-grid .marken-tile:nth-child(3n+2):focus-visible .marken-tile__logo { background: var(--card-pink); }
+.marken-grid .marken-tile:nth-child(3n+3):hover .marken-tile__logo,
+.marken-grid .marken-tile:nth-child(3n+3):focus-visible .marken-tile__logo { background: var(--card-lav); }
+.marken-tile__name {
+  font-family: var(--disp);
+  font-weight: 800;
+  font-size: 1.12rem;
+  color: var(--ink);
+  line-height: 1.15;
+}
+.marken-tile__cat {
+  display: block;
+  font-family: var(--disp);
+  font-weight: 600;
+  font-size: .8rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: .25rem;
+}
+
+/* --- brand info pop-up --- */
+.brand-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 4vw, 2.5rem);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s ease, visibility .3s;
+}
+.brand-modal.is-open { opacity: 1; visibility: visible; }
+.brand-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 20, 20, .45);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+.brand-modal__card {
+  position: relative;
+  z-index: 1;
+  width: min(680px, 100%);
+  max-height: min(86vh, 46rem);
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 32px;
+  box-shadow: var(--shadow-card);
+  padding: clamp(1.6rem, 4vw, 2.8rem);
+  transform: translateY(18px) scale(.96);
+  transition: transform .35s cubic-bezier(.34, 1.4, .64, 1);
+}
+.brand-modal.is-open .brand-modal__card { transform: translateY(0) scale(1); }
+.brand-modal__close {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.1rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: var(--lav);
+  transition: background-color .25s ease, transform .25s ease;
+}
+.brand-modal__close:hover { background: var(--card-pink); transform: rotate(90deg); }
+.brand-modal__close span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+}
+.brand-modal__close span:nth-child(1) { transform: translate(-50%, -50%) rotate(45deg); }
+.brand-modal__close span:nth-child(2) { transform: translate(-50%, -50%) rotate(-45deg); }
+.brand-modal__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: clamp(120px, 22vw, 160px);
+  background: var(--card-lav);
+  border-radius: 24px;
+  margin-bottom: 1.4rem;
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, .7);
+}
+.brand-modal__logo img {
+  max-width: 46%;
+  max-height: 62%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 14px; /* softens square-canvas logos (e.g. Nawras) */
+  filter: drop-shadow(0 10px 16px rgba(40, 28, 70, .16));
+}
+.brand-modal__title {
+  font-family: var(--disp);
+  font-weight: 800;
+  font-size: clamp(1.5rem, 3.4vw, 2rem);
+  color: var(--ink);
+  margin: .65rem 0 .35rem;
+}
+.brand-modal__meta {
+  font-family: var(--disp);
+  font-weight: 600;
+  font-size: .88rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+.brand-modal__text { color: var(--ink-soft); font-size: 1rem; }
+.brand-modal__text p + p { margin-top: .8rem; }
+
+@media (max-width: 980px) {
+  .marken-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .marken-grid { gap: 1.1rem 1rem; }
+  .marken-tile__logo { border-radius: 20px; }
+  .marken-tile__name { font-size: .98rem; }
+  .marken-tile__cat { font-size: .72rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marken-tile, .brand-modal, .brand-modal__card { transition: none; }
 }

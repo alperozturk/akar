@@ -1,7 +1,9 @@
 /* Standorte map: links the location chips, the map pins and the country
    shapes — hovering/focusing one highlights its counterpart. */
 (() => {
-  const map = document.querySelector('.footprint__map');
+  /* two map variants live in the markup (dark amCharts / light iStock);
+     bind to whichever one is not hidden */
+  const map = document.querySelector('.footprint__map:not([hidden])');
   if (!map) return;
 
   const pins = new Map(

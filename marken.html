@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Unsere Marken — AKAR GmbH</title>
+  <meta name="description" content="Die Markenwelt der AKAR GmbH: führende türkische und internationale Marken — von Ülker über Doğadan bis Almarai — für den Handel in ganz Europa." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;800&family=Pacifico&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css?v=20260820a" />
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" defer></script>
+  <script type="module" src="js/main.js?v=20260722a"></script>
+  <script defer src="js/marken.js?v=20260820a"></script>
+  <!-- TEMPORARY: client color-preview tool — remove before launch -->
+  <script defer src="js/color-switcher.js"></script>
+</head>
+<body class="nav--full">
+  <div class="cursor" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="nav__brand" aria-label="AKAR GmbH — Startseite">AKAR</a>
+
+      <!-- FULL inline mega-nav (carries the footer link structure as dropdowns) -->
+      <nav class="nav__full" aria-label="Hauptnavigation">
+        <ul class="nav__menu">
+          <li class="nav-item">
+            <a href="index.html#unternehmen" class="nav-item__trigger" aria-haspopup="true">Unternehmen</a>
+            <div class="nav-dropdown">
+              <a href="index.html#unternehmen">Über Akar</a>
+              <a href="index.html#unternehmen">Unsere Expertise</a>
+              <a href="index.html#karriere">Karriere</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="marken.html" class="nav-item__trigger" aria-haspopup="true" aria-current="page">Marken &amp; Produkte</a>
+            <div class="nav-dropdown">
+              <a href="marken.html">Marken</a>
+              <a href="index.html#sortiment">Produkte</a>
+              <a href="index.html#sortiment">Produktgruppen</a>
+              <a href="index.html#sortiment">Kataloge</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#kontakt" class="nav-item__trigger" aria-haspopup="true">Für Händler &amp; Kunden</a>
+            <div class="nav-dropdown">
+              <a href="index.html#kontakt">Für Kunden</a>
+              <a href="index.html#praesenz">Unsere Händler</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#kontakt" class="nav-item__trigger" aria-haspopup="true">Für Lieferanten</a>
+            <div class="nav-dropdown">
+              <a href="index.html#kontakt">Kontaktformular / Ansprechpartner</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#news" class="nav-item__trigger" aria-haspopup="true">Aktuelles</a>
+            <div class="nav-dropdown">
+              <a href="index.html#news">News</a>
+              <a href="index.html#news">Messe</a>
+              <a href="index.html#news">Blog</a>
+              <a href="index.html#news">Social Media</a>
+            </div>
+          </li>
+          <li class="nav-item nav-item--plain">
+            <a href="index.html#kontakt" class="nav-item__trigger">Kontakt</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- right cluster: B2B Shop CTA + burger (burger only shows in menu mode) -->
+      <div class="nav__actions">
+        <a href="index.html#kontakt" class="btn btn--fill nav__cta" data-magnetic>B2B Shop</a>
+        <button class="nav__burger menu-pill" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <button class="mobile-menu__close" type="button" aria-label="Menü schließen">
+      <span></span><span></span>
+    </button>
+    <nav class="mobile-menu__nav" aria-label="Mobile Navigation">
+      <div class="mobile-menu__cols">
+        <div class="mm-col">
+          <h4>Unternehmen</h4>
+          <a href="index.html#unternehmen">Über Akar</a>
+          <a href="index.html#unternehmen">Unsere Expertise</a>
+          <a href="index.html#karriere">Karriere</a>
+        </div>
+        <div class="mm-col">
+          <h4>Marken &amp; Produkte</h4>
+          <a href="marken.html">Marken</a>
+          <a href="index.html#sortiment">Produkte</a>
+          <a href="index.html#sortiment">Produktgruppen</a>
+          <a href="index.html#sortiment">Kataloge</a>
+        </div>
+        <div class="mm-col">
+          <h4>Für Händler &amp; Kunden</h4>
+          <a href="index.html#kontakt">Für Kunden</a>
+          <a href="index.html#praesenz">Unsere Händler</a>
+        </div>
+        <div class="mm-col">
+          <h4>Für Lieferanten</h4>
+          <a href="index.html#kontakt">Kontaktformular / Ansprechpartner</a>
+        </div>
+        <div class="mm-col">
+          <h4>Aktuelles</h4>
+          <a href="index.html#news">News</a>
+          <a href="index.html#news">Messe</a>
+          <a href="index.html#news">Blog</a>
+          <a href="index.html#news">Social Media</a>
+        </div>
+        <div class="mm-col">
+          <h4>Kontakt</h4>
+          <a href="index.html#kontakt">Kontakt aufnehmen</a>
+        </div>
+      </div>
+      <a href="index.html#kontakt" class="btn btn--fill mobile-menu__cta">B2B Shop</a>
+    </nav>
+  </div>
+
+  <!-- decorative fixed pink edge line -->
+  <span class="edge-line" aria-hidden="true"></span>
+
+  <main id="top">
+    <!-- ============ PAGE HEAD ============ -->
+    <section class="marken-hero section">
+      <span class="blob blob--mint float-shape" data-parallax="0.16" aria-hidden="true"></span>
+      <!-- kept fully inside the section: at bottom:-4% the overflow clip would
+           slice the blob dead straight along the seam to the grid -->
+      <span class="blob blob--pink float-shape float-shape--2" style="bottom:18%;" data-parallax="0.22" aria-hidden="true"></span>
+      <!-- floating snacks (see .floater in styles.css) -->
+      <span class="floater" data-parallax="0.8" style="top:24%; left:5%; width:96px; --dur:8.6s; --delay:-1.4s; --bob:9px; --tilt:6deg;" aria-hidden="true"><img src="img/snacks-images/lollipop-yupo.webp" alt="" loading="lazy"></span>
+      <span class="floater floater--md" data-parallax="-0.6" style="top:30%; right:6%; width:87px; --dur:7.4s; --delay:-3s; --bob:8px; --tilt:5deg;" aria-hidden="true"><img src="img/snacks-images/gummy-bear-red.webp" alt="" loading="lazy"></span>
+      <span class="floater floater--sm" data-parallax="0.9" style="top:70%; right:12%; width:78px; --dur:9.2s; --delay:-4.6s; --bob:8px; --tilt:7deg;" aria-hidden="true"><img src="img/snacks-images/choc-swirl-cookies.webp" alt="" loading="lazy"></span>
+      <span class="floater floater--sm" data-parallax="-0.7" style="top:74%; left:9%; width:75px; --dur:8s; --delay:-2.2s; --bob:9px; --tilt:5deg;" aria-hidden="true"><img src="img/snacks-images/gummy-drops.webp" alt="" loading="lazy"></span>
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">UNSERE MARKEN</p>
+          <h2 class="h2">Eine Markenwelt voller <span class="script-accent">Vielfalt</span>.</h2>
+          <svg class="squiggle" style="margin-inline:auto;" width="132" height="18" viewBox="0 0 132 18" fill="none" aria-hidden="true">
+            <path d="M3 11 Q 13 2 23 11 T 43 11 T 63 11 T 83 11 T 103 11 T 129 11" stroke="#fe4686" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+          <p class="lead lead--center">
+            Von traditionsreichen türkischen Klassikern bis zu internationalen Ikonen:
+            Diese Marken bringen wir in die Regale Europas. Klicken Sie auf eine Marke,
+            um mehr über ihre Geschichte zu erfahren.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BRAND DIRECTORY (3 columns) ============ -->
+    <section class="marken-grid-section section">
+      <div class="container">
+        <div class="marken-grid" data-reveal-group>
+          <button class="marken-tile" type="button" data-brand="ulker">
+            <span class="marken-tile__logo"><img src="img/markenlogos/%C3%BClker-logo.webp" alt="Ülker Logo" loading="lazy"></span>
+            <span class="marken-tile__name">Ülker<span class="marken-tile__cat">Kekse &amp; Schokolade</span></span>
+          </button>
+          <button class="marken-tile" type="button" data-brand="redbull">
+            <span class="marken-tile__logo"><img src="img/markenlogos/RedBullEnergyDrink-logo.svg.webp" alt="Red Bull Logo" loading="lazy"></span>
+            <span class="marken-tile__name">Red Bull<span class="marken-tile__cat">Energy-Drinks</span></span>
+          </button>
+          <button class="marken-tile" type="button" data-brand="kizilay">
+            <span class="marken-tile__logo"><img src="img/markenlogos/kizilay-logo.webp" alt="Kızılay Logo" loading="lazy"></span>
+            <span class="marken-tile__name">Kızılay<span class="marken-tile__cat">Mineralwasser</span></span>
+          </button>
+          <button class="marken-tile" type="button" data-brand="yupo">
+            <span class="marken-tile__logo"><img src="img/markenlogos/yupo-logo.webp" alt="Yupo Logo" loading="lazy"></span>
+            <span class="marken-tile__name">Yupo<span class="marken-tile__cat">Süßwaren</span></span>
+          </button>
+          <button class="marken-tile" type="button" data-brand="colaturka">
+            <span class="marken-tile__logo"><img src="img/markenlogos/Colaturka-logo.webp" alt="Cola Turka Logo" loading="lazy"></span>
+            <span class="marken-tile__name">Cola Turka<span class="marken-tile__cat">Erfrischungsgetränke</span></span>
+          </button>
+          <button class="marken-tile" type="button" data-brand="dogadan">
+            <span class="marken-tile__logo"><img src="img/markenlogos/dogadan%26coca-cola_company_logo.webp" alt="Doğadan Logo" loading="lazy"></span>
+            <span class="marken-tile__name">Doğadan<span class="marken-tile__cat">Tee</span></span>
+          </button>
+          <button class="marken-tile" type="button" data-brand="mis">
+            <span class="marken-tile__logo"><img src="img/markenlogos/mis-logo.png" alt="Mis Logo" loading="lazy"></span>
+            <span class="marken-tile__name">Mis<span class="marken-tile__cat">Molkereiprodukte</span></span>
+          </button>
+          <button class="marken-tile" type="button" data-brand="hane">
+            <span class="marken-tile__logo"><img src="img/markenlogos/hane-logo-cutout.png" alt="Hane Logo" loading="lazy"></span>
+            <span class="marken-tile__name">Hane<span class="marken-tile__cat">Grundnahrungsmittel</span></span>
+          </button>
+          <button class="marken-tile" type="button" data-brand="camlica">
+            <span class="marken-tile__logo"><img src="img/markenlogos/caml%C4%B1ca-logo.svg" alt="Çamlıca Logo" loading="lazy"></span>
+            <span class="marken-tile__name">Çamlıca<span class="marken-tile__cat">Erfrischungsgetränke</span></span>
+          </button>
+          <button class="marken-tile" type="button" data-brand="celebi">
+            <span class="marken-tile__logo"><img src="img/markenlogos/gourmet-celebi.webp" alt="Gourmet Çelebi Logo" loading="lazy"></span>
+            <span class="marken-tile__name">Gourmet Çelebi<span class="marken-tile__cat">Feinkost</span></span>
+          </button>
+          <button class="marken-tile" type="button" data-brand="saka">
+            <span class="marken-tile__logo"><img src="img/markenlogos/Saka-logo.webp" alt="Saka Logo" loading="lazy"></span>
+            <span class="marken-tile__name">Saka<span class="marken-tile__cat">Quellwasser</span></span>
+          </button>
+          <button class="marken-tile" type="button" data-brand="almarai">
+            <span class="marken-tile__logo"><img src="img/markenlogos/almarai.webp" alt="Almarai Logo" loading="lazy"></span>
+            <span class="marken-tile__name">Almarai<span class="marken-tile__cat">Molkerei &amp; Säfte</span></span>
+          </button>
+          <button class="marken-tile" type="button" data-brand="softline">
+            <span class="marken-tile__logo"><img src="img/markenlogos/Softline%20Fresher-Akar%20Logo-01.webp" alt="Softline Fresher Logo" loading="lazy"></span>
+            <span class="marken-tile__name">Softline Fresher<span class="marken-tile__cat">Hygiene &amp; Pflege</span></span>
+          </button>
+          <button class="marken-tile" type="button" data-brand="beyti">
+            <span class="marken-tile__logo"><img src="img/markenlogos/Beyti%20Logo_2.0-01.webp" alt="Beyti Logo" loading="lazy"></span>
+            <span class="marken-tile__name">Beyti<span class="marken-tile__cat">Säfte &amp; Molkerei</span></span>
+          </button>
+          <button class="marken-tile" type="button" data-brand="bizim">
+            <span class="marken-tile__logo"><img src="img/markenlogos/bizim%20mutfak.webp" alt="Bizim Mutfak Logo" loading="lazy"></span>
+            <span class="marken-tile__name">Bizim Mutfak<span class="marken-tile__cat">Suppen &amp; Kochhilfen</span></span>
+          </button>
+          <button class="marken-tile" type="button" data-brand="tada">
+            <span class="marken-tile__logo"><img src="img/markenlogos/tada_tamtad%C4%B1nda_logo%20(1).webp" alt="Tada Logo" loading="lazy"></span>
+            <span class="marken-tile__name">Tada<span class="marken-tile__cat">Feinkost &amp; Konserven</span></span>
+          </button>
+          <button class="marken-tile" type="button" data-brand="nawras">
+            <span class="marken-tile__logo"><img src="img/markenlogos/nawras-logo.jpg" alt="Nawras Logo" loading="lazy" style="border-radius:18px;"></span>
+            <span class="marken-tile__name">Nawras<span class="marken-tile__cat">Reis</span></span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="cta section">
+      <span class="blob blob--cream cta__blob" data-parallax="0.16" aria-hidden="true"></span>
+      <div class="container cta__inner" data-reveal>
+        <h2 class="h2 cta__title">Ihre Marke in <span class="pink">unserem Portfolio?</span></h2>
+        <p class="lead lead--center">Wir bringen starke Marken in über 15.000 Verkaufsstellen in ganz Europa.</p>
+        <div class="cta__actions">
+          <a href="index.html#kontakt" class="btn btn--fill" data-magnetic>Kontakt aufnehmen</a>
+          <a href="index.html#sortiment" class="btn btn--outline">Zum Sortiment</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <svg class="footer__map" viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path d="M120 180 q40-40 90-30 q30-30 80-10 q40-20 70 10 q50-10 60 40 q40 10 20 60 q-30 40-90 30 q-40 30-100 10 q-50 20-90-20 q-50 0-50-50 q-30-30 10-50 z
+               M620 140 q60-30 110 0 q50-10 70 40 q40 20 10 60 q10 50-50 60 q-40 40-110 20 q-60 10-80-40 q-40-20-10-70 q10-50 60-70 z
+               M760 320 q40-20 80 0 q30 20 10 50 q-30 30-70 20 q-40 0-40-40 q0-20 20-30 z" fill="rgba(14,140,132,.06)"/>
+    </svg>
+
+    <div class="container footer__inner">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <span class="footer__logo">AKAR</span>
+          <p class="footer__tag">Mit unserer Leidenschaft für das Beste.</p>
+          <p class="footer__desc">Ihr internationaler Distributions- und Lösungspartner für den Handel in ganz Europa.</p>
+        </div>
+
+        <nav class="footer__cols" aria-label="Footer-Navigation">
+          <div class="footer__col">
+            <h4>Unternehmen</h4>
+            <a href="index.html#unternehmen">Über uns</a><a href="index.html#karriere">Karriere</a><a href="index.html#praesenz">Standorte</a><a href="index.html#news">Presse</a>
+          </div>
+          <div class="footer__col">
+            <h4>Marken</h4>
+            <a href="marken.html">Markenwelt</a><a href="marken.html">Eigenmarken</a><a href="index.html#news">Neuheiten</a>
+          </div>
+          <div class="footer__col">
+            <h4>Produkte</h4>
+            <a href="index.html#sortiment">Sortiment</a><a href="index.html#sortiment">Kategorien</a><a href="index.html#kontakt">B2B Shop</a>
+          </div>
+          <div class="footer__col">
+            <h4>Distribution</h4>
+            <a href="index.html#praesenz">Logistik</a><a href="index.html#praesenz">Zoll &amp; Export</a><a href="index.html#unternehmen">Qualität</a>
+          </div>
+          <div class="footer__col">
+            <h4>Kontakt</h4>
+            <a href="index.html#kontakt">Vertrieb</a><a href="index.html#kontakt">Anfrage</a><a href="index.html#praesenz">Langenbach bei München</a>
+          </div>
+        </nav>
+      </div>
+
+      <div class="footer__bottom">
+        <div class="footer__social">
+          <a href="index.html#kontakt" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 21 11 21 14.1V21h-4v-6.1c0-1.45-.03-3.3-2-3.3-2 0-2.3 1.57-2.3 3.2V21H9z"/></svg></a>
+          <a href="index.html#kontakt" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+          <a href="index.html#kontakt" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h2.7l.4-3H13V9c0-.9.3-1.5 1.6-1.5H16V4.8C15.7 4.8 14.7 4.7 13.6 4.7 11.2 4.7 9.6 6.2 9.6 8.7V11H7v3h2.6v8z"/></svg></a>
+        </div>
+        <p class="footer__copy">© 2026 AKAR GmbH</p>
+        <p class="footer__legal"><a href="index.html#kontakt">Impressum</a> · <a href="index.html#kontakt">Datenschutz</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ BRAND INFO POP-UP ============ -->
+  <div class="brand-modal" id="brand-modal" role="dialog" aria-modal="true" aria-labelledby="brand-modal-title" aria-hidden="true">
+    <div class="brand-modal__backdrop" data-modal-close></div>
+    <div class="brand-modal__card">
+      <button class="brand-modal__close" type="button" aria-label="Pop-up schließen" data-modal-close>
+        <span></span><span></span>
+      </button>
+      <div class="brand-modal__logo"><img src="" alt="" id="brand-modal-logo"></div>
+      <span class="chip" id="brand-modal-chip"></span>
+      <h3 class="brand-modal__title" id="brand-modal-title"></h3>
+      <p class="brand-modal__meta" id="brand-modal-meta"></p>
+      <div class="brand-modal__text" id="brand-modal-text"></div>
+    </div>
+  </div>
+
+  <script>
+    // Hamburger / overlay menu. Kept inline (not in the JS module) so it works
+    // even when the module or the GSAP CDN fails to load.
+    (function () {
+      var burger = document.querySelector('.nav__burger');
+      var menu = document.querySelector('.mobile-menu');
+      var close = document.querySelector('.mobile-menu__close');
+      if (!burger || !menu) return;
+
+      var focusable = function () { return menu.querySelectorAll('a, button'); };
+
+      var open = function () {
+        menu.classList.add('is-open');
+        menu.setAttribute('aria-hidden', 'false');
+        burger.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+        requestAnimationFrame(function () { (close || focusable()[0]) && (close || focusable()[0]).focus(); });
+      };
+      var shut = function () {
+        menu.classList.remove('is-open');
+        menu.setAttribute('aria-hidden', 'true');
+        burger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        burger.focus();
+      };
+
+      // Simple focus trap while the menu is open
+      var onKeydown = function (e) {
+        if (!menu.classList.contains('is-open')) return;
+        if (e.key === 'Escape') { shut(); return; }
+        if (e.key !== 'Tab') return;
+        var items = Array.prototype.slice.call(focusable());
+        if (!items.length) return;
+        var first = items[0], last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      };
+
+      burger.addEventListener('click', open);
+      close && close.addEventListener('click', shut);
+      menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', shut); });
+      document.addEventListener('keydown', onKeydown);
+    })();
+  </script>
+</body>
+</html>
