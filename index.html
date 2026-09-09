@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;800&family=Pacifico&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=20260909j" />
+  <link rel="stylesheet" href="css/styles.css?v=20260909l" />
   <style>
     /* index2: cinematic hero — full-bleed background video, title revealed on end */
     .hero--cinematic {
@@ -151,8 +151,10 @@
             <a href="#unternehmen" class="nav-item__trigger" aria-haspopup="true">Unternehmen</a>
             <div class="nav-dropdown">
               <a href="#unternehmen">Über Akar</a>
-              <a href="#unternehmen">Unsere Expertise</a>
-              <a href="#karriere">Karriere</a>
+              <a href="#praesenz">Standorte</a>
+              <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+              <a href="#unternehmen" hidden>Unsere Expertise</a>
+              <a href="#karriere" hidden>Karriere</a>
             </div>
           </li>
           <li class="nav-item">
@@ -160,24 +162,28 @@
             <div class="nav-dropdown">
               <a href="#marken">Marken</a>
               <a href="#sortiment">Produkte</a>
-              <a href="#sortiment">Produktgruppen</a>
-              <a href="#sortiment">Kataloge</a>
+              <a href="catalog/Akar_Produktkatalog_2026.pdf" download>Katalog</a>
+              <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+              <a href="#sortiment" hidden>Produktgruppen</a>
             </div>
           </li>
-          <li class="nav-item">
-            <a href="#kontakt" class="nav-item__trigger" aria-haspopup="true">Für Händler &amp; Kunden</a>
-            <div class="nav-dropdown">
+          <li class="nav-item nav-item--plain">
+            <a href="#kunden" class="nav-item__trigger">Für Händler &amp; Kunden</a>
+            <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+            <div class="nav-dropdown" hidden>
               <a href="#kontakt">Für Kunden</a>
               <a href="#praesenz">Unsere Händler</a>
             </div>
           </li>
-          <li class="nav-item">
+          <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+          <li class="nav-item" hidden>
             <a href="#kontakt" class="nav-item__trigger" aria-haspopup="true">Für Lieferanten</a>
             <div class="nav-dropdown">
               <a href="#kontakt">Kontaktformular / Ansprechpartner</a>
             </div>
           </li>
-          <li class="nav-item">
+          <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+          <li class="nav-item" hidden>
             <a href="#news" class="nav-item__trigger" aria-haspopup="true">Aktuelles</a>
             <div class="nav-dropdown">
               <a href="#news">News</a>
@@ -211,26 +217,32 @@
         <div class="mm-col">
           <h4>Unternehmen</h4>
           <a href="#unternehmen">Über Akar</a>
-          <a href="#unternehmen">Unsere Expertise</a>
-          <a href="#karriere">Karriere</a>
+          <a href="#praesenz">Standorte</a>
+          <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+          <a href="#unternehmen" hidden>Unsere Expertise</a>
+          <a href="#karriere" hidden>Karriere</a>
         </div>
         <div class="mm-col">
           <h4>Marken &amp; Produkte</h4>
           <a href="#marken">Marken</a>
           <a href="#sortiment">Produkte</a>
-          <a href="#sortiment">Produktgruppen</a>
-          <a href="#sortiment">Kataloge</a>
+          <a href="catalog/Akar_Produktkatalog_2026.pdf" download>Katalog</a>
+          <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+          <a href="#sortiment" hidden>Produktgruppen</a>
         </div>
         <div class="mm-col">
           <h4>Für Händler &amp; Kunden</h4>
-          <a href="#kontakt">Für Kunden</a>
-          <a href="#praesenz">Unsere Händler</a>
+          <a href="#kunden">Unsere Kunden</a>
+          <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+          <a href="#praesenz" hidden>Unsere Händler</a>
         </div>
-        <div class="mm-col">
+        <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+        <div class="mm-col" hidden>
           <h4>Für Lieferanten</h4>
           <a href="#kontakt">Kontaktformular / Ansprechpartner</a>
         </div>
-        <div class="mm-col">
+        <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+        <div class="mm-col" hidden>
           <h4>Aktuelles</h4>
           <a href="#news">News</a>
           <a href="#news">Messe</a>
@@ -240,6 +252,7 @@
         <div class="mm-col">
           <h4>Kontakt</h4>
           <a href="#kontakt">Kontakt aufnehmen</a>
+          <a href="mailto:info@akar-gmbh.de">info@akar-gmbh.de</a>
         </div>
       </div>
       <a href="https://akar.shop/" class="btn btn--fill mobile-menu__cta">B2B Shop</a>
@@ -320,8 +333,9 @@
           </p>
           <p class="lead">
             Wir bringen ein Stück Heimat in den Handel und schaffen Vielfalt, die Menschen
-            zusammenbringt. Vom Import bis zur Auslieferung steht unser Team für Partnerschaft
-            auf Augenhöhe.
+            zusammenbringt. Vom Import bis zur Auslieferung von türkischen sowie
+            internationalen Lebensmitteln, Getränken &amp; Non-Food-Produkten steht unser Team
+            für Partnerschaft auf Augenhöhe.
           </p>
           <a href="#unternehmen" class="btn btn--pill" data-magnetic>Mehr über uns
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -850,7 +864,7 @@
         </ul>
 
         <div class="cat-cta" data-reveal>
-          <a href="#sortiment" class="btn btn--fill" data-magnetic>Katalog herunterladen</a>
+          <a href="catalog/Akar_Produktkatalog_2026.pdf" class="btn btn--fill" data-magnetic download>Katalog herunterladen</a>
           <a href="https://akar.shop/" class="btn btn--outline">B2B Shop</a>
         </div>
       </div>
@@ -1213,7 +1227,7 @@
       <span class="floater" data-parallax="-0.6" style="top:64%; right:6%; width:81px; --dur:7.4s; --delay:-2.4s; --bob:9px; --tilt:7deg;" aria-hidden="true"><img src="img/snacks-images/tea-bag.webp" alt="" loading="lazy"></span>
       <span class="floater floater--md" data-parallax="0.7" style="top:12%; right:16%; width:84px; --dur:8.8s; --delay:-3s; --bob:8px; --tilt:5deg;" aria-hidden="true"><img src="img/snacks-images/cracker.webp" alt="" loading="lazy"></span>
       <span class="floater floater--sm" data-parallax="-0.8" style="top:80%; left:8%; width:78px; --dur:9.6s; --delay:-4.8s; --bob:9px; --tilt:6deg;" aria-hidden="true"><img src="img/snacks-images/gummy-cola.webp" alt="" loading="lazy"></span>
-      <a href="#kontakt" class="seal seal--inline seal--top-right" aria-label="Jetzt Kontakt aufnehmen">
+      <a href="mailto:info@akar-gmbh.de" class="seal seal--inline seal--top-right" aria-label="Jetzt Kontakt aufnehmen">
         <svg class="seal__bg" viewBox="0 0 200 200" aria-hidden="true">
           <path d="M100 4 L116 18 L137 12 L146 32 L168 33 L169 55 L188 66 L181 86 L195 103 L181 119 L191 139 L171 148 L168 170 L146 168 L133 186 L114 177 L100 196 L86 177 L67 186 L54 168 L32 170 L29 148 L9 139 L19 119 L5 103 L19 86 L12 66 L31 55 L32 33 L54 32 L63 12 L84 18 Z"/>
         </svg>
@@ -1223,8 +1237,8 @@
         <h2 class="h2 cta__title">Let's build success <span class="pink">together.</span></h2>
         <p class="lead lead--center">Werden Sie Teil unseres europaweiten Vertriebsnetzes.</p>
         <div class="cta__actions">
-          <a href="#kontakt" class="btn btn--fill" data-magnetic>Kontakt aufnehmen</a>
-          <a href="#kontakt" class="btn btn--outline">Vertrieb anfragen</a>
+          <a href="mailto:info@akar-gmbh.de" class="btn btn--fill" data-magnetic>Kontakt aufnehmen</a>
+          <a href="mailto:info@akar-gmbh.de?subject=Vertriebsanfrage" class="btn btn--outline">Vertrieb anfragen</a>
         </div>
       </div>
     </section>
@@ -1249,29 +1263,39 @@
         <nav class="footer__cols" aria-label="Footer-Navigation">
           <div class="footer__col">
             <h4>Unternehmen</h4>
-            <a href="#unternehmen">Über uns</a><a href="#karriere">Karriere</a><a href="#praesenz">Standorte</a><a href="#news">Presse</a>
+            <a href="#unternehmen">Über uns</a><a href="#praesenz">Standorte</a>
+            <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+            <a href="#karriere" hidden>Karriere</a><a href="#news" hidden>Presse</a>
           </div>
           <div class="footer__col">
             <h4>Marken</h4>
-            <a href="#marken">Markenwelt</a><a href="#marken">Eigenmarken</a><a href="#news">Neuheiten</a>
+            <a href="#marken">Markenwelt</a>
+            <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+            <a href="#marken" hidden>Eigenmarken</a><a href="#news" hidden>Neuheiten</a>
           </div>
           <div class="footer__col">
             <h4>Produkte</h4>
-            <a href="#sortiment">Sortiment</a><a href="#sortiment">Kategorien</a><a href="https://akar.shop/">B2B Shop</a>
+            <a href="#sortiment">Sortiment</a><a href="catalog/Akar_Produktkatalog_2026.pdf" download>Katalog</a><a href="https://akar.shop/">B2B Shop</a>
+            <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+            <a href="#sortiment" hidden>Kategorien</a>
           </div>
-          <div class="footer__col">
+          <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+          <div class="footer__col" hidden>
             <h4>Distribution</h4>
             <a href="#praesenz">Logistik</a><a href="#praesenz">Zoll &amp; Export</a><a href="#unternehmen">Qualität</a>
           </div>
           <div class="footer__col">
             <h4>Kontakt</h4>
-            <a href="#kontakt">Vertrieb</a><a href="#kontakt">Anfrage</a><a href="#praesenz">Langenbach bei München</a>
+            <a href="mailto:info@akar-gmbh.de">info@akar-gmbh.de</a><a href="#praesenz">Langenbach bei München</a>
+            <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+            <a href="#kontakt" hidden>Vertrieb</a><a href="#kontakt" hidden>Anfrage</a>
           </div>
         </nav>
       </div>
 
       <div class="footer__bottom">
-        <div class="footer__social">
+        <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+        <div class="footer__social" hidden>
           <a href="#kontakt" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 21 11 21 14.1V21h-4v-6.1c0-1.45-.03-3.3-2-3.3-2 0-2.3 1.57-2.3 3.2V21H9z"/></svg></a>
           <a href="#kontakt" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a>
           <a href="#kontakt" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h2.7l.4-3H13V9c0-.9.3-1.5 1.6-1.5H16V4.8C15.7 4.8 14.7 4.7 13.6 4.7 11.2 4.7 9.6 6.2 9.6 8.7V11H7v3h2.6v8z"/></svg></a>

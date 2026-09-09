@@ -633,6 +633,10 @@ body.nav--burger .menu-pill { display: flex !important; }
   pointer-events: none;
 }
 
+/* hidden beats any layout display value — the nav, footer and the sections
+   that are not live yet are toggled with the attribute alone */
+[hidden] { display: none !important; }
+
 /* === SHARED SECTION PRIMITIVES (candy-kingdom) === */
 .section { position: relative; padding: clamp(4.5rem, 10vh, 8rem) 0; }
 
@@ -1647,7 +1651,9 @@ body.nav--burger .menu-pill { display: flex !important; }
 .footer__desc { color: var(--ink-soft); font-size: .95rem; max-width: 22rem; }
 .footer__cols {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  /* auto-fit so the row stays even while some columns are hidden until their
+     pages exist */
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
   gap: 1.5rem;
 }
 .footer__col h4 { font-family: var(--disp); font-size: 1.05rem; font-weight: 800; color: var(--ink); margin-bottom: .9rem; }
@@ -1692,7 +1698,6 @@ body.nav--burger .menu-pill { display: flex !important; }
   .cat-card { flex: 0 0 calc((100% - 3 * var(--cgap)) / 4); max-width: calc((100% - 3 * var(--cgap)) / 4); }
   .stats__grid { grid-template-columns: repeat(3, 1fr); gap: 2rem 1.5rem; }
   .realms { grid-template-columns: 1fr; }
-  .footer__cols { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 860px) {
   .story__inner { grid-template-columns: 1fr; }
