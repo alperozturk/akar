@@ -1,6 +1,17 @@
 /* Standorte map: links the location chips, the map pins and the country
    shapes — hovering/focusing one highlights its counterpart. */
 (() => {
+  /* country accordion: one panel per country, cities appear on click */
+  document.querySelectorAll('.standorte__group').forEach(group => {
+    const toggle = group.querySelector('.standorte__toggle');
+    if (!toggle) return;
+    toggle.addEventListener('click', () => {
+      const open = group.hasAttribute('data-open');
+      group.toggleAttribute('data-open', !open);
+      toggle.setAttribute('aria-expanded', String(!open));
+    });
+  });
+
   /* two map variants live in the markup (dark amCharts / light iStock);
      bind to whichever one is not hidden */
   const map = document.querySelector('.footprint__map:not([hidden])');

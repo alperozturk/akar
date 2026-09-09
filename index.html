@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;800&family=Pacifico&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=20260907a" />
+  <link rel="stylesheet" href="css/styles.css?v=20260909d" />
   <style>
     /* index2: cinematic hero — full-bleed background video, title revealed on end */
     .hero--cinematic {
@@ -134,7 +134,7 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" defer></script>
   <script type="module" src="js/main.js?v=20260722a"></script>
   <!-- TEMPORARY: client color-preview tool — remove before launch -->
-  <script defer src="js/standorte.js?v=20260907a"></script>
+  <script defer src="js/standorte.js?v=20260909b"></script>
   <script defer src="js/color-switcher.js"></script>
 </head>
 <body class="nav--full">
@@ -142,7 +142,7 @@
 
   <header class="site-header">
     <div class="container nav">
-      <a href="#top" class="nav__brand" aria-label="AKAR GmbH — Startseite">AKAR</a>
+      <a href="#top" class="nav__brand" aria-label="AKAR GmbH — Startseite"><img src="img/akar-logo.png" alt="AKAR GmbH"></a>
 
       <!-- FULL inline mega-nav (carries the footer link structure as dropdowns) -->
       <nav class="nav__full" aria-label="Hauptnavigation">
@@ -194,7 +194,7 @@
 
       <!-- right cluster: B2B Shop CTA + burger (burger only shows in menu mode) -->
       <div class="nav__actions">
-        <a href="#kontakt" class="btn btn--fill nav__cta" data-magnetic>B2B Shop</a>
+        <a href="https://akar.shop/" class="btn btn--fill nav__cta" data-magnetic>B2B Shop</a>
         <button class="nav__burger menu-pill" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
           <span></span><span></span><span></span>
         </button>
@@ -242,7 +242,7 @@
           <a href="#kontakt">Kontakt aufnehmen</a>
         </div>
       </div>
-      <a href="#kontakt" class="btn btn--fill mobile-menu__cta">B2B Shop</a>
+      <a href="https://akar.shop/" class="btn btn--fill mobile-menu__cta">B2B Shop</a>
     </nav>
   </div>
 
@@ -769,7 +769,7 @@
       <span class="floater floater--md" data-parallax="0.8" style="top:32%; right:2%; width:81px; --dur:8.2s; --delay:-2.4s; --bob:8px; --tilt:5deg;" aria-hidden="true"><img src="img/snacks-images/choc-marshmallow.webp" alt="" loading="lazy"></span>
       <span class="floater floater--sm" data-parallax="-0.6" style="top:82%; left:5%; width:75px; --dur:9.6s; --delay:-4.6s; --bob:9px; --tilt:6deg;" aria-hidden="true"><img src="img/snacks-images/gummy-cola.webp" alt="" loading="lazy"></span>
       <!-- lime seal sticker top-right -->
-      <a href="#kontakt" class="seal seal--inline seal--top-right seal--cta" aria-label="Zum B2B Shop">
+      <a href="https://akar.shop/" class="seal seal--inline seal--top-right seal--cta" aria-label="Zum B2B Shop">
         <svg class="seal__bg" viewBox="0 0 200 200" aria-hidden="true">
           <path d="M100 4 L116 18 L137 12 L146 32 L168 33 L169 55 L188 66 L181 86 L195 103 L181 119 L191 139 L171 148 L168 170 L146 168 L133 186 L114 177 L100 196 L86 177 L67 186 L54 168 L32 170 L29 148 L9 139 L19 119 L5 103 L19 86 L12 66 L31 55 L32 33 L54 32 L63 12 L84 18 Z"/>
         </svg>
@@ -850,8 +850,8 @@
         </ul>
 
         <div class="cat-cta" data-reveal>
-          <a href="#sortiment" class="btn btn--fill" data-magnetic>Jetzt Sortiment entdecken</a>
-          <a href="#kontakt" class="btn btn--outline">B2B Shop</a>
+          <a href="#sortiment" class="btn btn--fill" data-magnetic>Katalog herunterladen</a>
+          <a href="https://akar.shop/" class="btn btn--outline">B2B Shop</a>
         </div>
       </div>
     </section>
@@ -866,21 +866,133 @@
       <span class="floater floater--md" data-parallax="-0.8" style="top:34%; left:4%; width:84px; --dur:8.8s; --delay:-2.2s; --bob:8px; --tilt:5deg;" aria-hidden="true"><img src="img/snacks-images/gummy-fruits.webp" alt="" loading="lazy"></span>
       <span class="floater floater--sm" data-parallax="0.7" style="top:84%; right:5%; width:78px; --dur:9.8s; --delay:-4.4s; --bob:9px; --tilt:6deg;" aria-hidden="true"><img src="img/snacks-images/sandwich-cookie.webp" alt="" loading="lazy"></span>
       <div class="container">
-        <div class="section-head section-head--left" data-reveal>
-          <p class="eyebrow">Unsere Standorte</p>
-          <h2 class="h2">Starke Präsenz. <span class="teal">Europaweiter Einsatz.</span></h2>
-          <p class="lead">
-            Mit 14 Vertriebsstandorten in 7 Ländern in Europa und einer Palettenkapazität von
-            über 50.500 Einheiten gewährleisten wir eine leistungsstarke, zuverlässige und
-            skalierbare Distribution. Unser Vertriebsnetz erstreckt sich über Deutschland,
-            Frankreich, Belgien, die Niederlande, Österreich, die Schweiz und Schweden.
-            Unsere Infrastruktur ermöglicht eine effiziente Belieferung und hohe
-            Warenverfügbarkeit in unseren europäischen Absatzmärkten mit über 600 aktiven
-            Produkten.
-          </p>
-        </div>
-
         <div class="footprint__grid">
+          <div class="footprint__intro">
+            <div class="section-head section-head--left" data-reveal>
+              <p class="eyebrow">Unsere Standorte</p>
+              <h2 class="h2">Starke Präsenz. <span class="teal">Europaweiter Einsatz.</span></h2>
+              <p class="lead">
+                Mit 14 Vertriebsstandorten in 7 Ländern in Europa und einer Palettenkapazität von
+                über 50.500 Einheiten gewährleisten wir eine leistungsstarke, zuverlässige und
+                skalierbare Distribution. Unser Vertriebsnetz erstreckt sich über Deutschland,
+                Frankreich, Belgien, die Niederlande, Österreich, die Schweiz und Schweden.
+                Unsere Infrastruktur ermöglicht eine effiziente Belieferung und hohe
+                Warenverfügbarkeit in unseren europäischen Absatzmärkten mit über 600 aktiven
+                Produkten.
+              </p>
+            </div>
+
+            <div class="standorte" data-reveal>
+              <div class="standorte__group" data-cc="DE" data-open>
+                <h3 class="standorte__head">
+                  <button type="button" class="standorte__toggle" aria-expanded="true" aria-controls="standorte-de">
+                    <img class="standorte__flag" src="img/flags/de.svg" alt="" width="26" height="26" loading="lazy">
+                    <span class="standorte__country">Deutschland</span>
+                    <svg class="standorte__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                  </button>
+                </h3>
+                <div class="standorte__panel" id="standorte-de">
+                  <ul class="standorte__list">
+                    <li><button type="button" class="loc-chip loc-chip--hq" data-loc="langenbach">Langenbach (München) <small>Hauptsitz · 24.000</small></button></li>
+                    <li><button type="button" class="loc-chip" data-loc="hamburg">Hamburg <small>4.000</small></button></li>
+                    <li><button type="button" class="loc-chip" data-loc="berlin">Berlin <small>3.000</small></button></li>
+                    <li><button type="button" class="loc-chip" data-loc="mannheim">Mannheim <small>2.500</small></button></li>
+                    <li><button type="button" class="loc-chip" data-loc="bochum">Bochum <small>1.700</small></button></li>
+                    <li><button type="button" class="loc-chip" data-loc="koeln">Köln <small>1.500</small></button></li>
+                    <li><button type="button" class="loc-chip" data-loc="hannover">Hannover <small>1.500</small></button></li>
+                    <li><button type="button" class="loc-chip" data-loc="stuttgart">Stuttgart <small>1.100</small></button></li>
+                    <li><button type="button" class="loc-chip" data-loc="appenweier">Appenweier <small>1.100</small></button></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="standorte__group" data-cc="FR">
+                <h3 class="standorte__head">
+                  <button type="button" class="standorte__toggle" aria-expanded="false" aria-controls="standorte-fr">
+                    <img class="standorte__flag" src="img/flags/fr.svg" alt="" width="26" height="26" loading="lazy">
+                    <span class="standorte__country">Frankreich</span>
+                    <svg class="standorte__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                  </button>
+                </h3>
+                <div class="standorte__panel" id="standorte-fr">
+                  <ul class="standorte__list">
+                    <li><button type="button" class="loc-chip" data-loc="paris">Paris <small>3.000</small></button></li>
+                    <li><button type="button" class="loc-chip" data-loc="lyon">Lyon <small>1.000</small></button></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="standorte__group" data-cc="BE">
+                <h3 class="standorte__head">
+                  <button type="button" class="standorte__toggle" aria-expanded="false" aria-controls="standorte-be">
+                    <img class="standorte__flag" src="img/flags/be.svg" alt="" width="26" height="26" loading="lazy">
+                    <span class="standorte__country">Belgien</span>
+                    <svg class="standorte__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                  </button>
+                </h3>
+                <div class="standorte__panel" id="standorte-be">
+                  <ul class="standorte__list">
+                    <li><button type="button" class="loc-chip" data-loc="bruessel">Brüssel <small>2.500</small></button></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="standorte__group" data-cc="NL">
+                <h3 class="standorte__head">
+                  <button type="button" class="standorte__toggle" aria-expanded="false" aria-controls="standorte-nl">
+                    <img class="standorte__flag" src="img/flags/nl.svg" alt="" width="26" height="26" loading="lazy">
+                    <span class="standorte__country">Niederlande</span>
+                    <svg class="standorte__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                  </button>
+                </h3>
+                <div class="standorte__panel" id="standorte-nl">
+                  <ul class="standorte__list">
+                    <li><button type="button" class="loc-chip" data-loc="zoeterwoude">Zoeterwoude <small>1.100</small></button></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="standorte__group" data-cc="AT">
+                <h3 class="standorte__head">
+                  <button type="button" class="standorte__toggle" aria-expanded="false" aria-controls="standorte-at">
+                    <img class="standorte__flag" src="img/flags/at.svg" alt="" width="26" height="26" loading="lazy">
+                    <span class="standorte__country">Österreich</span>
+                    <svg class="standorte__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                  </button>
+                </h3>
+                <div class="standorte__panel" id="standorte-at">
+                  <ul class="standorte__list">
+                    <li><button type="button" class="loc-chip" data-loc="wien">Wien <small>2.500</small></button></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="standorte__group" data-cc="CH">
+                <h3 class="standorte__head">
+                  <button type="button" class="standorte__toggle" aria-expanded="false" aria-controls="standorte-ch">
+                    <img class="standorte__flag" src="img/flags/ch.svg" alt="" width="26" height="26" loading="lazy">
+                    <span class="standorte__country">Schweiz</span>
+                    <svg class="standorte__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                  </button>
+                </h3>
+                <div class="standorte__panel" id="standorte-ch">
+                  <ul class="standorte__list">
+                    <li><button type="button" class="loc-chip" data-loc="waedenswil">Wädenswil</button></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="standorte__group" data-cc="SE">
+                <h3 class="standorte__head">
+                  <button type="button" class="standorte__toggle" aria-expanded="false" aria-controls="standorte-se">
+                    <img class="standorte__flag" src="img/flags/se.svg" alt="" width="26" height="26" loading="lazy">
+                    <span class="standorte__country">Schweden</span>
+                    <svg class="standorte__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                  </button>
+                </h3>
+                <div class="standorte__panel" id="standorte-se">
+                  <ul class="standorte__list">
+                    <li><button type="button" class="loc-chip" data-loc="goeteborg">Göteborg</button></li>
+                  </ul>
+                </div>
+              </div>
+          </div>
+          </div>
+
           <!-- Karten-Variante A: dunkle amCharts-Karte (per `hidden` getauscht
                gegen Variante B weiter unten) -->
           <div class="footprint__map" data-reveal="scale" hidden>
@@ -971,74 +1083,20 @@
               <span class="pin" style="top:39.5%;left:41.6%" tabindex="0" data-loc="goeteborg"><b></b><i>Göteborg</i></span>
             </div>
           </div>
+        </div>
 
-          <div class="footprint__side">
-            <div class="standorte" data-reveal>
-              <div class="standorte__group" data-cc="DE">
-                <h3 class="standorte__country">Deutschland</h3>
-                <ul class="standorte__list">
-                  <li><button type="button" class="loc-chip loc-chip--hq" data-loc="langenbach">Langenbach (München) <small>Hauptsitz · 24.000</small></button></li>
-                  <li><button type="button" class="loc-chip" data-loc="hamburg">Hamburg <small>4.000</small></button></li>
-                  <li><button type="button" class="loc-chip" data-loc="berlin">Berlin <small>3.000</small></button></li>
-                  <li><button type="button" class="loc-chip" data-loc="mannheim">Mannheim <small>2.500</small></button></li>
-                  <li><button type="button" class="loc-chip" data-loc="bochum">Bochum <small>1.700</small></button></li>
-                  <li><button type="button" class="loc-chip" data-loc="koeln">Köln <small>1.500</small></button></li>
-                  <li><button type="button" class="loc-chip" data-loc="hannover">Hannover <small>1.500</small></button></li>
-                  <li><button type="button" class="loc-chip" data-loc="stuttgart">Stuttgart <small>1.100</small></button></li>
-                  <li><button type="button" class="loc-chip" data-loc="appenweier">Appenweier <small>1.100</small></button></li>
-                </ul>
-              </div>
-              <div class="standorte__group" data-cc="FR">
-                <h3 class="standorte__country">Frankreich</h3>
-                <ul class="standorte__list">
-                  <li><button type="button" class="loc-chip" data-loc="paris">Paris <small>3.000</small></button></li>
-                  <li><button type="button" class="loc-chip" data-loc="lyon">Lyon <small>1.000</small></button></li>
-                </ul>
-              </div>
-              <div class="standorte__group" data-cc="BE">
-                <h3 class="standorte__country">Belgien</h3>
-                <ul class="standorte__list">
-                  <li><button type="button" class="loc-chip" data-loc="bruessel">Brüssel <small>2.500</small></button></li>
-                </ul>
-              </div>
-              <div class="standorte__group" data-cc="NL">
-                <h3 class="standorte__country">Niederlande</h3>
-                <ul class="standorte__list">
-                  <li><button type="button" class="loc-chip" data-loc="zoeterwoude">Zoeterwoude <small>1.100</small></button></li>
-                </ul>
-              </div>
-              <div class="standorte__group" data-cc="AT">
-                <h3 class="standorte__country">Österreich</h3>
-                <ul class="standorte__list">
-                  <li><button type="button" class="loc-chip" data-loc="wien">Wien <small>2.500</small></button></li>
-                </ul>
-              </div>
-              <div class="standorte__group" data-cc="CH">
-                <h3 class="standorte__country">Schweiz</h3>
-                <ul class="standorte__list">
-                  <li><button type="button" class="loc-chip" data-loc="waedenswil">Wädenswil</button></li>
-                </ul>
-              </div>
-              <div class="standorte__group" data-cc="SE">
-                <h3 class="standorte__country">Schweden</h3>
-                <ul class="standorte__list">
-                  <li><button type="button" class="loc-chip" data-loc="goeteborg">Göteborg</button></li>
-                </ul>
-              </div>
-            </div>
-            <div class="kpis" data-reveal-group>
-              <div class="kpi"><span class="kpi__num" data-count="14">14</span><span class="kpi__label">Niederlassungen</span></div>
-              <div class="kpi"><span class="kpi__num" data-count="7">7</span><span class="kpi__label">Länder</span></div>
-              <div class="kpi"><span class="kpi__num" data-count="50500">50.500</span><span class="kpi__label">Palettenkapazität</span></div>
-              <div class="kpi"><span class="kpi__num" data-count="15000" data-suffix="+">15.000+</span><span class="kpi__label">Verkaufsstellen</span></div>
-            </div>
-          </div>
+        <div class="kpis" data-reveal-group>
+          <div class="kpi"><span class="kpi__num" data-count="7">7</span><span class="kpi__label">Länder</span></div>
+          <div class="kpi"><span class="kpi__num" data-count="14">14</span><span class="kpi__label">Niederlassungen</span></div>
+          <div class="kpi"><span class="kpi__num" data-count="50500">50.500</span><span class="kpi__label">Palettenkapazität</span></div>
+          <div class="kpi"><span class="kpi__num" data-count="15000" data-suffix="+">15.000+</span><span class="kpi__label">Verkaufsstellen</span></div>
         </div>
       </div>
     </section>
 
     <!-- ============ F) CULTURE ============ -->
-    <section id="karriere" class="culture section">
+    <!-- TEMPORARY: Kultur-Sektion ausgeblendet — `hidden` entfernen zum Reaktivieren -->
+    <section id="karriere" class="culture section" hidden>
       <!-- floating snacks (see .floater in styles.css) -->
       <span class="floater" data-parallax="0.8" style="top:8%; left:4%; width:96px; --dur:8.6s; --delay:-1.2s; --bob:9px; --tilt:6deg;" aria-hidden="true"><img src="img/snacks-images/choc-flower-cookies.webp" alt="" loading="lazy"></span>
       <span class="floater floater--md" data-parallax="1.2" style="top:14%; left:48%; width:78px; --dur:7.4s; --delay:-3.8s; --bob:8px; --tilt:5deg;" aria-hidden="true"><img src="img/snacks-images/gummy-cola.webp" alt="" loading="lazy"></span>
@@ -1098,7 +1156,8 @@
     </section>
 
     <!-- ============ G) NEWS & EVENTS ============ -->
-    <section id="news" class="news section">
+    <!-- TEMPORARY: Aktuelles-Sektion ausgeblendet — `hidden` entfernen zum Reaktivieren -->
+    <section id="news" class="news section" hidden>
       <!-- floating snacks (see .floater in styles.css) -->
       <span class="floater" data-parallax="0.9" style="top:10%; left:3%; width:90px; --dur:8.2s; --delay:-1.6s; --bob:9px; --tilt:6deg;" aria-hidden="true"><img src="img/snacks-images/sandwich-cookie.webp" alt="" loading="lazy"></span>
       <span class="floater floater--md" data-parallax="-0.7" style="top:32%; right:10%; width:81px; --dur:7.6s; --delay:-3.2s; --bob:8px; --tilt:5deg;" aria-hidden="true"><img src="img/snacks-images/cracker-flat.webp" alt="" loading="lazy"></span>
@@ -1198,7 +1257,7 @@
           </div>
           <div class="footer__col">
             <h4>Produkte</h4>
-            <a href="#sortiment">Sortiment</a><a href="#sortiment">Kategorien</a><a href="#kontakt">B2B Shop</a>
+            <a href="#sortiment">Sortiment</a><a href="#sortiment">Kategorien</a><a href="https://akar.shop/">B2B Shop</a>
           </div>
           <div class="footer__col">
             <h4>Distribution</h4>
