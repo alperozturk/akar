@@ -143,10 +143,12 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   line-height: 1;
 }
+/* the PNG is trimmed to the artwork (no transparent padding), so the whole
+   display height goes to the logo; sized to lead the header, not just sit in it */
 .nav__brand img {
   display: block;
   width: auto;
-  height: clamp(34px, 3.4vw, 46px);
+  height: clamp(40px, 4.2vw, 58px);
 }
 
 /* center menu pill (carries .nav__burger so JS still opens the overlay).
@@ -1275,14 +1277,23 @@ body.nav--burger .menu-pill { display: flex !important; }
    centered map card on top, country columns + KPIs below it */
 /* headline/copy + Standorte-Akkordeon links, Karte rechts daneben — die
    Karte fuellt so die volle Spaltenhoehe und wirkt nicht mehr verloren */
+/* heading + lead span the row; underneath, the country accordion takes one
+   narrow column so the uncut Europe artwork gets the rest of the width.
+   .footprint__intro dissolves into the grid (display: contents) so its two
+   children can be placed independently of the markup nesting. */
 .footprint__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.06fr);
-  align-items: center;
-  gap: clamp(2rem, 4.5vw, 4.5rem);
+  grid-template-columns: minmax(0, 19rem) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(1.2rem, 2.5vw, 2rem) clamp(2rem, 4vw, 3.5rem);
 }
-.footprint__intro { min-width: 0; }
-.footprint__intro .section-head--left { margin-bottom: clamp(1.8rem, 3vw, 2.6rem); }
+.footprint__intro { display: contents; }
+.footprint__intro .section-head--left { grid-column: 1 / -1; margin-bottom: clamp(.6rem, 1.5vw, 1.2rem); max-width: 46rem; }
+.footprint__intro .section-head--left .lead { max-width: 42rem; }
+/* the list is shorter than the map, whose visual mass sits mid-height, so it
+   centres vertically against it (top-aligned again once the grid stacks) */
+.footprint__intro .standorte { grid-column: 1; align-self: center; min-width: 0; margin-bottom: 0; }
+.footprint__grid .footprint__map { grid-column: 2; }
 .footprint__map {
   position: relative;
   width: 100%;
@@ -1304,9 +1315,8 @@ body.nav--burger .menu-pill { display: flex !important; }
 .eumap__land--akar:hover,
 .eumap__land--akar.is-hot { fill: var(--pink); }
 
-/* Variante B: helles Artwork, auf die AKAR-Laender zugeschnitten (siehe
-   img/eumap-europa.webp) — kein Panel, das Bild steht frei auf dem
-   Sektionsgrund */
+/* Variante B: unveraendertes helles iStock-Artwork (img/eumap-istock.webp) —
+   kein Panel, das Bild steht frei auf dem Sektionsgrund */
 .footprint__map--istock {
   padding: 0;
   background: transparent;
@@ -1477,12 +1487,12 @@ body.nav--burger .menu-pill { display: flex !important; }
   font-weight: 600;
   font-size: .8rem;
   color: var(--ink);
-  background: var(--card-pink);
-  border: 0;
+  background: #fff;
+  border: 1.5px solid var(--ink);
   padding: .34rem .8rem;
   border-radius: 999px;
   cursor: pointer;
-  transition: transform .15s ease, background .2s ease, color .2s ease;
+  transition: transform .15s ease, background .2s ease, color .2s ease, border-color .2s ease;
 }
 .loc-chip small {
   font-size: .72rem;
@@ -1492,15 +1502,16 @@ body.nav--burger .menu-pill { display: flex !important; }
 }
 .standorte .loc-chip:hover, .standorte .loc-chip.is-hot, .standorte .loc-chip:focus-visible {
   background: var(--pink);
+  border-color: var(--pink);
   color: #fff;
   transform: translateY(-2px);
 }
 .standorte .loc-chip:hover small, .standorte .loc-chip.is-hot small, .standorte .loc-chip:focus-visible small { color: rgba(255,255,255,.85); }
-.loc-chip--hq { box-shadow: inset 0 0 0 2px var(--pink); }
+.loc-chip--hq { font-weight: 800; }
 /* the next section's wave rises into this one's bottom padding — keep the
    KPI row clear of it */
 .footprint { padding-bottom: clamp(7rem, 15vh, 11rem); }
-.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.6rem 1.4rem; }
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.6rem 1.4rem; margin-top: clamp(2.5rem, 5vw, 4rem); }
 .kpi__num {
   display: block;
   font-family: var(--disp);
@@ -1694,7 +1705,10 @@ body.nav--burger .menu-pill { display: flex !important; }
 @media (max-width: 980px) {
   .values { grid-template-columns: repeat(2, 1fr); }
   .footprint__grid { grid-template-columns: 1fr; }
-  .footprint__map { max-width: 620px; margin-inline: auto; }
+  /* stacked order: heading + lead, then the map, then the country accordion */
+  .footprint__intro .section-head { order: 1; }
+  .footprint__grid .footprint__map { order: 2; grid-column: auto; max-width: 620px; width: 100%; margin-inline: auto; }
+  .footprint__intro .standorte { order: 3; grid-column: auto; align-self: auto; }
   .cat-card { flex: 0 0 calc((100% - 3 * var(--cgap)) / 4); max-width: calc((100% - 3 * var(--cgap)) / 4); }
   .stats__grid { grid-template-columns: repeat(3, 1fr); gap: 2rem 1.5rem; }
   .realms { grid-template-columns: 1fr; }
@@ -1903,6 +1917,63 @@ body.nav--burger .menu-pill { display: flex !important; }
   .bm-pair { --s: .68; margin-right: 1.6rem; }
 }
 
+/* === LEGAL PAGES (impressum.html, datenschutz.html) === */
+/* same lavender canvas as the Marken subpage: page head clears the fixed
+   header, the text sits in one white card so long legal copy stays readable */
+.legal-hero {
+  --section-bg: var(--lav);
+  padding-top: clamp(9rem, 18vh, 12rem);
+  padding-bottom: clamp(2rem, 4vh, 3rem);
+  overflow: hidden;
+}
+.legal-hero .section-head { max-width: 56rem; }
+.legal-section {
+  --section-bg: var(--lav);
+  padding-top: 0;
+}
+.legal {
+  max-width: 50rem;
+  margin-inline: auto;
+  padding: clamp(1.8rem, 5vw, 3.6rem);
+  background: var(--card);
+  border-radius: 38px;
+  box-shadow: var(--shadow-card);
+}
+.legal h2 {
+  font-family: var(--disp);
+  font-weight: 800;
+  font-size: clamp(1.3rem, 2.4vw, 1.65rem);
+  line-height: 1.2;
+  color: var(--ink);
+  margin: 2.6rem 0 .9rem;
+}
+.legal h2:first-child { margin-top: 0; }
+.legal h3 {
+  font-family: var(--disp);
+  font-weight: 700;
+  font-size: 1.08rem;
+  line-height: 1.3;
+  color: var(--ink);
+  margin: 1.7rem 0 .55rem;
+}
+.legal p, .legal li, .legal address { font-size: .97rem; line-height: 1.68; color: var(--ink-soft); }
+.legal p { margin: 0 0 .9rem; }
+.legal ul { margin: 0 0 .9rem; padding-left: 1.25rem; }
+.legal li { margin-bottom: .3rem; }
+.legal address { font-style: normal; margin: 0 0 .9rem; }
+.legal a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--pink); text-underline-offset: 3px; overflow-wrap: anywhere; }
+.legal a:hover { color: var(--pink); }
+.legal .legal__note {
+  margin-top: 2rem;
+  padding: 1rem 1.2rem;
+  border-radius: 18px;
+  background: var(--section-surface-a, #f5f1fb);
+  font-size: .88rem;
+}
+@media (max-width: 620px) {
+  .legal { border-radius: 24px; }
+}
+
 /* === MARKEN SUBPAGE (marken.html) === */
 /* no hero here, so the page head clears the fixed header itself. Head and grid
    share one lavender surface so their section waves vanish and the two read
@@ -1961,7 +2032,29 @@ body.nav--burger .menu-pill { display: flex !important; }
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 10px 16px rgba(40, 28, 70, .14));
+  transform: scale(var(--logo-scale, 1));
 }
+/* Many logo files sit in a square canvas whose artwork fills only a fraction
+   of it (Ülker: 24% of the height, Kızılay 47%, Almarai 50% …), so the shared
+   cap renders them far smaller than the wide wordmarks. --logo-scale enlarges
+   each from the centre until its visible artwork spans roughly the same width
+   as the wide logos (~62% of the tile), without touching the shared files,
+   which the homepage marquee positions with its own hand-tuned offsets. */
+.marken-tile[data-brand="ulker"]     .marken-tile__logo img { --logo-scale: 1.9; }
+.marken-tile[data-brand="kizilay"]   .marken-tile__logo img { --logo-scale: 1.8; }
+.marken-tile[data-brand="yupo"]      .marken-tile__logo img { --logo-scale: 1.8; }
+.marken-tile[data-brand="colaturka"] .marken-tile__logo img { --logo-scale: 1.5; }
+.marken-tile[data-brand="dogadan"]   .marken-tile__logo img { --logo-scale: 1.2; }
+.marken-tile[data-brand="mis"]       .marken-tile__logo img { --logo-scale: 1.8; }
+.marken-tile[data-brand="camlica"]   .marken-tile__logo img { --logo-scale: 1.4; }
+.marken-tile[data-brand="celebi"]    .marken-tile__logo img { --logo-scale: 1.35; }
+.marken-tile[data-brand="saka"]      .marken-tile__logo img { --logo-scale: 1.5; }
+.marken-tile[data-brand="almarai"]   .marken-tile__logo img { --logo-scale: 2.1; }
+.marken-tile[data-brand="softline"]  .marken-tile__logo img { --logo-scale: 1.1; }
+.marken-tile[data-brand="beyti"]     .marken-tile__logo img { --logo-scale: 1.1; }
+.marken-tile[data-brand="bizim"]     .marken-tile__logo img { --logo-scale: 1.8; }
+.marken-tile[data-brand="nawras"]    .marken-tile__logo img { --logo-scale: 1.1; }
+
 /* pastel wash on hover rotates through the candy palette like .brand-grid */
 .marken-grid .marken-tile:nth-child(3n+1):hover .marken-tile__logo,
 .marken-grid .marken-tile:nth-child(3n+1):focus-visible .marken-tile__logo { background: var(--card-lime); }

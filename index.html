@@ -5,10 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AKAR GmbH — Türkische & internationale Lebensmittel für den Handel in Europa</title>
   <meta name="description" content="AKAR GmbH — Ihr Full-Service-Partner für türkische und internationale Lebensmittel und Distribution in Europa. Über 30 Jahre Erfahrung." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;800&family=Pacifico&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=20260909l" />
+  <link rel="preload" href="fonts/montserrat-variable-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="css/fonts.css?v=20260910a" />
+  <link rel="stylesheet" href="css/styles.css?v=20260910e" />
   <style>
     /* index2: cinematic hero — full-bleed background video, title revealed on end */
     .hero--cinematic {
@@ -142,7 +141,7 @@
 
   <header class="site-header">
     <div class="container nav">
-      <a href="#top" class="nav__brand" aria-label="AKAR GmbH — Startseite"><img src="img/akar-logo.png" alt="AKAR GmbH"></a>
+      <a href="#top" class="nav__brand" aria-label="AKAR GmbH — Startseite"><img src="img/akar-logo.png?v=20260910a" alt="AKAR GmbH"></a>
 
       <!-- FULL inline mega-nav (carries the footer link structure as dropdowns) -->
       <nav class="nav__full" aria-label="Hauptnavigation">
@@ -907,15 +906,15 @@
                 </h3>
                 <div class="standorte__panel" id="standorte-de">
                   <ul class="standorte__list">
-                    <li><button type="button" class="loc-chip loc-chip--hq" data-loc="langenbach">Langenbach (München) <small>Hauptsitz · 24.000</small></button></li>
-                    <li><button type="button" class="loc-chip" data-loc="hamburg">Hamburg <small>4.000</small></button></li>
-                    <li><button type="button" class="loc-chip" data-loc="berlin">Berlin <small>3.000</small></button></li>
-                    <li><button type="button" class="loc-chip" data-loc="mannheim">Mannheim <small>2.500</small></button></li>
-                    <li><button type="button" class="loc-chip" data-loc="bochum">Bochum <small>1.700</small></button></li>
-                    <li><button type="button" class="loc-chip" data-loc="koeln">Köln <small>1.500</small></button></li>
-                    <li><button type="button" class="loc-chip" data-loc="hannover">Hannover <small>1.500</small></button></li>
-                    <li><button type="button" class="loc-chip" data-loc="stuttgart">Stuttgart <small>1.100</small></button></li>
-                    <li><button type="button" class="loc-chip" data-loc="appenweier">Appenweier <small>1.100</small></button></li>
+                    <li><button type="button" class="loc-chip loc-chip--hq" data-loc="langenbach">Langenbach (München) <small>Hauptsitz</small></button></li>
+                    <li><button type="button" class="loc-chip" data-loc="hamburg">Hamburg</button></li>
+                    <li><button type="button" class="loc-chip" data-loc="berlin">Berlin</button></li>
+                    <li><button type="button" class="loc-chip" data-loc="mannheim">Mannheim</button></li>
+                    <li><button type="button" class="loc-chip" data-loc="bochum">Bochum</button></li>
+                    <li><button type="button" class="loc-chip" data-loc="koeln">Köln</button></li>
+                    <li><button type="button" class="loc-chip" data-loc="hannover">Hannover</button></li>
+                    <li><button type="button" class="loc-chip" data-loc="stuttgart">Stuttgart</button></li>
+                    <li><button type="button" class="loc-chip" data-loc="appenweier">Appenweier</button></li>
                   </ul>
                 </div>
               </div>
@@ -929,8 +928,8 @@
                 </h3>
                 <div class="standorte__panel" id="standorte-fr">
                   <ul class="standorte__list">
-                    <li><button type="button" class="loc-chip" data-loc="paris">Paris <small>3.000</small></button></li>
-                    <li><button type="button" class="loc-chip" data-loc="lyon">Lyon <small>1.000</small></button></li>
+                    <li><button type="button" class="loc-chip" data-loc="paris">Paris</button></li>
+                    <li><button type="button" class="loc-chip" data-loc="lyon">Lyon</button></li>
                   </ul>
                 </div>
               </div>
@@ -944,7 +943,7 @@
                 </h3>
                 <div class="standorte__panel" id="standorte-be">
                   <ul class="standorte__list">
-                    <li><button type="button" class="loc-chip" data-loc="bruessel">Brüssel <small>2.500</small></button></li>
+                    <li><button type="button" class="loc-chip" data-loc="bruessel">Brüssel</button></li>
                   </ul>
                 </div>
               </div>
@@ -958,7 +957,7 @@
                 </h3>
                 <div class="standorte__panel" id="standorte-nl">
                   <ul class="standorte__list">
-                    <li><button type="button" class="loc-chip" data-loc="zoeterwoude">Zoeterwoude <small>1.100</small></button></li>
+                    <li><button type="button" class="loc-chip" data-loc="zoeterwoude">Zoeterwoude</button></li>
                   </ul>
                 </div>
               </div>
@@ -972,7 +971,7 @@
                 </h3>
                 <div class="standorte__panel" id="standorte-at">
                   <ul class="standorte__list">
-                    <li><button type="button" class="loc-chip" data-loc="wien">Wien <small>2.500</small></button></li>
+                    <li><button type="button" class="loc-chip" data-loc="wien">Wien</button></li>
                   </ul>
                 </div>
               </div>
@@ -1075,26 +1074,26 @@
             </div>
           </div>
 
-          <!-- Karten-Variante B: unverändertes iStock-Artwork (helle Karte) -->
+          <!-- Karten-Variante B: unverändertes iStock-Artwork (helle Karte, ungeschnitten) -->
           <div class="footprint__map footprint__map--istock" data-reveal="scale">
-            <img class="eumap-istock" src="img/eumap-europa.webp" alt="Karte der AKAR Vertriebsstandorte in Europa" width="1600" height="2034" loading="lazy">
+            <img class="eumap-istock" src="img/eumap-istock.webp" alt="Karte der AKAR Vertriebsstandorte in Europa" width="3852" height="3236" loading="lazy">
             <div class="footprint__pins" data-reveal-group>
-              <span class="pin pin--hq" style="top:73.5%;left:61.0%" tabindex="0" data-loc="langenbach"><b></b><i>Langenbach (München) · Hauptsitz · 24.000 Paletten</i></span>
-              <span class="pin" style="top:65.7%;left:48.3%" tabindex="0" data-loc="koeln"><b></b><i>Köln · 1.500 Paletten</i></span>
-              <span class="pin" style="top:61.2%;left:55.5%" tabindex="0" data-loc="hannover"><b></b><i>Hannover · 1.500 Paletten</i></span>
-              <span class="pin" style="top:57.6%;left:56.2%" tabindex="0" data-loc="hamburg"><b></b><i>Hamburg · 4.000 Paletten</i></span>
-              <span class="pin" style="top:60.7%;left:64.8%" tabindex="0" data-loc="berlin"><b></b><i>Berlin · 3.000 Paletten</i></span>
-              <span class="pin" style="top:64.0%;left:49.1%" tabindex="0" data-loc="bochum"><b></b><i>Bochum · 1.700 Paletten</i></span>
-              <span class="pin" style="top:72.5%;left:54.0%" tabindex="0" data-loc="stuttgart"><b></b><i>Stuttgart · 1.100 Paletten</i></span>
-              <span class="pin" style="top:70.2%;left:52.2%" tabindex="0" data-loc="mannheim"><b></b><i>Mannheim · 2.500 Paletten</i></span>
-              <span class="pin" style="top:73.2%;left:50.9%" tabindex="0" data-loc="appenweier"><b></b><i>Appenweier · 1.100 Paletten</i></span>
-              <span class="pin" style="top:71.9%;left:34.8%" tabindex="0" data-loc="paris"><b></b><i>Paris · 3.000 Paletten</i></span>
-              <span class="pin" style="top:80.9%;left:41.9%" tabindex="0" data-loc="lyon"><b></b><i>Lyon · 1.000 Paletten</i></span>
-              <span class="pin" style="top:64.1%;left:41.2%" tabindex="0" data-loc="bruessel"><b></b><i>Brüssel · 2.500 Paletten</i></span>
-              <span class="pin" style="top:59.4%;left:39.3%" tabindex="0" data-loc="zoeterwoude"><b></b><i>Zoeterwoude · 1.100 Paletten</i></span>
-              <span class="pin" style="top:74.3%;left:72.9%" tabindex="0" data-loc="wien"><b></b><i>Wien · 2.500 Paletten</i></span>
-              <span class="pin" style="top:76.9%;left:50.9%" tabindex="0" data-loc="waedenswil"><b></b><i>Wädenswil</i></span>
-              <span class="pin" style="top:44.5%;left:63.9%" tabindex="0" data-loc="goeteborg"><b></b><i>Göteborg</i></span>
+              <span class="pin pin--hq" style="top:63.4%;left:40.0%" tabindex="0" data-loc="langenbach"><b></b><i>Langenbach (München) · Hauptsitz · 24.000 Paletten</i></span>
+              <span class="pin" style="top:57.0%;left:33.1%" tabindex="0" data-loc="koeln"><b></b><i>Köln · 1.500 Paletten</i></span>
+              <span class="pin" style="top:53.3%;left:37.0%" tabindex="0" data-loc="hannover"><b></b><i>Hannover · 1.500 Paletten</i></span>
+              <span class="pin" style="top:50.3%;left:37.4%" tabindex="0" data-loc="hamburg"><b></b><i>Hamburg · 4.000 Paletten</i></span>
+              <span class="pin" style="top:52.9%;left:42.1%" tabindex="0" data-loc="berlin"><b></b><i>Berlin · 3.000 Paletten</i></span>
+              <span class="pin" style="top:55.6%;left:33.5%" tabindex="0" data-loc="bochum"><b></b><i>Bochum · 1.700 Paletten</i></span>
+              <span class="pin" style="top:62.6%;left:36.2%" tabindex="0" data-loc="stuttgart"><b></b><i>Stuttgart · 1.100 Paletten</i></span>
+              <span class="pin" style="top:60.7%;left:35.2%" tabindex="0" data-loc="mannheim"><b></b><i>Mannheim · 2.500 Paletten</i></span>
+              <span class="pin" style="top:63.2%;left:34.5%" tabindex="0" data-loc="appenweier"><b></b><i>Appenweier · 1.100 Paletten</i></span>
+              <span class="pin" style="top:62.1%;left:25.7%" tabindex="0" data-loc="paris"><b></b><i>Paris · 3.000 Paletten</i></span>
+              <span class="pin" style="top:69.5%;left:29.6%" tabindex="0" data-loc="lyon"><b></b><i>Lyon · 1.000 Paletten</i></span>
+              <span class="pin" style="top:55.7%;left:29.2%" tabindex="0" data-loc="bruessel"><b></b><i>Brüssel · 2.500 Paletten</i></span>
+              <span class="pin" style="top:51.8%;left:28.2%" tabindex="0" data-loc="zoeterwoude"><b></b><i>Zoeterwoude · 1.100 Paletten</i></span>
+              <span class="pin" style="top:64.1%;left:46.5%" tabindex="0" data-loc="wien"><b></b><i>Wien · 2.500 Paletten</i></span>
+              <span class="pin" style="top:66.2%;left:34.5%" tabindex="0" data-loc="waedenswil"><b></b><i>Wädenswil</i></span>
+              <span class="pin" style="top:39.5%;left:41.6%" tabindex="0" data-loc="goeteborg"><b></b><i>Göteborg</i></span>
             </div>
           </div>
         </div>
@@ -1301,7 +1300,7 @@
           <a href="#kontakt" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h2.7l.4-3H13V9c0-.9.3-1.5 1.6-1.5H16V4.8C15.7 4.8 14.7 4.7 13.6 4.7 11.2 4.7 9.6 6.2 9.6 8.7V11H7v3h2.6v8z"/></svg></a>
         </div>
         <p class="footer__copy">© 2026 AKAR GmbH</p>
-        <p class="footer__legal"><a href="#kontakt">Impressum</a> · <a href="#kontakt">Datenschutz</a></p>
+        <p class="footer__legal"><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p>
       </div>
     </div>
   </footer>

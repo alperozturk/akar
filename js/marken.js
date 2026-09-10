@@ -1,12 +1,12 @@
 /* Marken subpage: brand directory pop-up. Each tile carries data-brand; the
    texts live here so the grid markup stays lean. Facts researched 08/2026 —
-   for Hane, Softline Fresher and Nawras no public sources were verifiable,
+   for Hane, Softline and Nawras no public sources were verifiable,
    so their texts deliberately avoid founding years and owner claims. */
 (() => {
   const BRANDS = {
     ulker: {
       name: 'Ülker',
-      cat: 'KEKSE & SCHOKOLADE',
+      cat: 'SÜSSWAREN',
       meta: 'Istanbul, Türkei · seit 1944',
       logo: 'img/markenlogos/%C3%BClker-logo.webp',
       text: [
@@ -26,7 +26,7 @@
     },
     kizilay: {
       name: 'Kızılay',
-      cat: 'MINERALWASSER',
+      cat: 'ERFRISCHUNGSGETRÄNKE',
       meta: 'Afyonkarahisar, Türkei · seit 1926',
       logo: 'img/markenlogos/kizilay-logo.webp',
       text: [
@@ -46,7 +46,7 @@
     },
     colaturka: {
       name: 'Cola Turka',
-      cat: 'ERFRISCHUNGSGETRÄNKE',
+      cat: 'COLA',
       meta: 'Istanbul, Türkei · seit 2003',
       logo: 'img/markenlogos/Colaturka-logo.webp',
       text: [
@@ -56,7 +56,7 @@
     },
     dogadan: {
       name: 'Doğadan',
-      cat: 'TEE',
+      cat: 'TEE & MATCHA',
       meta: 'Ankara, Türkei · seit 1975',
       logo: 'img/markenlogos/dogadan%26coca-cola_company_logo.webp',
       text: [
@@ -76,7 +76,7 @@
     },
     hane: {
       name: 'Hane',
-      cat: 'GRUNDNAHRUNGSMITTEL',
+      cat: 'HÜLSENFRÜCHTE, EINGELEGTES & FEINKOST',
       meta: 'Türkei',
       logo: 'img/markenlogos/hane-logo-cutout.png',
       text: [
@@ -116,7 +116,7 @@
     },
     almarai: {
       name: 'Almarai',
-      cat: 'MOLKEREI & SÄFTE',
+      cat: 'SÄFTE',
       meta: 'Riad, Saudi-Arabien · seit 1977',
       logo: 'img/markenlogos/almarai.webp',
       text: [
@@ -125,18 +125,18 @@
       ]
     },
     softline: {
-      name: 'Softline Fresher',
+      name: 'Softline',
       cat: 'HYGIENE & PFLEGE',
       meta: 'Türkei',
       logo: 'img/markenlogos/Softline%20Fresher-Akar%20Logo-01.webp',
       text: [
-        'Softline Fresher steht für praktische Feucht- und Hygienetücher „Made in Türkiye“ — von sanften Babytüchern ohne Alkohol und Parabene bis zu erfrischenden Reinigungstüchern für unterwegs.',
-        'Hautfreundliche Rezepturen und ein fairer Preis machen Softline Fresher zum verlässlichen Alltagshelfer für die ganze Familie.'
+        'Softline steht für praktische Feucht- und Hygienetücher „Made in Türkiye“ — von sanften Babytüchern ohne Alkohol und Parabene bis zu erfrischenden Reinigungstüchern für unterwegs.',
+        'Hautfreundliche Rezepturen und ein fairer Preis machen Softline zum verlässlichen Alltagshelfer für die ganze Familie.'
       ]
     },
     beyti: {
       name: 'Beyti',
-      cat: 'SÄFTE & MOLKEREI',
+      cat: 'SÄFTE',
       meta: 'Ägypten · seit 1998',
       logo: 'img/markenlogos/Beyti%20Logo_2.0-01.webp',
       text: [
