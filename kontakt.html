@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kontakt — AKAR GmbH</title>
+  <meta name="description" content="Kontakt zur AKAR GmbH: Kontaktformular, Hauptsitz in Langenbach bei München und alle Handelspartner in Deutschland, Frankreich, Benelux, Österreich, der Schweiz und Schweden." />
+  <link rel="preload" href="fonts/montserrat-variable-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="css/fonts.css?v=20260910a" />
+  <link rel="stylesheet" href="css/styles.css?v=20260911a" />
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" defer></script>
+  <script type="module" src="js/main.js?v=20260722a"></script>
+  <script defer src="js/standorte.js?v=20260909b"></script>
+  <script defer src="js/kontakt.js?v=20260911a"></script>
+  <!-- TEMPORARY: client color-preview tool — remove before launch -->
+  <script defer src="js/color-switcher.js"></script>
+</head>
+<body class="nav--full">
+  <div class="cursor" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="nav__brand" aria-label="AKAR GmbH — Startseite"><img src="img/akar-logo.png?v=20260910a" alt="AKAR GmbH"></a>
+
+      <!-- FULL inline mega-nav (carries the footer link structure as dropdowns) -->
+      <nav class="nav__full" aria-label="Hauptnavigation">
+        <ul class="nav__menu">
+          <li class="nav-item">
+            <a href="index.html#unternehmen" class="nav-item__trigger" aria-haspopup="true">Unternehmen</a>
+            <div class="nav-dropdown">
+              <a href="index.html#unternehmen">Über Akar</a>
+              <a href="index.html#praesenz">Standorte</a>
+              <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+              <a href="index.html#unternehmen" hidden>Unsere Expertise</a>
+              <a href="index.html#karriere" hidden>Karriere</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="marken.html" class="nav-item__trigger" aria-haspopup="true">Marken &amp; Produkte</a>
+            <div class="nav-dropdown">
+              <a href="marken.html">Marken</a>
+              <a href="index.html#sortiment">Produkte</a>
+              <a href="catalog/Akar_Produktkatalog_2026.pdf" download>Katalog</a>
+              <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+              <a href="index.html#sortiment" hidden>Produktgruppen</a>
+            </div>
+          </li>
+          <li class="nav-item nav-item--plain">
+            <a href="index.html#kunden" class="nav-item__trigger">Für Händler &amp; Kunden</a>
+            <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+            <div class="nav-dropdown" hidden>
+              <a href="kontakt.html">Für Kunden</a>
+              <a href="index.html#praesenz">Unsere Händler</a>
+            </div>
+          </li>
+          <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+          <li class="nav-item" hidden>
+            <a href="kontakt.html" class="nav-item__trigger" aria-haspopup="true">Für Lieferanten</a>
+            <div class="nav-dropdown">
+              <a href="kontakt.html">Kontaktformular / Ansprechpartner</a>
+            </div>
+          </li>
+          <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+          <li class="nav-item" hidden>
+            <a href="index.html#news" class="nav-item__trigger" aria-haspopup="true">Aktuelles</a>
+            <div class="nav-dropdown">
+              <a href="index.html#news">News</a>
+              <a href="index.html#news">Messe</a>
+              <a href="index.html#news">Blog</a>
+              <a href="index.html#news">Social Media</a>
+            </div>
+          </li>
+          <li class="nav-item nav-item--plain">
+            <a href="kontakt.html" class="nav-item__trigger">Kontakt</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- right cluster: B2B Shop CTA + burger (burger only shows in menu mode) -->
+      <div class="nav__actions">
+        <a href="https://akar.shop/" class="btn btn--fill nav__cta" data-magnetic>B2B Shop</a>
+        <button class="nav__burger menu-pill" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <button class="mobile-menu__close" type="button" aria-label="Menü schließen">
+      <span></span><span></span>
+    </button>
+    <nav class="mobile-menu__nav" aria-label="Mobile Navigation">
+      <div class="mobile-menu__cols">
+        <div class="mm-col">
+          <h4>Unternehmen</h4>
+          <a href="index.html#unternehmen">Über Akar</a>
+          <a href="index.html#praesenz">Standorte</a>
+          <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+          <a href="index.html#unternehmen" hidden>Unsere Expertise</a>
+          <a href="index.html#karriere" hidden>Karriere</a>
+        </div>
+        <div class="mm-col">
+          <h4>Marken &amp; Produkte</h4>
+          <a href="marken.html">Marken</a>
+          <a href="index.html#sortiment">Produkte</a>
+          <a href="catalog/Akar_Produktkatalog_2026.pdf" download>Katalog</a>
+          <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+          <a href="index.html#sortiment" hidden>Produktgruppen</a>
+        </div>
+        <div class="mm-col">
+          <h4>Für Händler &amp; Kunden</h4>
+          <a href="index.html#kunden">Unsere Kunden</a>
+          <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+          <a href="index.html#praesenz" hidden>Unsere Händler</a>
+        </div>
+        <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+        <div class="mm-col" hidden>
+          <h4>Für Lieferanten</h4>
+          <a href="kontakt.html">Kontaktformular / Ansprechpartner</a>
+        </div>
+        <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+        <div class="mm-col" hidden>
+          <h4>Aktuelles</h4>
+          <a href="index.html#news">News</a>
+          <a href="index.html#news">Messe</a>
+          <a href="index.html#news">Blog</a>
+          <a href="index.html#news">Social Media</a>
+        </div>
+        <div class="mm-col">
+          <h4>Kontakt</h4>
+          <a href="kontakt.html">Kontakt aufnehmen</a>
+          <a href="mailto:info@akar-gmbh.de">info@akar-gmbh.de</a>
+        </div>
+      </div>
+      <a href="https://akar.shop/" class="btn btn--fill mobile-menu__cta">B2B Shop</a>
+    </nav>
+  </div>
+
+  <!-- decorative fixed pink edge line -->
+  <span class="edge-line" aria-hidden="true"></span>
+
+  <main id="top">
+    <!-- ============ PAGE HEAD ============ -->
+    <section class="kontakt-hero section">
+      <span class="blob blob--mint float-shape" data-parallax="0.16" aria-hidden="true"></span>
+      <span class="blob blob--pink float-shape float-shape--2" style="bottom:18%;" data-parallax="0.22" aria-hidden="true"></span>
+      <!-- floating snacks (see .floater in styles.css) -->
+      <span class="floater" data-parallax="0.8" style="top:26%; left:5%; width:96px; --dur:8.6s; --delay:-1.4s; --bob:9px; --tilt:6deg;" aria-hidden="true"><img src="img/snacks-images/lollipop-yupo.webp" alt="" loading="lazy"></span>
+      <span class="floater floater--md" data-parallax="-0.6" style="top:30%; right:6%; width:87px; --dur:7.4s; --delay:-3s; --bob:8px; --tilt:5deg;" aria-hidden="true"><img src="img/snacks-images/gummy-bear-red.webp" alt="" loading="lazy"></span>
+      <span class="floater floater--sm" data-parallax="0.9" style="top:72%; right:12%; width:78px; --dur:9.2s; --delay:-4.6s; --bob:8px; --tilt:7deg;" aria-hidden="true"><img src="img/snacks-images/choc-swirl-cookies.webp" alt="" loading="lazy"></span>
+      <span class="floater floater--sm" data-parallax="-0.7" style="top:76%; left:9%; width:75px; --dur:8s; --delay:-2.2s; --bob:9px; --tilt:5deg;" aria-hidden="true"><img src="img/snacks-images/gummy-drops.webp" alt="" loading="lazy"></span>
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">KONTAKT</p>
+          <h1 class="h2">Wir freuen uns auf <span class="pink">Ihre Nachricht.</span></h1>
+          <svg class="squiggle" style="margin-inline:auto;" width="132" height="18" viewBox="0 0 132 18" fill="none" aria-hidden="true">
+            <path d="M3 11 Q 13 2 23 11 T 43 11 T 63 11 T 83 11 T 103 11 T 129 11" stroke="#fe4686" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+          <p class="lead lead--center">
+            Sie haben Fragen oder Anregungen? Schreiben Sie uns über das Kontaktformular
+            oder wenden Sie sich direkt an unseren Hauptsitz in Langenbach bei München.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ KONTAKTFORMULAR + HAUPTSITZ ============ -->
+    <section id="formular" class="kontakt-section section">
+      <div class="container">
+        <div class="kontakt-grid">
+          <div class="kontakt-card" data-reveal>
+            <h2 class="kontakt-card__title">Kontaktformular</h2>
+            <p class="kontakt-card__text">Hier können Sie uns eine Nachricht schicken. Felder mit <abbr title="Pflichtfeld">*</abbr> sind Pflichtfelder.</p>
+
+            <!-- Statische Seite (GitHub Pages): ohne Backend öffnet der Versand
+                 eine vorausgefüllte E-Mail an info@akar-gmbh.de. Sobald ein
+                 Formular-Endpunkt existiert (z. B. Formspree), dessen URL in
+                 data-endpoint eintragen — js/kontakt.js sendet dann per fetch. -->
+            <form class="form" id="kontakt-form" action="mailto:info@akar-gmbh.de" method="post" data-endpoint="" novalidate>
+              <div class="form__field form__field--full">
+                <label class="form__label" for="f-anliegen">Ihr Anliegen <abbr title="Pflichtfeld">*</abbr></label>
+                <select class="form__input" id="f-anliegen" name="anliegen" required>
+                  <option value="" selected disabled>Bitte wählen Sie Ihr Anliegen</option>
+                  <option>Geschäftsanfrage</option>
+                  <option>Bewerbung</option>
+                  <option>Beschwerde/Anregung</option>
+                  <option>Sonstiges</option>
+                </select>
+              </div>
+              <div class="form__field form__field--full">
+                <label class="form__label" for="f-firma">Firma</label>
+                <input class="form__input" id="f-firma" name="firma" type="text" autocomplete="organization">
+              </div>
+              <div class="form__field">
+                <label class="form__label" for="f-name">Name <abbr title="Pflichtfeld">*</abbr></label>
+                <input class="form__input" id="f-name" name="name" type="text" autocomplete="family-name" required>
+              </div>
+              <div class="form__field">
+                <label class="form__label" for="f-vorname">Vorname</label>
+                <input class="form__input" id="f-vorname" name="vorname" type="text" autocomplete="given-name">
+              </div>
+              <div class="form__field">
+                <label class="form__label" for="f-telefon">Telefon</label>
+                <input class="form__input" id="f-telefon" name="telefon" type="tel" autocomplete="tel">
+              </div>
+              <div class="form__field">
+                <label class="form__label" for="f-email">E-Mail <abbr title="Pflichtfeld">*</abbr></label>
+                <input class="form__input" id="f-email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <div class="form__field form__field--plz">
+                <label class="form__label" for="f-plz">PLZ <abbr title="Pflichtfeld">*</abbr></label>
+                <input class="form__input" id="f-plz" name="plz" type="text" inputmode="numeric" autocomplete="postal-code" required>
+              </div>
+              <div class="form__field form__field--ort">
+                <label class="form__label" for="f-ort">Ort <abbr title="Pflichtfeld">*</abbr></label>
+                <input class="form__input" id="f-ort" name="ort" type="text" autocomplete="address-level2" required>
+              </div>
+              <div class="form__field form__field--full">
+                <label class="form__label" for="f-nachricht">Ihre Nachricht <abbr title="Pflichtfeld">*</abbr></label>
+                <textarea class="form__input" id="f-nachricht" name="nachricht" rows="6" required></textarea>
+              </div>
+              <div class="form__field form__field--full">
+                <label class="form__check">
+                  <input type="checkbox" name="datenschutz" required>
+                  <span>Ja, ich erkläre mich mit der <a href="datenschutz.html">Datenschutzerklärung</a> einverstanden und stimme der Verarbeitung meiner Daten zur Bearbeitung meiner Anfrage zu. <abbr title="Pflichtfeld">*</abbr></span>
+                </label>
+              </div>
+              <p class="form__status" role="status" aria-live="polite" hidden></p>
+              <div class="form__actions">
+                <button type="submit" class="btn btn--fill" data-magnetic>Nachricht senden</button>
+                <p class="form__hint">Oder direkt per E-Mail an <a href="mailto:info@akar-gmbh.de">info@akar-gmbh.de</a></p>
+              </div>
+            </form>
+          </div>
+
+          <aside class="kontakt-info" data-reveal>
+            <p class="eyebrow">Hauptsitz</p>
+            <h2 class="kontakt-info__title">Akar GmbH</h2>
+            <dl class="kontakt-info__list">
+              <div class="kontakt-info__row">
+                <dt>Anschrift</dt>
+                <dd><address>Am Logistik Park 3<br>85416 Langenbach<br>Deutschland</address></dd>
+              </div>
+              <div class="kontakt-info__row">
+                <dt>Telefon</dt>
+                <dd><a href="tel:+4987617226350">+49 8761 722 635 0</a></dd>
+              </div>
+              <div class="kontakt-info__row">
+                <dt>Fax</dt>
+                <dd>+49 8761 722 635 93</dd>
+              </div>
+              <div class="kontakt-info__row">
+                <dt>E-Mail</dt>
+                <dd><a href="mailto:info@akar-gmbh.de">info@akar-gmbh.de</a></dd>
+              </div>
+            </dl>
+            <div class="kontakt-info__actions">
+              <a href="https://www.google.com/maps/search/?api=1&amp;query=Akar+GmbH+Am+Logistik+Park+3+85416+Langenbach" class="btn btn--outline" target="_blank" rel="noopener">Anfahrt</a>
+              <a href="https://akar.shop/" class="btn btn--pill">B2B Shop</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HANDELSPARTNER (Länder-Akkordeon wie auf der Startseite) ============ -->
+    <section id="handelspartner" class="partner-section section">
+      <span class="blob blob--cream float-shape" style="top:auto; bottom:6%; right:-6%;" data-parallax="0.14" aria-hidden="true"></span>
+      <!-- floating snacks (see .floater in styles.css) -->
+      <span class="floater floater--md" data-parallax="0.9" style="top:8%; right:8%; width:84px; --dur:8.8s; --delay:-3s; --bob:8px; --tilt:5deg;" aria-hidden="true"><img src="img/snacks-images/cracker.webp" alt="" loading="lazy"></span>
+      <span class="floater floater--sm" data-parallax="-0.7" style="top:52%; left:3%; width:75px; --dur:9.6s; --delay:-4.8s; --bob:9px; --tilt:6deg;" aria-hidden="true"><img src="img/snacks-images/gummy-cola.webp" alt="" loading="lazy"></span>
+      <div class="container">
+        <div class="section-head section-head--left" data-reveal>
+          <p class="eyebrow">Handelspartner</p>
+          <h2 class="h2">Unsere Partner <span class="pink">vor Ort.</span></h2>
+          <p class="lead">
+            In sieben Ländern Europas sind wir mit eigenen Gesellschaften und starken
+            Handelspartnern für Sie da. Wählen Sie Ihr Land, um die Ansprechpartner zu sehen.
+          </p>
+        </div>
+
+        <div class="standorte standorte--partners" data-reveal>
+              <div class="standorte__group" data-cc="DE" data-open>
+                <h3 class="standorte__head">
+                  <button type="button" class="standorte__toggle" aria-expanded="true" aria-controls="partner-de">
+                    <img class="standorte__flag" src="img/flags/de.svg" alt="" width="26" height="26" loading="lazy">
+                    <span class="standorte__country">Deutschland</span>
+                    <span class="standorte__count">7</span>
+                    <svg class="standorte__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                  </button>
+                </h3>
+                <div class="standorte__panel" id="partner-de">
+                  <ul class="standorte__partners">
+                    <li class="partner">
+                      <strong class="partner__name">Akar Bayern GmbH</strong>
+                      <address class="partner__addr">Am Logistik Park 3<br>85416 Langenbach<br>Deutschland</address>
+                      <div class="partner__links"><a href="tel:+49876172263510"><span>Tel</span>+49 8761 722 635 10</a><span class="partner__fax"><span>Fax</span>+49 8761 722 635 96</span></div>
+                    </li>
+                    <li class="partner">
+                      <strong class="partner__name">Akar NRW GmbH</strong>
+                      <address class="partner__addr">Bergmannstr. 43a<br>44809 Bochum<br>Deutschland</address>
+                      <div class="partner__links"><a href="tel:+492345840140"><span>Tel</span>+49 234 584 014 0</a><span class="partner__fax"><span>Fax</span>+49 234 584 014 29</span></div>
+                    </li>
+                    <li class="partner">
+                      <strong class="partner__name">AKSA Handels GmbH</strong>
+                      <address class="partner__addr">Wattstraße 25<br>68199 Mannheim<br>Deutschland</address>
+                      <div class="partner__links"><a href="tel:+4962181902070"><span>Tel</span>+49 621 819 020 70</a><span class="partner__fax"><span>Fax</span>+49 6241 97 38 67</span></div>
+                    </li>
+                    <li class="partner">
+                      <strong class="partner__name">Eroglu GmbH</strong>
+                      <address class="partner__addr">Hofener Weg 15<br>71686 Remseck am Neckar<br>Deutschland</address>
+                      <div class="partner__links"><a href="tel:+4971469922990"><span>Tel</span>+49 7146 99 22 990</a><span class="partner__fax"><span>Fax</span>+49 7154 99 22 991</span></div>
+                    </li>
+                    <li class="partner">
+                      <strong class="partner__name">Fedek GmbH</strong>
+                      <address class="partner__addr">Gretelriede 71<br>30419 Hannover<br>Deutschland</address>
+                      <div class="partner__links"><a href="tel:+495115344390"><span>Tel</span>+49 511 53 44 390</a><span class="partner__fax"><span>Fax</span>+49 511 53 44 391</span></div>
+                    </li>
+                    <li class="partner">
+                      <strong class="partner__name">Lider Süsswaren GmbH</strong>
+                      <address class="partner__addr">Charlottenstr. 72–78<br>51149 Köln<br>Deutschland</address>
+                      <div class="partner__links"><a href="tel:+4922031838327"><span>Tel</span>+49 220 318 383 27</a><span class="partner__fax"><span>Fax</span>+49 220 318 383 17</span></div>
+                    </li>
+                    <li class="partner">
+                      <strong class="partner__name">Pascha Süsswaren e.K.</strong>
+                      <address class="partner__addr">Holzhauser Straße 180<br>13509 Berlin<br>Deutschland</address>
+                      <div class="partner__links"><a href="tel:+493047305515"><span>Tel</span>+49 30 473 055 15</a><span class="partner__fax"><span>Fax</span>+49 30 473 055 14</span></div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="standorte__group" data-cc="FR">
+                <h3 class="standorte__head">
+                  <button type="button" class="standorte__toggle" aria-expanded="false" aria-controls="partner-fr">
+                    <img class="standorte__flag" src="img/flags/fr.svg" alt="" width="26" height="26" loading="lazy">
+                    <span class="standorte__country">Frankreich</span>
+                    <span class="standorte__count">4</span>
+                    <svg class="standorte__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                  </button>
+                </h3>
+                <div class="standorte__panel" id="partner-fr">
+                  <ul class="standorte__partners">
+                    <li class="partner">
+                      <strong class="partner__name">Akar France GmbH</strong>
+                      <address class="partner__addr">Ludwig-Winter-Straße 11<br>77767 Appenweier<br>Deutschland</address>
+                      <div class="partner__links"><a href="tel:+4978059139725"><span>Tel</span>+49 7805 913 972 5</a><span class="partner__fax"><span>Fax</span>+49 7805 913 972 7</span></div>
+                    </li>
+                    <li class="partner">
+                      <strong class="partner__name">Akar Nord France</strong>
+                      <address class="partner__addr">51 Rue du Commandant Rolland<br>93350 Le Bourget<br>Frankreich</address>
+                      <div class="partner__links"><a href="tel:+33972845724"><span>Tel</span>+33 972 845 724</a></div>
+                    </li>
+                    <li class="partner">
+                      <strong class="partner__name">Akar Sud France</strong>
+                      <address class="partner__addr">70 Rue de la Juffarde<br>01360 Balan<br>Frankreich</address>
+                      <div class="partner__links"><a href="tel:+33474983753"><span>Tel</span>+33 474 98 37 53</a><span class="partner__fax"><span>Fax</span>+33 981 709 385</span></div>
+                    </li>
+                    <li class="partner">
+                      <strong class="partner__name">Firat Food</strong>
+                      <address class="partner__addr">75 Avenue du Bois de la Pie<br>Zone Paris Nord 2<br>95700 Roissy-en-France<br>Frankreich</address>
+                      <div class="partner__links"><a href="tel:+33149987979"><span>Tel</span>+33 149 987 979</a><span class="partner__fax"><span>Fax</span>+33 149 987 980</span></div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="standorte__group" data-cc="BE">
+                <h3 class="standorte__head">
+                  <button type="button" class="standorte__toggle" aria-expanded="false" aria-controls="partner-be">
+                    <img class="standorte__flag" src="img/flags/be.svg" alt="" width="26" height="26" loading="lazy">
+                    <span class="standorte__country">Belgien</span>
+                    <span class="standorte__count">2</span>
+                    <svg class="standorte__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                  </button>
+                </h3>
+                <div class="standorte__panel" id="partner-be">
+                  <ul class="standorte__partners">
+                    <li class="partner">
+                      <strong class="partner__name">Akar Benelux B.V.</strong>
+                      <address class="partner__addr">Industriestraat 3<br>1910 Kampenhout<br>Belgien</address>
+                      <div class="partner__links"><a href="tel:+32471661262"><span>Tel</span>+32 471 66 12 62</a><a href="tel:+32470646093"><span>Tel</span>+32 470 64 60 93</a><a href="mailto:infoBE@akar-group.com"><span>E-Mail</span>infoBE@akar-group.com</a></div>
+                    </li>
+                    <li class="partner">
+                      <strong class="partner__name">Ilhan Food S.A.</strong>
+                      <address class="partner__addr">Rue Saint Laurent 7<br>7170 Manage<br>Belgien</address>
+                      <div class="partner__links"><a href="tel:+3216166913"><span>Tel</span>+32 161 669 13</a><span class="partner__fax"><span>Fax</span>+32 161 669 13 99</span></div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="standorte__group" data-cc="NL">
+                <h3 class="standorte__head">
+                  <button type="button" class="standorte__toggle" aria-expanded="false" aria-controls="partner-nl">
+                    <img class="standorte__flag" src="img/flags/nl.svg" alt="" width="26" height="26" loading="lazy">
+                    <span class="standorte__country">Niederlande</span>
+                    <span class="standorte__count">1</span>
+                    <svg class="standorte__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                  </button>
+                </h3>
+                <div class="standorte__panel" id="partner-nl">
+                  <ul class="standorte__partners">
+                    <li class="partner">
+                      <strong class="partner__name">Akar Benelux B.V.</strong>
+                      <address class="partner__addr">Produktieweg 16<br>2382 PB Zoeterwoude<br>Niederlande</address>
+                      <div class="partner__links"><a href="tel:+31715238609"><span>Tel</span>+31 715 238 609</a><span class="partner__fax"><span>Fax</span>+31 715 416 028</span></div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="standorte__group" data-cc="AT">
+                <h3 class="standorte__head">
+                  <button type="button" class="standorte__toggle" aria-expanded="false" aria-controls="partner-at">
+                    <img class="standorte__flag" src="img/flags/at.svg" alt="" width="26" height="26" loading="lazy">
+                    <span class="standorte__country">Österreich</span>
+                    <span class="standorte__count">1</span>
+                    <svg class="standorte__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                  </button>
+                </h3>
+                <div class="standorte__panel" id="partner-at">
+                  <ul class="standorte__partners">
+                    <li class="partner">
+                      <strong class="partner__name">MMS Akar Handels GmbH</strong>
+                      <address class="partner__addr">Schemmerlstraße 66<br>1110 Wien<br>Österreich</address>
+                      <div class="partner__links"><a href="tel:+4317674886"><span>Tel</span>+43 176 748 86</a></div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="standorte__group" data-cc="CH">
+                <!-- akar-gmbh.de/kontakt nennt für die Schweiz nur Firma und Ort — Anschrift/Telefon bitte nachtragen. -->
+                <h3 class="standorte__head">
+                  <button type="button" class="standorte__toggle" aria-expanded="false" aria-controls="partner-ch">
+                    <img class="standorte__flag" src="img/flags/ch.svg" alt="" width="26" height="26" loading="lazy">
+                    <span class="standorte__country">Schweiz</span>
+                    <span class="standorte__count">1</span>
+                    <svg class="standorte__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                  </button>
+                </h3>
+                <div class="standorte__panel" id="partner-ch">
+                  <ul class="standorte__partners">
+                    <li class="partner">
+                      <strong class="partner__name">BAK San GmbH</strong>
+                      <address class="partner__addr">Regensdorf<br>Schweiz</address>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="standorte__group" data-cc="SE">
+                <h3 class="standorte__head">
+                  <button type="button" class="standorte__toggle" aria-expanded="false" aria-controls="partner-se">
+                    <img class="standorte__flag" src="img/flags/se.svg" alt="" width="26" height="26" loading="lazy">
+                    <span class="standorte__country">Schweden</span>
+                    <span class="standorte__count">1</span>
+                    <svg class="standorte__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                  </button>
+                </h3>
+                <div class="standorte__panel" id="partner-se">
+                  <ul class="standorte__partners">
+                    <li class="partner">
+                      <strong class="partner__name">Turk Food Sweden AB</strong>
+                      <address class="partner__addr">Grönsaksgatan 9<br>411 04 Göteborg<br>Schweden</address>
+                      <div class="partner__links"><a href="tel:+46762768786"><span>Tel</span>+46 762 768 786</a><span class="partner__fax"><span>Fax</span>+46 315 287 15</span></div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <svg class="footer__map" viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path d="M120 180 q40-40 90-30 q30-30 80-10 q40-20 70 10 q50-10 60 40 q40 10 20 60 q-30 40-90 30 q-40 30-100 10 q-50 20-90-20 q-50 0-50-50 q-30-30 10-50 z
+               M620 140 q60-30 110 0 q50-10 70 40 q40 20 10 60 q10 50-50 60 q-40 40-110 20 q-60 10-80-40 q-40-20-10-70 q10-50 60-70 z
+               M760 320 q40-20 80 0 q30 20 10 50 q-30 30-70 20 q-40 0-40-40 q0-20 20-30 z" fill="rgba(14,140,132,.06)"/>
+    </svg>
+
+    <div class="container footer__inner">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <span class="footer__logo">AKAR</span>
+          <p class="footer__tag">Mit unserer Leidenschaft für das Beste.</p>
+          <p class="footer__desc">Ihr internationaler Distributions- und Lösungspartner für den Handel in ganz Europa.</p>
+        </div>
+
+        <nav class="footer__cols" aria-label="Footer-Navigation">
+          <div class="footer__col">
+            <h4>Unternehmen</h4>
+            <a href="index.html#unternehmen">Über uns</a><a href="index.html#praesenz">Standorte</a>
+            <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+            <a href="index.html#karriere" hidden>Karriere</a><a href="index.html#news" hidden>Presse</a>
+          </div>
+          <div class="footer__col">
+            <h4>Marken</h4>
+            <a href="marken.html">Markenwelt</a>
+            <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+            <a href="marken.html" hidden>Eigenmarken</a><a href="index.html#news" hidden>Neuheiten</a>
+          </div>
+          <div class="footer__col">
+            <h4>Produkte</h4>
+            <a href="index.html#sortiment">Sortiment</a><a href="catalog/Akar_Produktkatalog_2026.pdf" download>Katalog</a><a href="https://akar.shop/">B2B Shop</a>
+            <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+            <a href="index.html#sortiment" hidden>Kategorien</a>
+          </div>
+          <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+          <div class="footer__col" hidden>
+            <h4>Distribution</h4>
+            <a href="index.html#praesenz">Logistik</a><a href="index.html#praesenz">Zoll &amp; Export</a><a href="index.html#unternehmen">Qualität</a>
+          </div>
+          <div class="footer__col">
+            <h4>Kontakt</h4>
+            <a href="kontakt.html">Kontaktformular</a><a href="mailto:info@akar-gmbh.de">info@akar-gmbh.de</a><a href="index.html#praesenz">Langenbach bei München</a>
+            <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+            <a href="kontakt.html" hidden>Vertrieb</a><a href="kontakt.html" hidden>Anfrage</a>
+          </div>
+        </nav>
+      </div>
+
+      <div class="footer__bottom">
+        <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+        <div class="footer__social" hidden>
+          <a href="kontakt.html" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 21 11 21 14.1V21h-4v-6.1c0-1.45-.03-3.3-2-3.3-2 0-2.3 1.57-2.3 3.2V21H9z"/></svg></a>
+          <a href="kontakt.html" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a>
+          <a href="kontakt.html" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h2.7l.4-3H13V9c0-.9.3-1.5 1.6-1.5H16V4.8C15.7 4.8 14.7 4.7 13.6 4.7 11.2 4.7 9.6 6.2 9.6 8.7V11H7v3h2.6v8z"/></svg></a>
+        </div>
+        <p class="footer__copy">© 2026 AKAR GmbH</p>
+        <p class="footer__legal"><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger / overlay menu. Kept inline (not in the JS module) so it works
+    // even when the module or the GSAP CDN fails to load.
+    (function () {
+      var burger = document.querySelector('.nav__burger');
+      var menu = document.querySelector('.mobile-menu');
+      var close = document.querySelector('.mobile-menu__close');
+      if (!burger || !menu) return;
+
+      var focusable = function () { return menu.querySelectorAll('a, button'); };
+
+      var open = function () {
+        menu.classList.add('is-open');
+        menu.setAttribute('aria-hidden', 'false');
+        burger.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+        requestAnimationFrame(function () { (close || focusable()[0]) && (close || focusable()[0]).focus(); });
+      };
+      var shut = function () {
+        menu.classList.remove('is-open');
+        menu.setAttribute('aria-hidden', 'true');
+        burger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        burger.focus();
+      };
+
+      // Simple focus trap while the menu is open
+      var onKeydown = function (e) {
+        if (!menu.classList.contains('is-open')) return;
+        if (e.key === 'Escape') { shut(); return; }
+        if (e.key !== 'Tab') return;
+        var items = Array.prototype.slice.call(focusable());
+        if (!items.length) return;
+        var first = items[0], last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      };
+
+      burger.addEventListener('click', open);
+      close && close.addEventListener('click', shut);
+      menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', shut); });
+      document.addEventListener('keydown', onKeydown);
+    })();
+  </script>
+</body>
+</html>
