@@ -11,7 +11,17 @@
       logo: 'img/markenlogos/%C3%BClker-logo.webp',
       text: [
         'Ülker ist der größte Keks- und Schokoladenhersteller der Türkei — 1944 in Istanbul von Sabri Ülker gegründet und heute Teil der Yıldız Holding, zu der international auch Godiva und McVitie’s gehören.',
-        'Kultprodukte wie Biskrem, Halley, Albeni und Çokokrem begleiten in der Türkei ganze Generationen und werden in über 100 Länder exportiert. Für viele Familien ist Ülker schlicht der Geschmack der Kindheit.'
+        'Kultprodukte wie Biskrem, Halley, Albeni und Çokokrem begleiten in der Türkei ganze Generationen und werden in über 100 Länder exportiert. Für viele Familien ist Ülker schlicht der Geschmack der Kindheit.',
+        {
+          heading: 'Untermarken von Ülker',
+          items: [
+            '8Kek', 'Albeni', 'Alpella', 'Altınbaşak', 'Bebe Bisküvi', 'Biskrem', 'Café Crown',
+            'Çikolatalı Gofret', 'Çizi', 'Clip', 'Çokokrem', 'Çokomel', 'Çokonat', 'Çokoprens',
+            'Dankek', 'Dido', 'Halley', 'Hanımeller', 'Haylayf', 'Hobby', 'İkram', 'Kremalı',
+            'Laviva', 'Magma', "O'lala", 'Oneo', 'Peki', 'Probis', 'Rondo', 'Rulokat',
+            'Saklıköy', 'Yıldız'
+          ]
+        }
       ]
     },
     redbull: {
@@ -197,10 +207,28 @@
     title.textContent = b.name;
     meta.textContent = b.meta;
     text.innerHTML = '';
+    /* entries are plain paragraphs, or { heading, items } for a sub-brand list */
     b.text.forEach((t) => {
-      const p = document.createElement('p');
-      p.textContent = t;
-      text.appendChild(p);
+      if (typeof t === 'string') {
+        const p = document.createElement('p');
+        p.textContent = t;
+        text.appendChild(p);
+        return;
+      }
+      if (t.heading) {
+        const h = document.createElement('p');
+        h.className = 'brand-modal__list-head';
+        h.textContent = t.heading;
+        text.appendChild(h);
+      }
+      const ul = document.createElement('ul');
+      ul.className = 'brand-modal__list';
+      (t.items || []).forEach((name) => {
+        const li = document.createElement('li');
+        li.textContent = name;
+        ul.appendChild(li);
+      });
+      text.appendChild(ul);
     });
     lastFocus = document.activeElement;
     modal.classList.add('is-open');

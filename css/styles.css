@@ -2398,6 +2398,41 @@ select.form__input:invalid { color: rgba(20,20,20,.5); }
 }
 .brand-modal__text { color: var(--ink-soft); font-size: 1rem; }
 .brand-modal__text p + p { margin-top: .8rem; }
+/* sub-brand list inside the pop-up (e.g. Ülker's Untermarken) */
+.brand-modal__list-head {
+  margin-top: 1.2rem !important;
+  font-family: var(--disp);
+  font-weight: 700;
+  font-size: .78rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.brand-modal__list {
+  columns: 3;
+  column-gap: 1.2rem;
+  list-style: none;
+  margin: .5rem 0 0;
+  padding: 0;
+  font-size: .93rem;
+  line-height: 1.5;
+}
+.brand-modal__list li {
+  break-inside: avoid;
+  padding: .12rem 0 .12rem .95rem;
+  position: relative;
+}
+.brand-modal__list li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: .72em;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--pink);
+}
+@media (max-width: 620px) {
+  .brand-modal__list { columns: 2; }
+}
 
 @media (max-width: 980px) {
   .marken-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
