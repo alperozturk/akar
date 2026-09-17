@@ -134,6 +134,7 @@
   <script type="module" src="js/main.js?v=20260722a"></script>
   <!-- TEMPORARY: client color-preview tool — remove before launch -->
   <script defer src="js/standorte.js?v=20260909b"></script>
+  <script defer src="js/kunden.js?v=20260917a"></script>
   <script defer src="js/color-switcher.js"></script>
 </head>
 <body class="nav--full">
@@ -389,25 +390,26 @@
       <span class="floater floater--sm" data-parallax="1" style="top:70%; left:40%; width:75px; --dur:10s; --delay:-5.5s; --bob:10px; --tilt:6deg;" aria-hidden="true"><img src="img/snacks-images/tea-bag.webp" alt="" loading="lazy"></span>
       <span class="floater floater--md" data-parallax="0.9" style="top:36%; left:3%; width:84px; --dur:8.6s; --delay:-2s; --bob:8px; --tilt:5deg;" aria-hidden="true"><img src="img/snacks-images/choc-eclair.webp" alt="" loading="lazy"></span>
       <span class="floater floater--sm" data-parallax="-0.7" style="top:94%; right:6%; width:78px; --dur:9.2s; --delay:-4.8s; --bob:9px; --tilt:6deg;" aria-hidden="true"><img src="img/snacks-images/gummy-worm.webp" alt="" loading="lazy"></span>
-      <div class="container customers__inner">
-        <div class="customers__copy" data-reveal>
-          <p class="eyebrow">UNSERE KUNDEN</p>
-          <h2 class="h2">Der <span class="script-accent">Nr. 1</span> Partner für den türkischen FMCG-Einzelhandel.</h2>
-          <p class="lead">
-            Die AKAR GmbH mit Sitz nähe München ist ein international tätiger
-            Distributions- und Lösungspartner im FMCG-Sektor. Mit über 30 Jahren
-            Erfahrung, einem europaweiten Vertriebsnetz und einer klaren Leidenschaft
-            für Qualität gehört AKAR zu den führenden Anbietern im internationalen
-            Lebensmittelhandel.
-          </p>
-          <a href="#kontakt" class="btn btn--pill" data-magnetic>Mehr erfahren
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-        </div>
-
-        <div class="customers__media" data-reveal="scale">
-          <div class="customers__photo" role="img" aria-label="Supermarktregale voller Markenprodukte"></div>
-          <div class="customers__stats">
+      <div class="container">
+        <!-- one card: white copy panel on the left dissolving into the shelf
+             photo, three stat cards floating over the photo -->
+        <div class="cust-card" data-reveal="scale">
+          <div class="cust-card__copy">
+            <p class="cust-card__eyebrow">Unsere Kunden</p>
+            <h2 class="h2 cust-card__title">Der <span class="script-accent">Nr. 1</span> Partner für den türkischen FMCG-Einzelhandel.</h2>
+            <p class="cust-card__lead">
+              Die AKAR GmbH mit Sitz nähe München ist ein international tätiger
+              Distributions- und Lösungspartner im FMCG-Sektor. Mit über 30 Jahren
+              Erfahrung, einem europaweiten Vertriebsnetz und einer klaren Leidenschaft
+              für Qualität gehört AKAR zu den führenden Anbietern im internationalen
+              Lebensmittelhandel.
+            </p>
+            <a href="#kontakt" class="btn btn--pill" data-magnetic>Mehr erfahren
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+          <div class="cust-card__photo" role="img" aria-label="Supermarktregale voller Markenprodukte"></div>
+          <div class="cust-card__stats">
             <div class="cust-stat">
               <span class="cust-stat__icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h2l1.6 9.3a1.5 1.5 0 0 0 1.5 1.2h7.7a1.5 1.5 0 0 0 1.5-1.2L21 8H7"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
@@ -431,47 +433,38 @@
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="logo-marquee" data-reveal>
-        <div class="logo-marquee__track">
-          <!-- set A -->
-            <span class="wordmark wordmark--logo"><img src="img/supermarkt-logos/Edeka-Logo.png" alt="Edeka" loading="lazy"></span>
-            <span class="wordmark wordmark--logo"><img src="img/supermarkt-logos/Logo_REWE.svg.webp" alt="Rewe" loading="lazy"></span>
-            <span class="wordmark wordmark--logo"><img src="img/supermarkt-logos/Lidl-Logo.svg.webp" alt="Lidl" loading="lazy"></span>
-            <span class="wordmark wordmark--logo wordmark--logo-crop"><img src="img/supermarkt-logos/netto-online-de-20559.png" alt="Netto" loading="lazy"></span>
-            <span class="wordmark wordmark--logo"><img src="img/supermarkt-logos/Kaufland_201x_logo-trans.png" alt="Kaufland" loading="lazy"></span>
-            <span class="wordmark wordmark--logo"><img src="img/supermarkt-logos/Norma_Logo.svg.webp" alt="Norma" loading="lazy"></span>
-            <span class="wordmark wordmark--logo wordmark--logo-crop-sm"><img src="img/supermarkt-logos/Globus.png" alt="Globus" loading="lazy"></span>
-            <span class="wordmark wordmark--logo wordmark--logo-crop-xl"><img src="img/supermarkt-logos/V-Markt.png" alt="V-Markt" loading="lazy"></span>
-            <span class="wordmark wordmark--logo wordmark--logo-crop-xl"><img src="img/supermarkt-logos/MCS_Partner_Bartels-Langness_Neumuenster-trans.png" alt="Bartels-Langness" loading="lazy"></span>
-            <span class="wordmark wordmark--logo"><img src="img/supermarkt-logos/HITHandelsgruppe.svg" alt="HIT Handelsgruppe" loading="lazy"></span>
-            <span class="wordmark wordmark--logo"><img src="img/supermarkt-logos/MIX_Markt_Logo.svg.webp" alt="Mix Markt" loading="lazy"></span>
-            <span class="wordmark wordmark--logo"><img src="img/supermarkt-logos/utz_lebensmittel-trans.png" alt="Utz" loading="lazy"></span>
-            <span class="wordmark wordmark--logo"><img src="img/supermarkt-logos/geho-logo.png" alt="GEHO" loading="lazy"></span>
-            <span class="wordmark wordmark--logo"><img src="img/supermarkt-logos/Picnic_logo-trans.png" alt="Picnic" loading="lazy"></span>
-            <span class="wordmark wordmark--logo"><img src="img/supermarkt-logos/Dallmayr_3D-Logo_CE.png" alt="Dallmayr" loading="lazy"></span>
-            <span class="wordmark wordmark--logo"><img src="img/supermarkt-logos/Logo_selgros_2024.svg.webp" alt="Selgros" loading="lazy"></span>
-          <!-- set B: duplicate for a seamless continuous loop -->
-            <span class="wordmark wordmark--logo" aria-hidden="true"><img src="img/supermarkt-logos/Edeka-Logo.png" alt="" loading="lazy"></span>
-            <span class="wordmark wordmark--logo" aria-hidden="true"><img src="img/supermarkt-logos/Logo_REWE.svg.webp" alt="" loading="lazy"></span>
-            <span class="wordmark wordmark--logo" aria-hidden="true"><img src="img/supermarkt-logos/Lidl-Logo.svg.webp" alt="" loading="lazy"></span>
-            <span class="wordmark wordmark--logo wordmark--logo-crop" aria-hidden="true"><img src="img/supermarkt-logos/netto-online-de-20559.png" alt="" loading="lazy"></span>
-            <span class="wordmark wordmark--logo" aria-hidden="true"><img src="img/supermarkt-logos/Kaufland_201x_logo-trans.png" alt="" loading="lazy"></span>
-            <span class="wordmark wordmark--logo" aria-hidden="true"><img src="img/supermarkt-logos/Norma_Logo.svg.webp" alt="" loading="lazy"></span>
-            <span class="wordmark wordmark--logo wordmark--logo-crop-sm" aria-hidden="true"><img src="img/supermarkt-logos/Globus.png" alt="" loading="lazy"></span>
-            <span class="wordmark wordmark--logo wordmark--logo-crop-xl" aria-hidden="true"><img src="img/supermarkt-logos/V-Markt.png" alt="" loading="lazy"></span>
-            <span class="wordmark wordmark--logo wordmark--logo-crop-xl" aria-hidden="true"><img src="img/supermarkt-logos/MCS_Partner_Bartels-Langness_Neumuenster-trans.png" alt="" loading="lazy"></span>
-            <span class="wordmark wordmark--logo" aria-hidden="true"><img src="img/supermarkt-logos/HITHandelsgruppe.svg" alt="" loading="lazy"></span>
-            <span class="wordmark wordmark--logo" aria-hidden="true"><img src="img/supermarkt-logos/MIX_Markt_Logo.svg.webp" alt="" loading="lazy"></span>
-            <span class="wordmark wordmark--logo" aria-hidden="true"><img src="img/supermarkt-logos/utz_lebensmittel-trans.png" alt="" loading="lazy"></span>
-            <span class="wordmark wordmark--logo" aria-hidden="true"><img src="img/supermarkt-logos/geho-logo.png" alt="" loading="lazy"></span>
-            <span class="wordmark wordmark--logo" aria-hidden="true"><img src="img/supermarkt-logos/Picnic_logo-trans.png" alt="" loading="lazy"></span>
-            <span class="wordmark wordmark--logo" aria-hidden="true"><img src="img/supermarkt-logos/Dallmayr_3D-Logo_CE.png" alt="" loading="lazy"></span>
-            <span class="wordmark wordmark--logo" aria-hidden="true"><img src="img/supermarkt-logos/Logo_selgros_2024.svg.webp" alt="" loading="lazy"></span>
+        <!-- partner logos: paged row with arrows (see js/kunden.js) -->
+        <div class="logo-carousel" data-reveal>
+          <button class="logo-carousel__arrow" type="button" data-dir="-1" aria-label="Vorherige Partner anzeigen">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+          </button>
+          <div class="logo-carousel__viewport">
+            <ul class="logo-carousel__track" aria-label="Handelspartner">
+            <li class="logo-carousel__item"><img src="img/supermarkt-logos/Edeka-Logo.png" alt="Edeka" loading="lazy"></li>
+            <li class="logo-carousel__item"><img src="img/supermarkt-logos/Logo_REWE.svg.webp" alt="Rewe" loading="lazy"></li>
+            <li class="logo-carousel__item"><img src="img/supermarkt-logos/Lidl-Logo.svg.webp" alt="Lidl" loading="lazy"></li>
+            <li class="logo-carousel__item logo-carousel__item--crop"><img src="img/supermarkt-logos/netto-online-de-20559.png" alt="Netto" loading="lazy"></li>
+            <li class="logo-carousel__item"><img src="img/supermarkt-logos/Kaufland_201x_logo-trans.png" alt="Kaufland" loading="lazy"></li>
+            <li class="logo-carousel__item"><img src="img/supermarkt-logos/Norma_Logo.svg.webp" alt="Norma" loading="lazy"></li>
+            <li class="logo-carousel__item logo-carousel__item--crop-sm"><img src="img/supermarkt-logos/Globus.png" alt="Globus" loading="lazy"></li>
+            <li class="logo-carousel__item logo-carousel__item--crop-xl"><img src="img/supermarkt-logos/V-Markt.png" alt="V-Markt" loading="lazy"></li>
+            <li class="logo-carousel__item logo-carousel__item--crop-xl"><img src="img/supermarkt-logos/MCS_Partner_Bartels-Langness_Neumuenster-trans.png" alt="Bartels-Langness" loading="lazy"></li>
+            <li class="logo-carousel__item"><img src="img/supermarkt-logos/HITHandelsgruppe.svg" alt="HIT Handelsgruppe" loading="lazy"></li>
+            <li class="logo-carousel__item"><img src="img/supermarkt-logos/MIX_Markt_Logo.svg.webp" alt="Mix Markt" loading="lazy"></li>
+            <li class="logo-carousel__item"><img src="img/supermarkt-logos/utz_lebensmittel-trans.png" alt="Utz" loading="lazy"></li>
+            <li class="logo-carousel__item"><img src="img/supermarkt-logos/geho-logo.png" alt="GEHO" loading="lazy"></li>
+            <li class="logo-carousel__item"><img src="img/supermarkt-logos/Picnic_logo-trans.png" alt="Picnic" loading="lazy"></li>
+            <li class="logo-carousel__item"><img src="img/supermarkt-logos/Dallmayr_3D-Logo_CE.png" alt="Dallmayr" loading="lazy"></li>
+            <li class="logo-carousel__item"><img src="img/supermarkt-logos/Logo_selgros_2024.svg.webp" alt="Selgros" loading="lazy"></li>
+            </ul>
+          </div>
+          <button class="logo-carousel__arrow" type="button" data-dir="1" aria-label="Weitere Partner anzeigen">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
         </div>
+        <p class="logo-marquee__note"><span aria-hidden="true">✳</span> Und viele weitere Partner in ganz Europa <span aria-hidden="true">✳</span></p>
       </div>
-      <p class="logo-marquee__note"><span aria-hidden="true">✳</span> Und viele weitere Partner in ganz Europa <span aria-hidden="true">✳</span></p>
     </section>
 
     <!-- ============ B) BRANDS — logo & product marquee ============ -->
@@ -522,7 +515,7 @@
             <span class="bm-prod" style="--pw:108px; --dur:9.6s; --delay:-1.4s;"><img src="img/markenlogos/hane-bulgur.webp" alt="Hane Iri Bulgur grob, 1 kg" loading="lazy"></span>
           </span>
           <span class="bm-pair" style="--dur:9.8s; --delay:-3.6s;">
-            <span class="bm-logo" style="--lw:112px; --crop:-8px;"><img src="img/markenlogos/caml%C4%B1ca-logo.svg" alt="Ülker Çamlıca" loading="lazy"></span>
+            <span class="bm-logo" style="--lw:112px; --crop:-8px;"><img src="img/markenlogos/camlica-logo.webp" alt="Ülker Çamlıca" loading="lazy"></span>
             <span class="bm-prod" style="--pw:150px; --dur:8.5s; --delay:-5.8s;"><img src="img/markenlogos/Camlica.webp" alt="Çamlıca Gazoz 1,5-Liter-Flasche" loading="lazy"></span>
           </span>
           <span class="bm-pair" style="--dur:9.3s; --delay:-3s;">
@@ -590,7 +583,7 @@
             <span class="bm-prod" style="--pw:108px; --dur:9.6s; --delay:-1.4s;"><img src="img/markenlogos/hane-bulgur.webp" alt="" loading="lazy"></span>
           </span>
           <span class="bm-pair" style="--dur:9.8s; --delay:-3.6s;" aria-hidden="true">
-            <span class="bm-logo" style="--lw:112px; --crop:-8px;"><img src="img/markenlogos/caml%C4%B1ca-logo.svg" alt="" loading="lazy"></span>
+            <span class="bm-logo" style="--lw:112px; --crop:-8px;"><img src="img/markenlogos/camlica-logo.webp" alt="" loading="lazy"></span>
             <span class="bm-prod" style="--pw:150px; --dur:8.5s; --delay:-5.8s;"><img src="img/markenlogos/Camlica.webp" alt="" loading="lazy"></span>
           </span>
           <span class="bm-pair" style="--dur:9.3s; --delay:-3s;" aria-hidden="true">
@@ -659,7 +652,7 @@
             <span class="bm-prod" style="--pw:108px; --dur:9.6s; --delay:-1.4s;"><img src="img/markenlogos/hane-bulgur.webp" alt="" loading="lazy"></span>
           </span>
           <span class="bm-pair" style="--dur:9.8s; --delay:-3.6s;" aria-hidden="true">
-            <span class="bm-logo" style="--lw:112px; --crop:-8px;"><img src="img/markenlogos/caml%C4%B1ca-logo.svg" alt="" loading="lazy"></span>
+            <span class="bm-logo" style="--lw:112px; --crop:-8px;"><img src="img/markenlogos/camlica-logo.webp" alt="" loading="lazy"></span>
             <span class="bm-prod" style="--pw:150px; --dur:8.5s; --delay:-5.8s;"><img src="img/markenlogos/Camlica.webp" alt="" loading="lazy"></span>
           </span>
           <span class="bm-pair" style="--dur:9.3s; --delay:-3s;" aria-hidden="true">
@@ -727,7 +720,7 @@
             <span class="bm-prod" style="--pw:108px; --dur:9.6s; --delay:-1.4s;"><img src="img/markenlogos/hane-bulgur.webp" alt="" loading="lazy"></span>
           </span>
           <span class="bm-pair" style="--dur:9.8s; --delay:-3.6s;" aria-hidden="true">
-            <span class="bm-logo" style="--lw:112px; --crop:-8px;"><img src="img/markenlogos/caml%C4%B1ca-logo.svg" alt="" loading="lazy"></span>
+            <span class="bm-logo" style="--lw:112px; --crop:-8px;"><img src="img/markenlogos/camlica-logo.webp" alt="" loading="lazy"></span>
             <span class="bm-prod" style="--pw:150px; --dur:8.5s; --delay:-5.8s;"><img src="img/markenlogos/Camlica.webp" alt="" loading="lazy"></span>
           </span>
           <span class="bm-pair" style="--dur:9.3s; --delay:-3s;" aria-hidden="true">

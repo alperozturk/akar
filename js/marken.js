@@ -1,5 +1,5 @@
 /* Marken subpage: brand directory pop-up. Each tile carries data-brand; the
-   texts live here so the grid markup stays lean. Facts researched 08/2026 —
+   texts live here so the grid markup stays lean. Facts researched 08/2026 (Halk … Piyale 09/2026) —
    for Hane, Softline and Nawras no public sources were verifiable,
    so their texts deliberately avoid founding years and owner claims. */
 (() => {
@@ -98,7 +98,7 @@
       name: 'Çamlıca',
       cat: 'ERFRISCHUNGSGETRÄNKE',
       meta: 'Istanbul, Türkei · seit 1946',
-      logo: 'img/markenlogos/caml%C4%B1ca-logo.svg',
+      logo: 'img/markenlogos/camlica-logo.webp',
       text: [
         'Çamlıca ist die Gazoz-Legende Istanbuls: 1946 in Kadıköy gegründet und nach dem gleichnamigen Stadtteil benannt, war sie die erste Gazoz-Produktion der Stadt.',
         'Die klare, feinperlige Zitronenlimonade war das Kultgetränk der 1950er- und 60er-Jahre — und schmeckt bis heute nach Sommer am Bosporus. Heute gehört die Marke zu DyDo Drinco.'
@@ -182,6 +182,76 @@
       text: [
         'Nawras steht für feinsten, extra langkörnigen Basmati-Reis — locker, duftend und wie gemacht für Pilav, Biryani und die orientalische Küche.',
         'Sorgfältig ausgewählte Ernten und gleichbleibende Kornqualität machen Nawras zur ersten Wahl für alle, die beim Reis keine Kompromisse machen.'
+      ]
+    },
+    halk: {
+      name: 'Halk',
+      cat: 'KEKSE, KUCHEN & MILCHGETRÄNKE',
+      meta: 'Türkei · eine Marke der Yıldız Holding',
+      logo: 'img/markenlogos/halk-logo.webp',
+      text: [
+        'Halk ist die Alltagsmarke aus der Ülker-Familie: Petit-Beurre-Kekse, Muffins und Salzstangen aus der Keksstadt Karaman sowie Kakao-, Erdbeer- und Bananenmilch für die kleine Pause.',
+        'Verlässliche Qualität zum fairen Preis — Halk bringt den vertrauten Geschmack der Yıldız-Marken in die Brotdose, ohne das Haushaltsbudget zu strapazieren.'
+      ]
+    },
+    karsa: {
+      name: 'Karsa',
+      cat: 'KEKSE & WAFFELN',
+      meta: 'Karaman, Türkei · seit 1985',
+      logo: 'img/markenlogos/karsa-logo.webp',
+      text: [
+        'Karsa kommt aus Karaman, der Keks-Hauptstadt der Türkei: 1985 gegründet, gehört der Hersteller seit 1999 als Biskot Bisküvi zur Ülker-Familie und backt dort Kekse und Waffeln in großem Stil.',
+        'Unter der Marke Karsa gibt es knusprige Waffeln, cremegefüllte Kekse und Petit Beurre — Klassiker für die Teestunde, die in der Türkei seit Jahrzehnten dazugehören.'
+      ]
+    },
+    sera: {
+      name: 'Sera',
+      cat: 'EINGELEGTES & KONSERVEN',
+      meta: 'Aydın & Manisa, Türkei · seit 1984',
+      logo: 'img/markenlogos/sera-logo.webp',
+      text: [
+        'Sera steht seit 1984 für eingelegte Spezialitäten aus der Ägäis: Gurken, Peperoni, gemischte Turşu, gegrillte Paprika, Oliven und Konserven aus zwei Werken in Aydın und Manisa.',
+        'Unter dem Motto „Doğal olarak Sera“ — von Natur aus Sera — gehen die Produkte in über 45 Länder; ein eigenes Logistikzentrum in Deutschland versorgt den europäischen Handel.'
+      ]
+    },
+    link: {
+      name: 'Link',
+      cat: 'FRUCHTGETRÄNKE',
+      meta: 'Türkei · eine Marke von DyDo Drinco',
+      logo: 'img/markenlogos/link-logo.webp',
+      text: [
+        'Link ist das fruchtige Trinkvergnügen für zwischendurch: kohlensäurefreie Getränke mit Erdbeer-, Pfirsich-, Sauerkirsch- oder Bananen-Keks-Geschmack in der handlichen 310-ml-Größe.',
+        'Entstanden in der Ülker-Getränkegruppe, gehört Link heute wie Cola Turka, Çamlıca und Saka zum japanischen Getränkekonzern DyDo Drinco — beliebt bei Kindern und allen, die es lieber süß als spritzig mögen.'
+      ]
+    },
+    olea: {
+      name: 'Olea Familya',
+      cat: 'OLIVEN',
+      meta: 'Türkei · eine Marke von Bazaar Gıda',
+      logo: 'img/markenlogos/olea-familya-logo.webp',
+      text: [
+        'Olea Familya bringt die Olive in ihrer ganzen Vielfalt auf den Frühstückstisch: schwarze und grüne Oliven aus der Region Gemlik — geritzt, gebrochen, mit Peperoni oder in würziger Marinade, in verschiedenen Kalibern.',
+        'Vom Anbau bis zur Verpackung setzt die Marke von Bazaar Gıda auf Natürlichkeit und umweltschonende Produktion — für den Geschmack eines türkischen Frühstücks, wie man ihn aus der Familie kennt.'
+      ]
+    },
+    icim: {
+      name: 'İçim',
+      cat: 'MOLKEREIPRODUKTE',
+      meta: 'Türkei · seit 1998',
+      logo: 'img/markenlogos/icim-logo.webp',
+      text: [
+        'İçim ist eine der meistgetrunkenen Milchmarken der Türkei: H-Milch, Ayran, Joghurt, Butter und Käse von Ak Gıda, dem größten Molkereiunternehmen des Landes.',
+        'Seit 1998 im Regal und seit 2015 Teil der französischen Lactalis-Gruppe, wird İçim weiterhin in der Türkei produziert — frische Milchprodukte für jeden Tag und die ganze Familie.'
+      ]
+    },
+    piyale: {
+      name: 'Piyale',
+      cat: 'PASTA & GRUNDNAHRUNGSMITTEL',
+      meta: 'Izmir, Türkei · seit 1922',
+      logo: 'img/markenlogos/piyale-logo.webp',
+      text: [
+        'Piyale ist die Marke, die die Türkei mit Pasta bekannt gemacht hat: 1922 eröffnete Hasan Tahsin in Izmir die erste Nudelfabrik des Landes — seit 1936 trägt sie den Familiennamen Piyale.',
+        'Über hundert Jahre später gehört Piyale zur Yıldız Holding und steht neben Pasta auch für Mehl, Grieß und Dessertmischungen — Grundzutaten der türkischen Küche mit einer Geschichte, die älter ist als die Republik selbst.'
       ]
     }
   };

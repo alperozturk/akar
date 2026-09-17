@@ -38,6 +38,11 @@ p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
 }
 
 /* === BASE === */
+/* decorative blobs and floaters deliberately hang past the viewport edge, and
+   .section keeps overflow visible so its wave dividers are not cut. Clip the
+   page horizontally instead — `clip` (unlike hidden) creates no scroll
+   container, so sticky elements and Lenis smooth-scroll are unaffected. */
+html, body { overflow-x: clip; }
 body {
   font-family: var(--body);
   font-weight: 500;
@@ -1007,126 +1012,212 @@ body.nav--burger .menu-pill { display: flex !important; }
 /* === A2) CUSTOMERS / KUNDEN === */
 .customers { overflow: hidden; }
 .customers .container { position: relative; z-index: 1; }
-.customers__inner {
-  display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: clamp(2rem, 5vw, 4.5rem);
-  align-items: center;
-  margin-bottom: clamp(3rem, 6vw, 4.5rem);
-}
-.customers__copy .eyebrow { margin-bottom: .9rem; }
-.customers__copy .lead { margin: 1.4rem 0 2rem; max-width: 34rem; }
 
-/* right-hand media: photo with floating stat cards */
-.customers__media { position: relative; }
-.customers__photo {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  border-radius: 30px;
+/* no box: the copy sits straight on the section background, the shelf photo
+   fills the right-hand side and dissolves into that background through a
+   mask on its left edge, so there is no hard seam */
+.cust-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(18rem, 41%) 1fr;
+  min-height: clamp(22rem, 34vw, 28rem);
+  isolation: isolate;
+  margin-bottom: clamp(2.2rem, 4vw, 3.2rem);
+}
+.cust-card__copy {
+  position: relative;
+  z-index: 2;
+  padding: clamp(1.2rem, 2.4vw, 2rem) clamp(1.4rem, 3vw, 2.8rem) clamp(1.2rem, 2.4vw, 2rem) 0;
+  align-self: center;
+}
+.cust-card__eyebrow {
+  font-family: var(--disp);
+  font-weight: 600;
+  font-size: .74rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 1rem;
+}
+.cust-card__title {
+  font-size: clamp(1.75rem, 2.5vw, 2.4rem);
+  line-height: 1.06;
+  margin-bottom: 1rem;
+  max-width: 16ch;
+}
+.cust-card__lead {
+  font-size: clamp(.9rem, 1vw, .98rem);
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 27rem;
+  margin-bottom: 1.5rem;
+}
+/* the photo sits under the whole card; the white panel fades in from the
+   left edge of the photo area so the copy stays readable */
+.cust-card__photo {
+  position: absolute;
+  inset: 0 0 0 26%;
+  z-index: 1;
+  border-radius: 28px;
   background-image: url("../img/kunden-supermarkt-regal.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  box-shadow: var(--shadow-card);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, rgba(0,0,0,.35) 18%, #000 40%);
+          mask-image: linear-gradient(90deg, transparent 0, rgba(0,0,0,.35) 18%, #000 40%);
 }
-.customers__stats {
+/* three stat cards float over the photo, a touch below its centre */
+.cust-card__stats {
   position: absolute;
-  right: clamp(-.5rem, 1vw, 1rem);
-  bottom: clamp(-1.4rem, -1vw, -.8rem);
+  z-index: 3;
+  left: 67%;
+  top: 56%;
+  transform: translate(-50%, -50%);
   display: flex;
-  gap: .7rem;
-  padding: .7rem;
+  gap: .55rem;
 }
 .cust-stat {
   flex: 1 1 0;
-  min-width: 92px;
+  min-width: 7.2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   gap: .3rem;
-  padding: 1rem .8rem;
-  background: rgba(255,255,255,.9);
+  padding: 1rem .9rem .95rem;
+  background: rgba(255,255,255,.94);
   backdrop-filter: blur(6px);
-  border-radius: 20px;
-  box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255,255,255,.8);
+  border-radius: 14px;
+  box-shadow: 0 18px 36px -18px rgba(20, 14, 40, .45), inset 0 1px 0 rgba(255,255,255,.9);
 }
-.cust-stat__icon {
-  display: inline-flex;
-  color: var(--pink);
-}
-.cust-stat__icon svg { width: 26px; height: 26px; }
+.cust-stat__icon { display: inline-flex; color: var(--pink); }
+.cust-stat__icon svg { width: 24px; height: 24px; }
 .cust-stat__num {
   font-family: var(--disp);
   font-weight: 800;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   line-height: 1;
   color: var(--ink);
+  margin-top: .2rem;
 }
-.cust-stat__label { font-family: var(--disp); font-weight: 600; font-size: .78rem; color: var(--ink-soft); }
+.cust-stat__label { font-family: var(--disp); font-weight: 600; font-size: .74rem; color: var(--ink-soft); }
 
-/* logo marquee — partner supermarket logos scroll continuously, forever.
-   Full-bleed: no max-width or side padding, so it runs edge to edge. */
-.logo-marquee {
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  width: 100%;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
-          mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+/* partner logos: a paged row with an arrow at each end. The track scrolls
+   with scroll-snap; js/kunden.js pages it and loops back at the end. */
+.logo-carousel {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: clamp(.6rem, 1.5vw, 1.2rem);
 }
-.logo-marquee__track {
+.logo-carousel__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--pink);
+  background: #fff;
+  color: var(--pink);
+  cursor: pointer;
+  transition: background-color .25s ease, color .25s ease, transform .25s ease;
+}
+.logo-carousel__arrow svg { width: 18px; height: 18px; }
+.logo-carousel__arrow:hover,
+.logo-carousel__arrow:focus-visible { background: var(--pink); color: #fff; transform: scale(1.06); }
+.logo-carousel__arrow:focus-visible { outline: 3px solid var(--pink); outline-offset: 4px; }
+.logo-carousel__viewport {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
+}
+.logo-carousel__viewport::-webkit-scrollbar { display: none; }
+.logo-carousel__track {
+  --per-view: 7;
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: .4rem 0;
+}
+.logo-carousel__item {
+  flex: 0 0 calc(100% / var(--per-view));
+  scroll-snap-align: start;
   display: flex;
   align-items: center;
-  width: max-content;
-  padding: .6rem 0;
-  animation: logo-marquee 80s linear infinite; /* track is ~2× wider since the logo doubling — keep the same reading pace */
+  justify-content: center;
+  height: 88px;
+  padding-inline: clamp(.6rem, 1.4vw, 1.2rem);
+  border-left: 1px solid rgba(40, 28, 70, .12);
+  overflow: hidden;
 }
-/* pause on hover so viewers can read a logo they're interested in */
-.logo-marquee:hover .logo-marquee__track { animation-play-state: paused; }
-/* each logo carries its own trailing gap via margin (not flex `gap`) so the
-   duplicated second set makes translateX(-50%) loop perfectly seamlessly */
-.logo-marquee__track .wordmark { flex: 0 0 auto; white-space: nowrap; margin-right: clamp(1.6rem, 3vw, 2.8rem); }
-/* one full set is exactly half the track width → shift by 50% and repeat */
-@keyframes logo-marquee { to { transform: translateX(-50%); } }
-
-/* partner supermarket logos sit directly on the section background — no pill.
-   Logos with opaque white source canvases use the *-trans.png cutouts. */
-.wordmark--logo {
-  background: transparent;
-  padding: 0;
-  border-radius: 0;
-  box-shadow: none;
-  overflow: hidden; /* still clips the zoomed-in --crop variants */
-}
-.wordmark--logo img {
-  height: 80px;
+.logo-carousel__item:first-child { border-left: 0; }
+.logo-carousel__item img {
+  height: 54px;
   width: auto;
-  max-width: 340px;
+  max-width: 100%;
   object-fit: contain;
 }
 /* some source files bury a wide wordmark inside a square canvas with heavy
    built-in whitespace (Netto, Bartels-Langness, V-Markt) — render those larger
    and crop the empty border with negative margins so their small text is
    readable and the artwork visually matches its neighbours */
-.wordmark--logo-crop-sm img { height: 104px; margin-block: -12px; } /* light padding (Globus) */
-.wordmark--logo-crop img    { height: 150px; margin-block: -35px; } /* mild padding */
-.wordmark--logo-crop-xl img { height: 250px; margin-block: -85px; } /* mostly padding */
+.logo-carousel__item--crop-sm img { height: 70px; margin-block: -8px; }  /* light padding (Globus) */
+.logo-carousel__item--crop img    { height: 100px; margin-block: -23px; } /* mild padding */
+.logo-carousel__item--crop-xl img { height: 170px; margin-block: -58px; } /* mostly padding */
 .logo-marquee__note {
-  margin: 1.6rem auto 0;
+  margin: 1.4rem auto 0;
   text-align: center;
   font-family: var(--disp);
   font-weight: 600;
-  font-size: .82rem;
+  font-size: .78rem;
   letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--muted);
 }
 .logo-marquee__note span { color: var(--pink); margin-inline: .5rem; }
 
+@media (max-width: 1100px) {
+  .logo-carousel__track { --per-view: 5; }
+  .cust-card__stats { left: 69%; }
+  .cust-stat { min-width: 6.4rem; padding: .85rem .6rem; }
+}
 @media (max-width: 860px) {
-  .customers__inner { grid-template-columns: 1fr; }
-  .customers__stats { position: static; margin-top: 1rem; padding: 0; }
+  /* stacked: copy, then the photo with the stats sitting on its lower edge */
+  .cust-card { grid-template-columns: 1fr; min-height: 0; }
+  .cust-card__copy { padding: 0 0 1.6rem; }
+  .cust-card__title { max-width: none; }
+  .cust-card__photo {
+    position: relative;
+    inset: auto;
+    aspect-ratio: 16 / 10;
+    margin: 0 0 4.4rem;
+    border-radius: 22px;
+    box-shadow: var(--shadow-card);
+    -webkit-mask-image: none;
+            mask-image: none;
+  }
+  .cust-card__stats {
+    left: 50%;
+    top: auto;
+    bottom: 1.2rem;
+    transform: translateX(-50%);
+    width: calc(100% - 1.2rem);
+    justify-content: center;
+  }
+  .cust-stat { min-width: 0; }
+  .logo-carousel__track { --per-view: 3; }
+}
+@media (max-width: 520px) {
+  .cust-card__stats { gap: .4rem; }
+  .cust-stat { padding: .7rem .35rem; }
+  .cust-stat__num { font-size: 1.15rem; }
+  .cust-stat__label { font-size: .64rem; }
+  .logo-carousel__arrow { width: 38px; height: 38px; }
+  .logo-carousel__track { --per-view: 2; }
 }
 
 /* === C) CATEGORIES === */
@@ -1874,6 +1965,8 @@ body.nav--burger .menu-pill { display: flex !important; }
   animation: logo-marquee 163s linear infinite; /* 17 brands per set, same px/s as the 13-brand 125s */
 }
 .brands-marquee:hover .brands-marquee__track { animation-play-state: paused; }
+/* one full set is exactly half the track width → shift by 50% and repeat */
+@keyframes logo-marquee { to { transform: translateX(-50%); } }
 
 /* each cell is one brand: logo on top, its product cutout below (same
    pairing as the old collage). The cell carries its trailing gap via margin
@@ -2271,7 +2364,6 @@ select.form__input:invalid { color: rgba(20,20,20,.5); }
 .marken-tile[data-brand="colaturka"] .marken-tile__logo img { --logo-scale: 1.5; }
 .marken-tile[data-brand="dogadan"]   .marken-tile__logo img { --logo-scale: 1.2; }
 .marken-tile[data-brand="mis"]       .marken-tile__logo img { --logo-scale: 1.8; }
-.marken-tile[data-brand="camlica"]   .marken-tile__logo img { --logo-scale: 1.4; }
 .marken-tile[data-brand="celebi"]    .marken-tile__logo img { --logo-scale: 1.35; }
 .marken-tile[data-brand="saka"]      .marken-tile__logo img { --logo-scale: 1.5; }
 .marken-tile[data-brand="almarai"]   .marken-tile__logo img { --logo-scale: 2.1; }
@@ -2279,6 +2371,9 @@ select.form__input:invalid { color: rgba(20,20,20,.5); }
 .marken-tile[data-brand="beyti"]     .marken-tile__logo img { --logo-scale: 1.1; }
 .marken-tile[data-brand="bizim"]     .marken-tile__logo img { --logo-scale: 1.8; }
 .marken-tile[data-brand="nawras"]    .marken-tile__logo img { --logo-scale: 1.1; }
+/* the 09/2026 logo files (Halk … Piyale, new Çamlıca) were trimmed to their
+   artwork on import, so they need no scale; İçim is the one tall mark. */
+.marken-tile[data-brand="icim"]      .marken-tile__logo img { --logo-scale: 1.1; }
 
 /* pastel wash on hover rotates through the candy palette like .brand-grid */
 .marken-grid .marken-tile:nth-child(3n+1):hover .marken-tile__logo,
