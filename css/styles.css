@@ -1019,15 +1019,15 @@ body.nav--burger .menu-pill { display: flex !important; }
 .cust-card {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(18rem, 41%) 1fr;
-  min-height: clamp(22rem, 34vw, 28rem);
+  grid-template-columns: minmax(18rem, 50%) 1fr;
+  min-height: clamp(24rem, 38vw, 32rem);
   isolation: isolate;
   margin-bottom: clamp(2.2rem, 4vw, 3.2rem);
 }
 .cust-card__copy {
   position: relative;
   z-index: 2;
-  padding: clamp(1.2rem, 2.4vw, 2rem) clamp(1.4rem, 3vw, 2.8rem) clamp(1.2rem, 2.4vw, 2rem) 0;
+  padding: clamp(1.2rem, 2.4vw, 2rem) clamp(1.2rem, 2.2vw, 2rem) clamp(1.2rem, 2.4vw, 2rem) 0;
   align-self: center;
 }
 .cust-card__eyebrow {
@@ -1039,24 +1039,25 @@ body.nav--burger .menu-pill { display: flex !important; }
   color: var(--pink);
   margin-bottom: 1rem;
 }
+/* a notch under the page's 3.7rem section headings so the long
+   "FMCG-Einzelhandel." (wrapped in .nowrap) keeps to one line beside the photo */
+.nowrap { white-space: nowrap; }
 .cust-card__title {
-  font-size: clamp(1.75rem, 2.5vw, 2.4rem);
-  line-height: 1.06;
-  margin-bottom: 1rem;
-  max-width: 16ch;
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  margin-bottom: 1.2rem;
 }
 .cust-card__lead {
-  font-size: clamp(.9rem, 1vw, .98rem);
+  font-size: clamp(1rem, 1.3vw, 1.14rem);
   line-height: 1.55;
   color: var(--ink-soft);
-  max-width: 27rem;
-  margin-bottom: 1.5rem;
+  max-width: 34rem;
+  margin-bottom: 1.8rem;
 }
 /* the photo sits under the whole card; the white panel fades in from the
    left edge of the photo area so the copy stays readable */
 .cust-card__photo {
   position: absolute;
-  inset: 0 0 0 26%;
+  inset: 0 0 0 33%;
   z-index: 1;
   border-radius: 28px;
   background-image: url("../img/kunden-supermarkt-regal.webp");
@@ -1070,7 +1071,7 @@ body.nav--burger .menu-pill { display: flex !important; }
 .cust-card__stats {
   position: absolute;
   z-index: 3;
-  left: 67%;
+  left: 70%;
   top: 56%;
   transform: translate(-50%, -50%);
   display: flex;
@@ -1182,7 +1183,7 @@ body.nav--burger .menu-pill { display: flex !important; }
 
 @media (max-width: 1100px) {
   .logo-carousel__track { --per-view: 5; }
-  .cust-card__stats { left: 69%; }
+  .cust-card__stats { left: 71%; }
   .cust-stat { min-width: 6.4rem; padding: .85rem .6rem; }
 }
 @media (max-width: 860px) {
