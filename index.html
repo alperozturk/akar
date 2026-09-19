@@ -117,6 +117,46 @@
     .hero--cinematic.is-revealed .hero__title--reveal .hero__word { transition-delay: .18s; }
     .hero--cinematic.is-revealed .hero__lead-reveal { transition-delay: .31s; }
 
+    /* ---- Mobile hero: show the whole 3:2 frame instead of cropping it ----
+       At 100svh with object-fit:cover a 3:2 video on a portrait phone renders
+       ~1264px wide inside a 390px viewport, so ~69% of the frame - including
+       every brand pack in the outer thirds - is cropped away. On phones the
+       hero therefore stops being a full-screen panel: the video becomes a
+       full-width band at its natural aspect ratio and the copy sits beneath
+       it, against the same pale backdrop the footage itself fades to. */
+    @media (max-width: 767px) {
+      .hero--cinematic {
+        display: block;
+        min-height: 0;
+        height: auto;
+        background: #fff;
+        /* The header is fixed, so without this it would cover the top ~29% of
+           a 260px-tall video band - exactly the strip the products fly through.
+           Mirrors .site-header's own box: 44px of nav + its vertical padding. */
+        padding-top: calc(44px + 2 * clamp(1rem, 2.4vw, 1.6rem));
+      }
+
+      .hero__bg-video {
+        position: static;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3524 / 2352;
+        object-fit: contain;
+      }
+
+      /* The scrim exists to keep the overlaid title legible over the footage.
+         Nothing overlaps the video here, so it would only wash out the frame. */
+      .hero__scrim { display: none; }
+
+      .hero__overlay {
+        padding-block: clamp(1.75rem, 8vw, 3rem);
+      }
+
+      /* Freed from competing with the video, the copy can breathe a little. */
+      .hero__title--reveal { text-shadow: none; }
+      .hero__lead-reveal { margin-top: 1.1rem; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .hero__overlay .hero__word,
       .hero__scrim { transition: opacity .2s linear; }
@@ -265,7 +305,22 @@
   <main id="top">
     <section class="hero hero--cinematic" aria-labelledby="hero-title">
       <!-- full-bleed background video: autoplays once, then freezes on its last frame -->
-      <video class="hero__bg-video" src="hero-video2-compressed.mp4" autoplay muted playsinline preload="auto"></video>
+      <video class="hero__bg-video" autoplay muted playsinline preload="auto"
+             poster="img/hero-poster.jpg"
+             data-src-mobile="hero-video-mobile.mp4"
+             data-src-desktop="hero-video2-compressed.mp4"></video>
+      <script>
+        /* Pick the hero source before playback starts: phones get the 1280-wide
+           4 MB encode, wider screens the full-resolution master. Decided once at
+           load, so rotating the device never triggers a second download.
+           (`media` on <source> inside <video> is not honoured consistently.) */
+        (function () {
+          var v = document.currentScript.previousElementSibling;
+          v.src = window.matchMedia('(max-width: 767px)').matches
+            ? v.dataset.srcMobile
+            : v.dataset.srcDesktop;
+        })();
+      </script>
 
       <!-- dark scrim, fades in together with the title -->
       <div class="hero__scrim" aria-hidden="true"></div>
@@ -1313,6 +1368,11 @@
       };
 
       if (!video) { reveal(); return; }
+
+      // On phones the copy sits below the video rather than over its freeze
+      // frame, so there is nothing to wait for - holding it hidden for 15s
+      // would just leave an empty block under the clip.
+      if (window.matchMedia('(max-width: 767px)').matches) reveal();
 
       // Reveal the title once playback reaches the 17s mark.
       var REVEAL_AT = 15; // seconds
