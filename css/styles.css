@@ -801,10 +801,14 @@ body.nav--burger .menu-pill { display: flex !important; }
 .story__inner { --edge-bleed: calc((100vw - min(100vw, 1240px)) / 2 + clamp(1.25rem, 5vw, 3rem)); }
 
 /* script accent word inside a headline — matches "Best" in the hero, so it
-   keeps its mixed case even inside an uppercase heading */
+   keeps its mixed case even inside an uppercase heading.
+   Pacifico's x-height is 0.46em against Montserrat's 0.52em, so at a shared
+   font-size the script word reads noticeably smaller than the words around
+   it; 1.1em puts the two x-heights back on the same line. */
 .script-accent {
   font-family: "Pacifico", cursive;
   font-weight: 400;
+  font-size: 1.1em;
   color: var(--pink);
   text-transform: none;
   letter-spacing: 0;
