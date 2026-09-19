@@ -308,10 +308,10 @@
       <video class="hero__bg-video" autoplay muted playsinline preload="auto"
              poster="img/hero-poster.jpg"
              data-src-mobile="hero-video-mobile.mp4"
-             data-src-desktop="hero-video2-compressed.mp4"></video>
+             data-src-desktop="hero-video-desktop.mp4"></video>
       <script>
         /* Pick the hero source before playback starts: phones get the 1280-wide
-           4 MB encode, wider screens the full-resolution master. Decided once at
+           3.8 MB encode, wider screens the 2560-wide 17 MB one. Decided once at
            load, so rotating the device never triggers a second download.
            (`media` on <source> inside <video> is not honoured consistently.) */
         (function () {
