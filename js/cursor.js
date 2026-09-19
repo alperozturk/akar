@@ -1,17 +1,8 @@
+/* The custom cursor dot is gone — the native pointer is used everywhere.
+   What remains here is the magnetic pull on [data-magnetic] buttons. */
 export function initCursor({ gsap, reduceMotion }) {
-  // header's stuck state is owned by initHeader() in main.js — a second toggle
-  // here fought it and kept the bar transparent over the page content
   const touch = window.matchMedia('(hover: none)').matches;
-  const cursor = document.querySelector('.cursor');
-  if (touch || reduceMotion || !cursor) { if (cursor) cursor.style.display = 'none'; return; }
-  const xTo = gsap.quickTo(cursor, 'x', { duration: 0.25, ease: 'power3' });
-  const yTo = gsap.quickTo(cursor, 'y', { duration: 0.25, ease: 'power3' });
-  window.addEventListener('mousemove', (e) => { xTo(e.clientX); yTo(e.clientY); });
-  const scaleTo = (v) => gsap.to(cursor, { scale: v, duration: 0.25, ease: 'power3', overwrite: 'auto' });
-  document.querySelectorAll('a, button, [data-magnetic]').forEach((el) => {
-    el.addEventListener('mouseenter', () => { cursor.classList.add('is-active'); scaleTo(2.5); });
-    el.addEventListener('mouseleave', () => { cursor.classList.remove('is-active'); scaleTo(1); });
-  });
+  if (touch || reduceMotion) return;
   document.querySelectorAll('[data-magnetic]').forEach((el) => {
     el.addEventListener('mousemove', (e) => {
       const r = el.getBoundingClientRect();

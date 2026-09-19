@@ -22,6 +22,29 @@
   );
   const chips = [...document.querySelectorAll('.loc-chip[data-loc]')];
 
+  /* clicking a chip or a pin selects that location: its pin gets the white
+     ring, its chip stays filled. Exactly one location is selected at a time —
+     the headquarters on load, until another one is clicked. */
+  let selected = null;
+  const select = (loc) => {
+    selected = loc;
+    pins.forEach((pin, l) => pin.classList.toggle('is-selected', l === selected));
+    chips.forEach(c => {
+      const on = c.dataset.loc === selected;
+      c.classList.toggle('is-selected', on);
+      c.setAttribute('aria-pressed', String(on));
+    });
+  };
+  chips.forEach(c => c.addEventListener('click', () => select(c.dataset.loc)));
+  pins.forEach((pin, loc) => {
+    pin.addEventListener('click', () => select(loc));
+    pin.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(loc); }
+    });
+  });
+  const hq = map.querySelector('.pin--hq[data-loc]');
+  if (hq) select(hq.dataset.loc);
+
   const set = (loc, on) => {
     const pin = pins.get(loc);
     if (pin) pin.classList.toggle('is-hot', on);
