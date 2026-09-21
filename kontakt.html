@@ -7,12 +7,13 @@
   <meta name="description" content="Kontakt zur AKAR GmbH: Kontaktformular, Hauptsitz in Langenbach bei München und alle Handelspartner in Deutschland, Frankreich, Benelux, Österreich und Schweden." />
   <link rel="preload" href="fonts/montserrat-variable-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="css/fonts.css?v=20260910a" />
-  <link rel="stylesheet" href="css/styles.css?v=20260921a" />
+  <link rel="stylesheet" href="css/styles.css?v=20260921c" />
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" defer></script>
   <script type="module" src="js/main.js?v=20260919a"></script>
   <script defer src="js/standorte.js?v=20260921a"></script>
-  <script defer src="js/kontakt.js?v=20260911a"></script>
+  <script defer src="https://forminit.com/sdk/v1/forminit.js"></script>
+  <script defer src="js/kontakt.js?v=20260921c"></script>
   <!-- TEMPORARY: client color-preview tool — remove before launch -->
   <script defer src="js/color-switcher.js?v=20260919a"></script>
 </head>
@@ -45,12 +46,14 @@
               <a href="index.html#sortiment" hidden>Produktgruppen</a>
             </div>
           </li>
-          <li class="nav-item nav-item--plain">
-            <a href="index.html#kunden" class="nav-item__trigger">Für Händler &amp; Kunden</a>
-            <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
-            <div class="nav-dropdown" hidden>
-              <a href="kontakt.html">Für Kunden</a>
-              <a href="index.html#praesenz">Unsere Händler</a>
+          <li class="nav-item">
+            <a href="index.html#kunden" class="nav-item__trigger" aria-haspopup="true">Für Händler &amp; Kunden</a>
+            <div class="nav-dropdown">
+              <a href="kontakt.html?anliegen=kunde">Kunde werden</a>
+              <a href="kontakt.html?anliegen=lieferant">Lieferant werden</a>
+              <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+              <a href="kontakt.html" hidden>Für Kunden</a>
+              <a href="index.html#praesenz" hidden>Unsere Händler</a>
             </div>
           </li>
           <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
@@ -111,6 +114,8 @@
         <div class="mm-col">
           <h4>Für Händler &amp; Kunden</h4>
           <a href="index.html#kunden">Unsere Kunden</a>
+          <a href="kontakt.html?anliegen=kunde">Kunde werden</a>
+          <a href="kontakt.html?anliegen=lieferant">Lieferant werden</a>
           <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
           <a href="index.html#praesenz" hidden>Unsere Händler</a>
         </div>
@@ -152,6 +157,9 @@
       <span class="floater floater--sm" data-parallax="-0.7" style="top:76%; left:9%; width:4.6875rem; --dur:8s; --delay:-2.2s; --bob:.5625rem; --tilt:5deg;" aria-hidden="true"><img src="img/snacks-images/gummy-drops.webp" alt="" loading="lazy"></span>
       <div class="container">
         <div class="section-head" data-reveal>
+          <!-- Eyebrow, Headline und Lead sind der Standard. Mit ?anliegen=kunde oder
+               ?anliegen=lieferant (Menü „Für Händler & Kunden") ersetzt js/kontakt.js
+               sie und wählt das passende Anliegen im Formular vor. -->
           <p class="eyebrow">KONTAKT</p>
           <h1 class="h2">Wir freuen uns auf <span class="pink">Ihre Nachricht.</span></h1>
           <svg class="squiggle" style="margin-inline:auto;" width="132" height="18" viewBox="0 0 132 18" fill="none" aria-hidden="true">
@@ -173,15 +181,21 @@
             <h2 class="kontakt-card__title">Kontaktformular</h2>
             <p class="kontakt-card__text">Hier können Sie uns eine Nachricht schicken. Felder mit <abbr title="Pflichtfeld">*</abbr> sind Pflichtfelder.</p>
 
-            <!-- Statische Seite (GitHub Pages): ohne Backend öffnet der Versand
-                 eine vorausgefüllte E-Mail an info@akar-gmbh.de. Sobald ein
-                 Formular-Endpunkt existiert (z. B. Formspree), dessen URL in
-                 data-endpoint eintragen — js/kontakt.js sendet dann per fetch. -->
-            <form class="form" id="kontakt-form" action="mailto:info@akar-gmbh.de" method="post" data-endpoint="" novalidate>
+            <!-- Statische Seite (GitHub Pages): das Formular wird über Forminit
+                 (headless Form-Backend, Public-Modus, kein API-Key) versendet —
+                 js/kontakt.js übergibt die Felder an das Forminit-SDK. Die
+                 Feldnamen folgen deshalb dem Forminit-Schema fi-{typ}-{name}.
+                 Lädt das SDK nicht, öffnet der Versand ersatzweise eine
+                 vorausgefüllte E-Mail. TEMPORARY (vor dem Launch): Fallback-Adresse
+                 ist mail@alperozturk.com — zum Launch hier und in js/kontakt.js
+                 (FALLBACK_TO) auf info@akar-gmbh.de zurückstellen. -->
+            <form class="form" id="kontakt-form" action="mailto:mail@alperozturk.com" method="post" data-forminit-id="dnc9vjpv1vk" novalidate>
               <div class="form__field form__field--full">
                 <label class="form__label" for="f-anliegen">Ihr Anliegen <abbr title="Pflichtfeld">*</abbr></label>
-                <select class="form__input" id="f-anliegen" name="anliegen" required>
+                <select class="form__input" id="f-anliegen" name="fi-select-anliegen" required>
                   <option value="" selected disabled>Bitte wählen Sie Ihr Anliegen</option>
+                  <option data-intent="kunde">Kunde werden</option>
+                  <option data-intent="lieferant">Lieferant werden</option>
                   <option>Geschäftsanfrage</option>
                   <option>Bewerbung</option>
                   <option>Beschwerde/Anregung</option>
@@ -190,39 +204,39 @@
               </div>
               <div class="form__field form__field--full">
                 <label class="form__label" for="f-firma">Firma</label>
-                <input class="form__input" id="f-firma" name="firma" type="text" autocomplete="organization">
+                <input class="form__input" id="f-firma" name="fi-sender-company" type="text" autocomplete="organization">
               </div>
               <div class="form__field">
                 <label class="form__label" for="f-name">Name <abbr title="Pflichtfeld">*</abbr></label>
-                <input class="form__input" id="f-name" name="name" type="text" autocomplete="family-name" required>
+                <input class="form__input" id="f-name" name="fi-sender-lastName" type="text" autocomplete="family-name" required>
               </div>
               <div class="form__field">
                 <label class="form__label" for="f-vorname">Vorname</label>
-                <input class="form__input" id="f-vorname" name="vorname" type="text" autocomplete="given-name">
+                <input class="form__input" id="f-vorname" name="fi-sender-firstName" type="text" autocomplete="given-name">
               </div>
               <div class="form__field">
                 <label class="form__label" for="f-telefon">Telefon</label>
-                <input class="form__input" id="f-telefon" name="telefon" type="tel" autocomplete="tel">
+                <input class="form__input" id="f-telefon" name="fi-text-telefon" type="tel" autocomplete="tel">
               </div>
               <div class="form__field">
                 <label class="form__label" for="f-email">E-Mail <abbr title="Pflichtfeld">*</abbr></label>
-                <input class="form__input" id="f-email" name="email" type="email" autocomplete="email" required>
+                <input class="form__input" id="f-email" name="fi-sender-email" type="email" autocomplete="email" required>
               </div>
               <div class="form__field form__field--plz">
                 <label class="form__label" for="f-plz">PLZ <abbr title="Pflichtfeld">*</abbr></label>
-                <input class="form__input" id="f-plz" name="plz" type="text" inputmode="numeric" autocomplete="postal-code" required>
+                <input class="form__input" id="f-plz" name="fi-sender-postcode" type="text" inputmode="numeric" autocomplete="postal-code" required>
               </div>
               <div class="form__field form__field--ort">
                 <label class="form__label" for="f-ort">Ort <abbr title="Pflichtfeld">*</abbr></label>
-                <input class="form__input" id="f-ort" name="ort" type="text" autocomplete="address-level2" required>
+                <input class="form__input" id="f-ort" name="fi-sender-city" type="text" autocomplete="address-level2" required>
               </div>
               <div class="form__field form__field--full">
                 <label class="form__label" for="f-nachricht">Ihre Nachricht <abbr title="Pflichtfeld">*</abbr></label>
-                <textarea class="form__input" id="f-nachricht" name="nachricht" rows="6" required></textarea>
+                <textarea class="form__input" id="f-nachricht" name="fi-text-nachricht" rows="6" required></textarea>
               </div>
               <div class="form__field form__field--full">
                 <label class="form__check">
-                  <input type="checkbox" name="datenschutz" required>
+                  <input type="checkbox" name="fi-checkbox-datenschutz" value="Einverstanden" required>
                   <span>Ja, ich erkläre mich mit der <a href="datenschutz.html">Datenschutzerklärung</a> einverstanden und stimme der Verarbeitung meiner Daten zur Bearbeitung meiner Anfrage zu. <abbr title="Pflichtfeld">*</abbr></span>
                 </label>
               </div>

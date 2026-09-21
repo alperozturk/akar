@@ -5,3 +5,7 @@ node_modules/
 
 # Original full-size category photos — only the generated WebP thumbnails are used by the site
 img/backwaren-photos/*.png
+
+# Timeline source photos (img/timeline) — only the generated YYYY-name.webp files are used by the site
+img/timeline/*
+!img/timeline/[0-9][0-9][0-9][0-9]-*.webp

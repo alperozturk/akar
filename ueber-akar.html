@@ -7,11 +7,11 @@
   <meta name="description" content="Über die AKAR GmbH: seit 1992 vom Ein-Mann-Unternehmen zum europaweiten FMCG-Vertriebsnetzwerk — Geschichte, Vision, Mission, Werte, Expertise und Meilensteine." />
   <link rel="preload" href="fonts/montserrat-variable-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="css/fonts.css?v=20260910a" />
-  <link rel="stylesheet" href="css/styles.css?v=20260921a" />
+  <link rel="stylesheet" href="css/styles.css?v=20260921c" />
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" defer></script>
   <script type="module" src="js/main.js?v=20260919a"></script>
-  <script defer src="js/ueber-akar.js?v=20260919a"></script>
+  <script defer src="js/ueber-akar.js?v=20260921b"></script>
   <!-- TEMPORARY: client color-preview tool — remove before launch -->
   <script defer src="js/color-switcher.js?v=20260919a"></script>
 </head>
@@ -44,12 +44,14 @@
               <a href="index.html#sortiment" hidden>Produktgruppen</a>
             </div>
           </li>
-          <li class="nav-item nav-item--plain">
-            <a href="index.html#kunden" class="nav-item__trigger">Für Händler &amp; Kunden</a>
-            <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
-            <div class="nav-dropdown" hidden>
-              <a href="kontakt.html">Für Kunden</a>
-              <a href="index.html#praesenz">Unsere Händler</a>
+          <li class="nav-item">
+            <a href="index.html#kunden" class="nav-item__trigger" aria-haspopup="true">Für Händler &amp; Kunden</a>
+            <div class="nav-dropdown">
+              <a href="kontakt.html?anliegen=kunde">Kunde werden</a>
+              <a href="kontakt.html?anliegen=lieferant">Lieferant werden</a>
+              <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+              <a href="kontakt.html" hidden>Für Kunden</a>
+              <a href="index.html#praesenz" hidden>Unsere Händler</a>
             </div>
           </li>
           <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
@@ -110,6 +112,8 @@
         <div class="mm-col">
           <h4>Für Händler &amp; Kunden</h4>
           <a href="index.html#kunden">Unsere Kunden</a>
+          <a href="kontakt.html?anliegen=kunde">Kunde werden</a>
+          <a href="kontakt.html?anliegen=lieferant">Lieferant werden</a>
           <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
           <a href="index.html#praesenz" hidden>Unsere Händler</a>
         </div>
@@ -498,75 +502,110 @@
         <div class="timeline">
           <span class="timeline__line" aria-hidden="true"><span class="timeline__progress"></span></span>
           <ol class="timeline__list">
+            <!-- photos: generated from the originals in img/timeline (see .gitignore);
+                 --ar / --pos on an <img> set its crop ratio and focus point -->
             <li class="timeline__item">
               <span class="timeline__dot" aria-hidden="true"></span>
-              <div class="timeline__card" data-reveal>
+              <div class="timeline__card timeline__card--photo" data-reveal>
+                <div class="timeline__photos">
+                  <img class="timeline__photo" src="img/timeline/1992-garage.webp" width="487" height="208" alt="Firmengründer Mehmet Mustafa Soylak 1992 vor dem ersten Lager" loading="lazy" style="--ar:487/208; --pos:left center;">
+                  <img class="timeline__photo" src="img/timeline/1992-erstes-lager.webp" width="451" height="631" alt="Das Gebäude des ersten AKAR Lagers mit blauem Tor" loading="lazy" style="--ar:4/3; --pos:center 82%;">
+                </div>
                 <span class="timeline__year">1992</span>
-                <p class="timeline__text">Gründung mit 100 m² Lagerfläche und einem LKW</p>
+                <h3 class="timeline__title">Akar Gründung</h3>
+                <p class="timeline__text">Mit 100 m² Lagerfläche, einem Lkw und einer klaren Vision. Mehmet Mustafa Soylak legte damit den Grundstein für AKAR und begann, erste Kunden zuverlässig mit ausgewählten Lebensmitteln zu beliefern. Was damals als kleines Ein-Mann-Unternehmen startete, sollte sich Schritt für Schritt zu einem internationalen Unternehmen entwickeln.</p>
               </div>
             </li>
             <li class="timeline__item">
               <span class="timeline__dot" aria-hidden="true"></span>
-              <div class="timeline__card" data-reveal>
+              <div class="timeline__card timeline__card--photo" data-reveal>
+                <div class="timeline__photos">
+                  <img class="timeline__photo" src="img/timeline/1996-uelker.webp" width="1080" height="1457" alt="Ülker Produkte als Aufsteller in einem Supermarkt der 1990er-Jahre" loading="lazy" style="--ar:4/5; --pos:center 20%;">
+                </div>
                 <span class="timeline__year">1996</span>
-                <p class="timeline__text">Erste türkische Marke im nationalen Handel gelistet</p>
+                <h3 class="timeline__title">Ein Meilenstein im deutschen Handel</h3>
+                <p class="timeline__text">Mit Ülker wurde erstmals eine türkische Marke über AKAR in nationalen Supermarktketten gelistet. Damit öffnete sich ein neues Kapitel: internationale Marken wurden für eine deutlich größere Zielgruppe im deutschen Handel sichtbar und zugänglich.</p>
               </div>
             </li>
             <li class="timeline__item">
               <span class="timeline__dot" aria-hidden="true"></span>
               <div class="timeline__card" data-reveal>
                 <span class="timeline__year">1996–2000</span>
-                <p class="timeline__text">Aufbau aller Untervertriebsstellen</p>
-              </div>
-            </li>
-            <li class="timeline__item">
-              <span class="timeline__dot" aria-hidden="true"></span>
-              <div class="timeline__card" data-reveal>
-                <span class="timeline__year">2000</span>
-                <p class="timeline__text">Umzug in 5.000 m² Lager</p>
-              </div>
-            </li>
-            <li class="timeline__item">
-              <span class="timeline__dot" aria-hidden="true"></span>
-              <div class="timeline__card" data-reveal>
-                <span class="timeline__year">2001–2002</span>
-                <p class="timeline__text">Aufbau europäischer Subdistributoren</p>
+                <h3 class="timeline__title">Ein Vertriebsnetz entsteht</h3>
+                <p class="timeline__text">In den folgenden Jahren wurde die Grundlage für weiteres Wachstum geschaffen. Zwischen 1996 und 2000 baute AKAR schrittweise eigene Untervertriebsstellen auf und erweiterte damit seine regionale Präsenz. So konnten immer mehr Kunden zuverlässig und direkt erreicht werden – ein wichtiger Schritt auf dem Weg zu einem starken, flächendeckenden Vertriebsnetz.</p>
               </div>
             </li>
             <li class="timeline__item">
               <span class="timeline__dot" aria-hidden="true"></span>
               <div class="timeline__card timeline__card--photo" data-reveal>
-                <img class="timeline__photo" src="img/unternehmen/lager-container.webp" width="1445" height="1089" alt="Container an den Rampen des Zentrallagers in Langenbach" loading="lazy">
+                <div class="timeline__photos">
+                  <img class="timeline__photo" src="img/timeline/2000-moosinning.webp" width="1100" height="899" alt="Das AKAR Lager in Moosinning" loading="lazy">
+                </div>
+                <span class="timeline__year">2000</span>
+                <h3 class="timeline__title">Mehr Raum für weiteres Wachstum</h3>
+                <p class="timeline__text">Mit dem wachsenden Geschäft stiegen auch die Anforderungen an Lager und Logistik. Im Jahr 2000 zog AKAR nach Moosinning in ein neues Lager mit 5.000 m² Fläche. Der größere Standort schuf die nötigen Kapazitäten, um das Sortiment auszubauen, mehr Kunden zu beliefern und das weitere Wachstum des Unternehmens voranzutreiben.</p>
+              </div>
+            </li>
+            <li class="timeline__item">
+              <span class="timeline__dot" aria-hidden="true"></span>
+              <div class="timeline__card timeline__card--photo" data-reveal>
+                <div class="timeline__photos">
+                  <img class="timeline__photo" src="img/timeline/2001-lkw.webp" width="1100" height="733" alt="AKAR Lkw auf der Autobahn" loading="lazy">
+                </div>
+                <span class="timeline__year">2001–2002</span>
+                <h3 class="timeline__title">Ausbau des europäischen Netzwerks</h3>
+                <p class="timeline__text">Nach dem Ausbau des Vertriebs in Deutschland richtete AKAR den Blick zunehmend auf Europa. Zwischen 2001 und 2002 entstand ein Netzwerk aus Subdistributoren in verschiedenen europäischen Märkten. Damit wurden die Weichen für die internationale Entwicklung gestellt und die Grundlage für eine stärkere Präsenz über Deutschland hinaus geschaffen.</p>
+              </div>
+            </li>
+            <li class="timeline__item">
+              <span class="timeline__dot" aria-hidden="true"></span>
+              <div class="timeline__card timeline__card--photo" data-reveal>
+                <div class="timeline__photos">
+                  <img class="timeline__photo" src="img/timeline/2019-gebaeude.webp" width="1100" height="825" alt="Die AKAR Zentrale in Langenbach bei München" loading="lazy">
+                  <img class="timeline__photo" src="img/timeline/2019-spatenstich.webp" width="1100" height="431" alt="Spatenstich für das neue Zentrallager in Langenbach" loading="lazy">
+                  <img class="timeline__photo" src="img/timeline/2019-lagerhalle.webp" width="1100" height="653" alt="Hochregale in der Lagerhalle in Langenbach" loading="lazy">
+                </div>
                 <span class="timeline__year">2019</span>
-                <p class="timeline__text">Neues Zentrallager in Langenbach (München) mit 24.000 Paletten</p>
+                <h3 class="timeline__title">Langenbach wird neuer zentraler Standort</h3>
+                <p class="timeline__text">Mit dem weiteren Wachstum wurde auch die Logistik neu aufgestellt. 2019 zog AKAR in das neue Zentrallager in Langenbach bei München – mit einer Kapazität von 24.000 Paletten. Der neue Standort schuf deutlich mehr Raum für Sortiment, Warenverfügbarkeit und effiziente Abläufe und wurde damit zu einem zentralen Baustein für die weitere Entwicklung des Unternehmens.</p>
               </div>
             </li>
             <li class="timeline__item">
               <span class="timeline__dot" aria-hidden="true"></span>
               <div class="timeline__card" data-reveal>
                 <span class="timeline__year">2023</span>
-                <p class="timeline__text">Aufbau regionaler Niederlassungen</p>
+                <h3 class="timeline__title">Noch näher an unseren Märkten</h3>
+                <p class="timeline__text">Mit dem Ausbau regionaler Niederlassungen setzt AKAR 2023 den nächsten wichtigen Wachstumsschritt. Die neuen Standorte ermöglichen kürzere Wege, eine engere Betreuung unserer Kunden und eine noch stärkere Präsenz in den jeweiligen Regionen. So wuchs aus einem zentral geführten Unternehmen zunehmend ein leistungsfähiges, regional verankertes Vertriebsnetz.</p>
               </div>
             </li>
             <li class="timeline__item">
               <span class="timeline__dot" aria-hidden="true"></span>
-              <div class="timeline__card" data-reveal>
+              <div class="timeline__card timeline__card--photo" data-reveal>
+                <div class="timeline__photos">
+                  <img class="timeline__photo" src="img/timeline/2024-hamburg.webp" width="1100" height="619" alt="Das AKAR Lager in Hamburg mit Laderampen" loading="lazy">
+                </div>
                 <span class="timeline__year">2024</span>
-                <p class="timeline__text">Neues Lager in Hamburg mit 4.000 Paletten</p>
+                <h3 class="timeline__title">Mehr Kapazität im Norden</h3>
+                <p class="timeline__text">Mit dem neuen Lager in Hamburg stärkte AKAR 2024 seine logistische Präsenz weiter. Der Standort bietet Platz für 4.000 Paletten und schafft zusätzliche Kapazitäten, um Kunden im Norden noch effizienter zu versorgen und das wachsende Vertriebsnetz weiter auszubauen.</p>
               </div>
             </li>
             <li class="timeline__item">
               <span class="timeline__dot" aria-hidden="true"></span>
-              <div class="timeline__card" data-reveal>
+              <div class="timeline__card timeline__card--photo" data-reveal>
+                <div class="timeline__photos">
+                  <img class="timeline__photo" src="img/timeline/2025-belgien.webp" width="1100" height="825" alt="Der AKAR Standort in Belgien" loading="lazy">
+                </div>
                 <span class="timeline__year">2025</span>
-                <p class="timeline__text">Gründung AKAR Belgien und Ausbau Benelux</p>
+                <h3 class="timeline__title">Benelux wird Teil unseres Netzwerks</h3>
+                <p class="timeline__text">Mit der Gründung von AKAR Belgien und einer Lagerkapazität von 2.500 Paletten wurde das europäische Vertriebsnetz 2025 weiter ausgebaut. Gleichzeitig starteten die Aktivitäten von AKAR Benelux – ein weiterer Schritt, um unsere Präsenz in der Region zu stärken und Kunden vor Ort noch direkter zu betreuen.</p>
               </div>
             </li>
             <li class="timeline__item">
               <span class="timeline__dot" aria-hidden="true"></span>
               <div class="timeline__card" data-reveal>
                 <span class="timeline__year">2026</span>
-                <p class="timeline__text">Gründung Standort Schweiz</p>
+                <h3 class="timeline__title">Präsenz im Schweizer Markt</h3>
+                <p class="timeline__text">Mit der Gründung des Standorts in der Schweiz setzte AKAR 2026 seine europäische Expansion konsequent fort. Der neue Standort stärkt unsere Präsenz vor Ort, verkürzt Wege zu Kunden und schafft die Grundlage für weiteres Wachstum im Schweizer Markt.</p>
               </div>
             </li>
           </ol>

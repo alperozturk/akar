@@ -7,7 +7,7 @@
   <meta name="description" content="Impressum der AKAR GmbH, Langenbach: Anbieterkennzeichnung, Kontakt, Handelsregister und Umsatzsteuer-ID." />
   <link rel="preload" href="fonts/montserrat-variable-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="css/fonts.css?v=20260910a" />
-  <link rel="stylesheet" href="css/styles.css?v=20260921a" />
+  <link rel="stylesheet" href="css/styles.css?v=20260921c" />
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" defer></script>
   <script type="module" src="js/main.js?v=20260919a"></script>
@@ -43,12 +43,14 @@
               <a href="index.html#sortiment" hidden>Produktgruppen</a>
             </div>
           </li>
-          <li class="nav-item nav-item--plain">
-            <a href="index.html#kunden" class="nav-item__trigger">Für Händler &amp; Kunden</a>
-            <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
-            <div class="nav-dropdown" hidden>
-              <a href="kontakt.html">Für Kunden</a>
-              <a href="index.html#praesenz">Unsere Händler</a>
+          <li class="nav-item">
+            <a href="index.html#kunden" class="nav-item__trigger" aria-haspopup="true">Für Händler &amp; Kunden</a>
+            <div class="nav-dropdown">
+              <a href="kontakt.html?anliegen=kunde">Kunde werden</a>
+              <a href="kontakt.html?anliegen=lieferant">Lieferant werden</a>
+              <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+              <a href="kontakt.html" hidden>Für Kunden</a>
+              <a href="index.html#praesenz" hidden>Unsere Händler</a>
             </div>
           </li>
           <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
@@ -109,6 +111,8 @@
         <div class="mm-col">
           <h4>Für Händler &amp; Kunden</h4>
           <a href="index.html#kunden">Unsere Kunden</a>
+          <a href="kontakt.html?anliegen=kunde">Kunde werden</a>
+          <a href="kontakt.html?anliegen=lieferant">Lieferant werden</a>
           <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
           <a href="index.html#praesenz" hidden>Unsere Händler</a>
         </div>

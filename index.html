@@ -7,7 +7,7 @@
   <meta name="description" content="AKAR GmbH — Ihr Full-Service-Partner für türkische und internationale Lebensmittel und Distribution in Europa. Über 30 Jahre Erfahrung." />
   <link rel="preload" href="fonts/montserrat-variable-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="css/fonts.css?v=20260910a" />
-  <link rel="stylesheet" href="css/styles.css?v=20260921a" />
+  <link rel="stylesheet" href="css/styles.css?v=20260921c" />
   <style>
     /* index2: cinematic hero — full-bleed background video, title revealed on end */
     .hero--cinematic {
@@ -206,12 +206,14 @@
               <a href="#sortiment" hidden>Produktgruppen</a>
             </div>
           </li>
-          <li class="nav-item nav-item--plain">
-            <a href="#kunden" class="nav-item__trigger">Für Händler &amp; Kunden</a>
-            <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
-            <div class="nav-dropdown" hidden>
-              <a href="#kontakt">Für Kunden</a>
-              <a href="#praesenz">Unsere Händler</a>
+          <li class="nav-item">
+            <a href="#kunden" class="nav-item__trigger" aria-haspopup="true">Für Händler &amp; Kunden</a>
+            <div class="nav-dropdown">
+              <a href="kontakt.html?anliegen=kunde">Kunde werden</a>
+              <a href="kontakt.html?anliegen=lieferant">Lieferant werden</a>
+              <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+              <a href="#kontakt" hidden>Für Kunden</a>
+              <a href="#praesenz" hidden>Unsere Händler</a>
             </div>
           </li>
           <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
@@ -272,6 +274,8 @@
         <div class="mm-col">
           <h4>Für Händler &amp; Kunden</h4>
           <a href="#kunden">Unsere Kunden</a>
+          <a href="kontakt.html?anliegen=kunde">Kunde werden</a>
+          <a href="kontakt.html?anliegen=lieferant">Lieferant werden</a>
           <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
           <a href="#praesenz" hidden>Unsere Händler</a>
         </div>
@@ -503,7 +507,7 @@
             <li class="logo-carousel__item"><img src="img/supermarkt-logos/Norma_Logo.svg.webp" alt="Norma" loading="lazy"></li>
             <li class="logo-carousel__item logo-carousel__item--crop-sm"><img src="img/supermarkt-logos/Globus.png" alt="Globus" loading="lazy"></li>
             <li class="logo-carousel__item logo-carousel__item--crop-xl"><img src="img/supermarkt-logos/V-Markt.png" alt="V-Markt" loading="lazy"></li>
-            <li class="logo-carousel__item logo-carousel__item--crop-xl"><img src="img/supermarkt-logos/MCS_Partner_Bartels-Langness_Neumuenster-trans.png" alt="Bartels-Langness" loading="lazy"></li>
+            <li class="logo-carousel__item logo-carousel__item--crop-xl"><img src="img/supermarkt-logos/Bartels-Langness.png" alt="Bartels-Langness" loading="lazy"></li>
             <li class="logo-carousel__item"><img src="img/supermarkt-logos/HITHandelsgruppe.svg" alt="HIT Handelsgruppe" loading="lazy"></li>
             <li class="logo-carousel__item"><img src="img/supermarkt-logos/MIX_Markt_Logo.svg.webp" alt="Mix Markt" loading="lazy"></li>
             <li class="logo-carousel__item"><img src="img/supermarkt-logos/utz_lebensmittel-trans.png" alt="Utz" loading="lazy"></li>

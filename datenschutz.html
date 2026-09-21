@@ -7,7 +7,7 @@
   <meta name="description" content="Datenschutzerklärung der AKAR GmbH: Informationen zur Verarbeitung personenbezogener Daten auf dieser Website." />
   <link rel="preload" href="fonts/montserrat-variable-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="css/fonts.css?v=20260910a" />
-  <link rel="stylesheet" href="css/styles.css?v=20260921a" />
+  <link rel="stylesheet" href="css/styles.css?v=20260921c" />
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous" defer></script>
   <script type="module" src="js/main.js?v=20260919a"></script>
@@ -43,12 +43,14 @@
               <a href="index.html#sortiment" hidden>Produktgruppen</a>
             </div>
           </li>
-          <li class="nav-item nav-item--plain">
-            <a href="index.html#kunden" class="nav-item__trigger">Für Händler &amp; Kunden</a>
-            <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
-            <div class="nav-dropdown" hidden>
-              <a href="kontakt.html">Für Kunden</a>
-              <a href="index.html#praesenz">Unsere Händler</a>
+          <li class="nav-item">
+            <a href="index.html#kunden" class="nav-item__trigger" aria-haspopup="true">Für Händler &amp; Kunden</a>
+            <div class="nav-dropdown">
+              <a href="kontakt.html?anliegen=kunde">Kunde werden</a>
+              <a href="kontakt.html?anliegen=lieferant">Lieferant werden</a>
+              <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
+              <a href="kontakt.html" hidden>Für Kunden</a>
+              <a href="index.html#praesenz" hidden>Unsere Händler</a>
             </div>
           </li>
           <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
@@ -109,6 +111,8 @@
         <div class="mm-col">
           <h4>Für Händler &amp; Kunden</h4>
           <a href="index.html#kunden">Unsere Kunden</a>
+          <a href="kontakt.html?anliegen=kunde">Kunde werden</a>
+          <a href="kontakt.html?anliegen=lieferant">Lieferant werden</a>
           <!-- TEMPORARY: noch nicht fertig — `hidden` entfernen zum Reaktivieren -->
           <a href="index.html#praesenz" hidden>Unsere Händler</a>
         </div>
@@ -165,7 +169,7 @@
 
           <h3>Datenerfassung auf dieser Website</h3>
           <p><strong>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong><br>Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Abschnitt „Hinweis zur verantwortlichen Stelle“ in dieser Datenschutzerklärung entnehmen.</p>
-          <p><strong>Wie erfassen wir Ihre Daten?</strong><br>Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie uns per E-Mail oder Telefon übermitteln. Andere Daten werden automatisch beim Besuch der Website durch unsere IT-Systeme bzw. die Systeme unseres Hosting-Anbieters erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs). Die Erfassung dieser Daten erfolgt automatisch, sobald Sie diese Website betreten.</p>
+          <p><strong>Wie erfassen wir Ihre Daten?</strong><br>Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie in unser Kontaktformular eingeben oder uns per E-Mail oder Telefon übermitteln. Andere Daten werden automatisch beim Besuch der Website durch unsere IT-Systeme bzw. die Systeme unseres Hosting-Anbieters erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs). Die Erfassung dieser Daten erfolgt automatisch, sobald Sie diese Website betreten.</p>
           <p><strong>Wofür nutzen wir Ihre Daten?</strong><br>Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Sofern über die Website Verträge angebahnt werden können, werden die übermittelten Daten auch für Vertragsangebote, Bestellungen oder sonstige Auftragsanfragen verarbeitet. Diese Website setzt keine Cookies und keine Analyse- oder Tracking-Tools ein.</p>
           <p><strong>Welche Rechte haben Sie bezüglich Ihrer Daten?</strong><br>Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese Einwilligung jederzeit für die Zukunft widerrufen. Außerdem haben Sie das Recht, unter bestimmten Umständen die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu.</p>
           <p>Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit an uns wenden.</p>
@@ -174,7 +178,7 @@
           <p>Wir hosten die Inhalte unserer Website bei folgendem Anbieter:</p>
           <h3>GitHub Pages</h3>
           <p>Diese Website wird als statische Website über den Dienst „GitHub Pages“ gehostet. Anbieter ist die GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA (nachfolgend „GitHub“). Für Nutzer in der EU tritt GitHub über seine Tochtergesellschaft GitHub B.V., Prins Bernhardplein 200, 1097 JB Amsterdam, Niederlande, als Vertragspartner auf.</p>
-          <p>Wenn Sie unsere Website besuchen, werden die zur Auslieferung der Seiteninhalte erforderlichen Daten auf den Servern von GitHub verarbeitet. GitHub erfasst dabei insbesondere die IP-Adresse des zugreifenden Geräts sowie technische Meta- und Kommunikationsdaten (z. B. aufgerufene Seite, Zeitpunkt des Zugriffs, Browsertyp) und speichert diese zu Sicherheitszwecken in Server-Log-Dateien, unabhängig davon, ob Sie bei GitHub angemeldet sind. Eine Speicherung von Kontaktanfragen, Vertragsdaten oder sonstigen von Ihnen eingegebenen Daten bei GitHub findet nicht statt, da diese Website keine Formulare bereitstellt.</p>
+          <p>Wenn Sie unsere Website besuchen, werden die zur Auslieferung der Seiteninhalte erforderlichen Daten auf den Servern von GitHub verarbeitet. GitHub erfasst dabei insbesondere die IP-Adresse des zugreifenden Geräts sowie technische Meta- und Kommunikationsdaten (z. B. aufgerufene Seite, Zeitpunkt des Zugriffs, Browsertyp) und speichert diese zu Sicherheitszwecken in Server-Log-Dateien, unabhängig davon, ob Sie bei GitHub angemeldet sind. Eine Speicherung von Kontaktanfragen, Vertragsdaten oder sonstigen von Ihnen eingegebenen Daten bei GitHub findet nicht statt. Anfragen über unser Kontaktformular werden nicht über GitHub, sondern über den im Abschnitt „Kontaktformular“ beschriebenen Dienst verarbeitet.</p>
           <p>Die Nutzung von GitHub Pages erfolgt im Interesse einer sicheren, schnellen und effizienten Bereitstellung unseres Online-Angebots durch einen professionellen Anbieter (Art. 6 Abs. 1 lit. f DSGVO). GitHub verarbeitet Ihre Daten nur insoweit, wie dies zur Erfüllung seiner Leistungspflichten erforderlich ist.</p>
           <p>Die Datenverarbeitung kann auf Servern in den USA erfolgen. GitHub ist nach dem „EU-US Data Privacy Framework“ (DPF) zertifiziert. Der DPF ist ein Übereinkommen zwischen der Europäischen Union und den USA, das die Einhaltung europäischer Datenschutzstandards bei Datenverarbeitungen in den USA gewährleisten soll. Jedes nach dem DPF zertifizierte Unternehmen verpflichtet sich, diese Datenschutzstandards einzuhalten. Ergänzend stützt sich GitHub auf die Standardvertragsklauseln der EU-Kommission.</p>
           <p>Weitere Informationen entnehmen Sie der Datenschutzerklärung von GitHub: <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement</a> sowie den Hinweisen zur Datenerfassung bei GitHub Pages: <a href="https://docs.github.com/de/pages/getting-started-with-github-pages/what-is-github-pages#data-collection" rel="noopener">https://docs.github.com/de/pages/getting-started-with-github-pages/what-is-github-pages#data-collection</a>.</p>
@@ -268,6 +272,19 @@
           </ul>
           <p>Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen.</p>
           <p>Die Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an der technisch fehlerfreien Darstellung und der Optimierung seiner Website – hierzu müssen die Server-Log-Files erfasst werden.</p>
+
+          <h3>Kontaktformular</h3>
+          <p>Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten (Anliegen, Firma, Name, Vorname, Telefonnummer, E-Mail-Adresse, Postleitzahl, Ort und Ihre Nachricht) zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
+          <p>Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO) oder auf Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), die wir beim Absenden des Formulars abfragen; die Einwilligung ist jederzeit widerrufbar.</p>
+          <p>Die von Ihnen im Kontaktformular eingegebenen Daten verbleiben bei uns, bis Sie uns zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihrer Anfrage). Zwingende gesetzliche Bestimmungen – insbesondere Aufbewahrungsfristen – bleiben unberührt.</p>
+
+          <h3>Forminit</h3>
+          <p>Für die technische Entgegennahme, Speicherung und Weiterleitung der über das Kontaktformular gesendeten Anfragen nutzen wir den Dienst „Forminit“. Anbieter ist die UXPLUS LTD, 86–90 Paul Street, 3rd Floor, London EC2A 4NE, Vereinigtes Königreich (nachfolgend „Forminit“).</p>
+          <p>Beim Aufruf unserer Kontaktseite lädt Ihr Browser ein Skript von den Servern von Forminit; hierbei wird Ihre IP-Adresse technisch bedingt an Forminit übermittelt. Wenn Sie das Formular absenden, werden die von Ihnen eingegebenen Daten an Forminit übertragen und dort in unserem Auftrag gespeichert; über den Eingang werden wir per E-Mail benachrichtigt. Zusätzlich verarbeitet Forminit technische Daten der Übermittlung, insbesondere die IP-Adresse und einen daraus abgeleiteten ungefähren Standort, den Zeitpunkt der Anfrage, Browserinformationen und die Adresse der zuvor besuchten Seite (Referrer), sowie – sofern in der aufgerufenen Seitenadresse enthalten – Kampagnenparameter (z. B. UTM-Parameter oder Klick-Kennungen aus Werbeanzeigen). Forminit setzt hierfür auf dieser Website keine Cookies und speichert keine Informationen auf Ihrem Endgerät. Zum Schutz vor missbräuchlichen Einsendungen (Spam) können eingehende Nachrichten automatisiert geprüft werden.</p>
+          <p>Nach Angaben von Forminit werden die Formulardaten verschlüsselt übertragen und verschlüsselt auf Servern von Amazon Web Services (AWS) in Rechenzentren innerhalb der Europäischen Union gespeichert. Forminit hat seinen Sitz im Vereinigten Königreich. Für das Vereinigte Königreich besteht ein Angemessenheitsbeschluss der Europäischen Kommission, der ein mit der DSGVO vergleichbares Datenschutzniveau bestätigt.</p>
+          <p>Der Einsatz von Forminit erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein berechtigtes Interesse an einer zuverlässigen und sicheren Entgegennahme und Bearbeitung der an uns gerichteten Anfragen. Sofern eine entsprechende Einwilligung abgefragt wurde, erfolgt die Verarbeitung auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO; die Einwilligung ist jederzeit widerrufbar.</p>
+          <p>Weitere Informationen entnehmen Sie der Datenschutzerklärung von Forminit: <a href="https://forminit.com/privacy-policy/" rel="noopener">https://forminit.com/privacy-policy/</a> sowie den Hinweisen zur DSGVO: <a href="https://forminit.com/gdpr/" rel="noopener">https://forminit.com/gdpr/</a>.</p>
+          <p><strong>Auftragsverarbeitung</strong><br>Die Nutzung von Forminit erfolgt auf Grundlage der Nutzungsbedingungen von Forminit einschließlich der zugehörigen Vereinbarung zur Auftragsverarbeitung („Data Processing Agreement“). Hierbei handelt es sich um einen datenschutzrechtlich vorgeschriebenen Vertrag, der gewährleistet, dass Forminit die personenbezogenen Daten unserer Websitebesucher nur nach unseren Weisungen und unter Einhaltung der DSGVO verarbeitet.</p>
 
           <h3>Anfrage per E-Mail, Telefon oder Telefax</h3>
           <p>Wenn Sie uns per E-Mail, Telefon oder Telefax kontaktieren, wird Ihre Anfrage inklusive aller daraus hervorgehenden personenbezogenen Daten (Name, Anfrage) zum Zwecke der Bearbeitung Ihres Anliegens bei uns gespeichert und verarbeitet. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
