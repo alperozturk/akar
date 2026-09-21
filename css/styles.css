@@ -1483,6 +1483,99 @@ body.nav--burger .menu-pill { display: flex !important; }
   pointer-events: none;
 }
 .pin:hover i { opacity: 1; }
+/* contact popup (js/standorte.js): one shared card inside .footprint__map,
+   anchored to the clicked pin. The pin's hover label steps aside while its
+   popup is open. */
+.pin.is-open i { opacity: 0; }
+/* while a popup is open the map outranks its grid siblings, so a card that
+   reaches past the map (mobile: over the location list) stays on top */
+.footprint__map.has-pop { z-index: 5; }
+.pin-pop {
+  position: absolute;
+  z-index: 5;
+  top: 0; left: 0;
+  width: max-content;
+  max-width: min(16.5rem, calc(100vw - 2rem));
+  padding: .85rem 1rem .9rem;
+  border-radius: 1.1rem;
+  background: #fff;
+  box-shadow: 0 1.1rem 2.4rem -1rem rgba(40, 28, 70, .45), 0 0 0 1px rgba(20,20,20,.05);
+  font-size: .8rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  text-align: left;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(.4rem);
+  transition: opacity .2s ease, transform .2s ease, visibility 0s linear .2s;
+}
+.pin-pop--below { transform: translateY(-.4rem); }
+.pin-pop.is-open {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+  transition-delay: 0s;
+}
+.pin-pop:focus { outline: none; }
+/* little pointer towards the pin; --arrow-x is set by the script */
+.pin-pop::after {
+  content: '';
+  position: absolute;
+  left: var(--arrow-x, 50%);
+  bottom: -.35rem;
+  width: .8rem; height: .8rem;
+  background: #fff;
+  border-radius: .15rem;
+  transform: translateX(-50%) rotate(45deg);
+}
+.pin-pop--below::after { bottom: auto; top: -.35rem; }
+.pin-pop__close {
+  position: absolute;
+  top: .35rem; right: .4rem;
+  width: 1.6rem; height: 1.6rem;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--muted);
+  font-size: 1.15rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease;
+}
+.pin-pop__close:hover, .pin-pop__close:focus-visible { background: rgba(254,70,134,.12); color: var(--pink); outline: none; }
+.pin-pop__city {
+  margin: 0 1.6rem .35rem 0;
+  font-family: var(--disp);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--pink);
+}
+.pin-pop__entry + .pin-pop__entry { margin-top: .6rem; padding-top: .6rem; border-top: 1px solid rgba(20,20,20,.08); }
+.pin-pop__name {
+  display: block;
+  font-family: var(--disp);
+  font-weight: 800;
+  font-size: .9rem;
+  line-height: 1.25;
+  color: var(--ink);
+}
+.pin-pop__name small { font-size: .68rem; font-weight: 700; color: var(--muted); letter-spacing: .04em; }
+.pin-pop__addr { font-style: normal; margin-top: .15rem; }
+.pin-pop__hint { margin: 0; }
+.pin-pop__links { display: flex; flex-direction: column; gap: .1rem; margin-top: .35rem; }
+.pin-pop__links a, .pin-pop__fax { color: var(--ink); font-weight: 600; text-decoration: none; overflow-wrap: anywhere; }
+.pin-pop__links a:hover { color: var(--pink); }
+.pin-pop__links > * > span:first-child {
+  display: inline-block;
+  min-width: 2.9rem;
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
 @keyframes pin-pulse {
   0% { transform: scale(1); opacity: .7; }
   100% { transform: scale(2.6); opacity: 0; }
@@ -1840,6 +1933,7 @@ body.nav--burger .menu-pill { display: flex !important; }
   .marquee__track,
   .logo-marquee__track { animation: none !important; }
   .pin b::after { animation: none !important; }
+  .pin-pop { transition: none; transform: none; }
   * {
     animation-duration: .01ms !important;
     animation-iteration-count: 1 !important;
