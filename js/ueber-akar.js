@@ -8,8 +8,10 @@
    neighbour on the other side: a card starts GAP below the previous card on
    its own side, and at least STAGGER — or half the previous card's height,
    whichever is more — below the previous milestone. That keeps the dots in
-   chronological order and leaves clear air between the milestones. Below 761px (one column) the
-   margins are cleared and the CSS flow applies. */
+   chronological order and leaves clear air between the milestones. An item
+   marked data-straddle sits lower, centred on the gap between the two cards
+   opposite it. Below 761px (one column) the margins are cleared and the CSS
+   flow applies. */
 (() => {
   const timeline = document.querySelector('.timeline');
   if (!timeline) return;
@@ -36,12 +38,20 @@
       const side = i % 2;
       item.style.marginTop = '0px';
       const natural = item.offsetTop;
-      const top = i === 0 ? natural : Math.max(
+      /* measured before the margin is set: a negative margin larger than the
+         card would stretch the item and inflate its height */
+      const height = item.offsetHeight;
+      let top = i === 0 ? natural : Math.max(
         bottoms[side] + GAP * rem,
         prevTop + Math.max(STAGGER * rem, prevHeight * OVERLAP)
       );
+      /* data-straddle: centre the card on the gap below the last card of the
+         other side, so it overlaps that card and the one following it */
+      if (i > 0 && item.hasAttribute('data-straddle')) {
+        top = Math.max(top, bottoms[1 - side] + (GAP * rem - height) / 2);
+      }
       item.style.marginTop = `${top - natural}px`;
-      prevHeight = item.offsetHeight;
+      prevHeight = height;
       bottoms[side] = top + prevHeight;
       prevTop = top;
     });
