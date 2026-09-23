@@ -310,18 +310,26 @@
       <!-- full-bleed background video: autoplays once, then freezes on its last frame -->
       <video class="hero__bg-video" autoplay muted playsinline preload="auto"
              poster="img/hero-poster.jpg"
-             data-src-mobile="hero-video-mobile.mp4"
-             data-src-desktop="hero-video-desktop.mp4"></video>
+             data-src-mobile="hero-video-mobile"
+             data-src-desktop="hero-video-desktop"></video>
       <script>
-        /* Pick the hero source before playback starts: phones get the 1280-wide
-           5 MB encode, wider screens the 2560-wide 22 MB one. Decided once at
-           load, so rotating the device never triggers a second download.
+        /* Pick the hero source before playback starts. Size: phones get the
+           1280-wide encode, wider screens the 2560-wide one. Codec: AV1 where the
+           browser can play it (6.8 MB desktop / 2.5 MB mobile), else HEVC for
+           Safari (10.3 / 3.5 MB), else the H.264 fallback (22 / 5 MB) - same
+           picture, very different download. Decided once at load, so rotating
+           the device never triggers a second download.
            (`media` on <source> inside <video> is not honoured consistently.) */
         (function () {
           var v = document.currentScript.previousElementSibling;
-          v.src = window.matchMedia('(max-width: 767px)').matches
-            ? v.dataset.srcMobile
-            : v.dataset.srcDesktop;
+          var mobile = window.matchMedia('(max-width: 767px)').matches;
+          var base = mobile ? v.dataset.srcMobile : v.dataset.srcDesktop;
+          var av1 = mobile ? 'av01.0.08M.08' : 'av01.0.12M.08';
+          var hevc = mobile ? 'hvc1.1.6.L120.B0' : 'hvc1.1.6.L150.B0';
+          var suffix = v.canPlayType('video/mp4; codecs="' + av1 + '"') ? '-av1'
+            : v.canPlayType('video/mp4; codecs="' + hevc + '"') ? '-hevc'
+            : '';
+          v.src = base + suffix + '.mp4';
         })();
       </script>
 
