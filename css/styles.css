@@ -407,8 +407,40 @@ body.nav--burger .menu-pill { display: flex !important; }
 .mobile-menu__cta:hover { background: #e7396f; transform: translateY(-2px); }
 .mobile-menu__close span { background: var(--ink); }
 
+/* phones: one group per white card, stacked — a small pink label on top and
+   full-width link rows with hairlines and a chevron, so headings, links and
+   groups read as clearly different things */
 @media (max-width: 560px) {
-  .mobile-menu__cols { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.4rem 1.6rem; }
+  .mobile-menu { justify-content: flex-start; padding: 5rem 1.25rem 2rem; }
+  .mobile-menu__nav { gap: 1.6rem; }
+  .mobile-menu__cols { grid-template-columns: 1fr; gap: .75rem; }
+  .mm-col {
+    background: #fff;
+    border-radius: 1.125rem;
+    padding: 1rem 1.2rem .35rem;
+    box-shadow: 0 .75rem 1.75rem -1.25rem rgba(20, 14, 40, .35);
+  }
+  .mm-col h4 { font-size: .72rem; letter-spacing: .14em; margin-bottom: .35rem; }
+  .mm-col a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: .68rem 0;
+    font-size: 1.05rem;
+    border-top: 1px solid rgba(20, 14, 40, .08);
+  }
+  .mm-col h4 + a { border-top: 0; }
+  .mm-col a::after {
+    content: '';
+    flex: none;
+    width: .45rem; height: .45rem;
+    border-top: 2px solid var(--pink);
+    border-right: 2px solid var(--pink);
+    transform: rotate(45deg);
+  }
+  .mm-col a:hover { transform: none; }
+  .mobile-menu__cta { align-self: stretch; text-align: center; }
 }
 
 /* === HERO (V2 candy-kingdom) === */
@@ -1168,7 +1200,6 @@ body.nav--burger .menu-pill { display: flex !important; }
   text-transform: uppercase;
   color: var(--muted);
 }
-.logo-marquee__note span { color: var(--pink); margin-inline: .5rem; }
 
 @media (max-width: 1100px) {
   .logo-carousel__track { --per-view: 4; }
@@ -1176,24 +1207,28 @@ body.nav--burger .menu-pill { display: flex !important; }
   .cust-stat { min-width: 6.4rem; padding: .85rem .6rem; }
 }
 @media (max-width: 860px) {
-  /* stacked: copy, then the photo with the stats sitting on its lower edge */
+  /* stacked: copy, then the photo with the stats inside its lower edge */
   .cust-card { grid-template-columns: 1fr; min-height: 0; }
   .cust-card__copy { padding: 0 0 1.6rem; }
   .cust-card__title { max-width: none; }
+  /* no photo beside it any more, and on ~360px phones the unbreakable
+     "FMCG-Einzelhandel." is wider than the card and gets clipped */
+  .cust-card__title .nowrap { white-space: normal; }
+  /* full-width band like the chocolate photo above; the stat cards sit
+     wholly inside its lower edge (see .cust-card__stats below) */
   .cust-card__photo {
     position: relative;
     inset: auto;
     aspect-ratio: 16 / 10;
-    margin: 0 0 4.4rem;
-    border-radius: 1.375rem;
-    box-shadow: var(--shadow-card);
+    margin: 0 calc(-1 * clamp(1.25rem, 5vw, 3rem));
+    border-radius: 0;
     -webkit-mask-image: none;
             mask-image: none;
   }
   .cust-card__stats {
     left: 50%;
     top: auto;
-    bottom: 1.2rem;
+    bottom: 1rem;
     transform: translateX(-50%);
     width: calc(100% - 1.2rem);
     justify-content: center;
@@ -1444,6 +1479,13 @@ body.nav--burger .menu-pill { display: flex !important; }
   border: 3px solid #fff;
 }
 .pin.is-selected { z-index: 2; }
+/* phones: the map is only ~330px wide, so full-size pins clump into blobs */
+@media (max-width: 640px) {
+  .pin b { width: .5rem; height: .5rem; box-shadow: 0 0 0 2px rgba(254,70,134,.22); }
+  .footprint__pins .pin b { box-shadow: 0 0 0 2px rgba(254,70,134,.28); }
+  .pin.pin--hq b { width: .85rem; height: .85rem; border-width: 2px; box-shadow: 0 0 0 2px rgba(254,70,134,.3); }
+  .pin:not(.pin--hq).is-selected b { width: .7rem; height: .7rem; border-width: 2px; }
+}
 .pin { cursor: pointer; }
 .pin:hover, .pin.is-hot, .pin:focus-visible { z-index: 3; }
 .pin:hover b, .pin.is-hot b, .pin:focus-visible b { transform: scale(1.3); }
@@ -1915,6 +1957,20 @@ body.nav--burger .menu-pill { display: flex !important; }
   }
   /* the card look keeps its crisp bottom edge — no dissolve on mobile */
   .story__photo::after { content: none; }
+  /* the chocolate photo runs edge to edge as a band between the copy and
+     the next block: pull it out through the container's inline padding */
+  .story__media--bleed {
+    max-width: none;
+    margin-inline: calc(-1 * clamp(1.25rem, 5vw, 3rem));
+    width: auto;
+  }
+  /* the Canva export carries a pale strip along its edges that reads as a
+     frame once the photo is full width — zoom in just enough to crop it */
+  .story__media--bleed .story__photo {
+    border-radius: 0;
+    background-size: 106% auto, cover;
+    background-position: center, center;
+  }
   .footer__top { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
@@ -1922,6 +1978,17 @@ body.nav--burger .menu-pill { display: flex !important; }
   .cat-card { flex: 0 0 calc((100% - var(--cgap)) / 2); max-width: calc((100% - var(--cgap)) / 2); }
   .news-grid { grid-template-columns: 1fr; }
   .stats__grid { grid-template-columns: repeat(2, 1fr); gap: 2rem 1.5rem; }
+  /* phones: drop the odd figures so the two-column grid comes out even */
+  .stat--desktop { display: none; }
+  /* "Vertriebsniederlassungen" is wider than a column on ~360px phones */
+  .stat__label { hyphens: auto; -webkit-hyphens: auto; overflow-wrap: anywhere; }
+  /* with the 3rd figure gone the homepage's even/odd colouring would turn into
+     a checkerboard — keep ink on the left, pink on the right */
+  .trustbar .stat:nth-child(4) .stat__num { color: var(--ink); }
+  .trustbar .stat:nth-child(5) .stat__num { color: var(--pink); }
+  /* the story's value cards repeat what the copy above already says */
+  .values--story { display: none; }
+  .story__inner:has(.story__media--bleed) { margin-bottom: 0; }
   .kpis { grid-template-columns: 1fr 1fr; }
   .footer__cols { grid-template-columns: repeat(2, 1fr); }
   .footer__legal { margin-left: 0; }

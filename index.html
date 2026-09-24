@@ -7,7 +7,7 @@
   <meta name="description" content="AKAR GmbH — Ihr Full-Service-Partner für türkische und internationale Lebensmittel und Distribution in Europa. Über 30 Jahre Erfahrung." />
   <link rel="preload" href="fonts/montserrat-variable-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="css/fonts.css?v=20260910a" />
-  <link rel="stylesheet" href="css/styles.css?v=20260921c" />
+  <link rel="stylesheet" href="css/styles.css?v=20260924f" />
   <style>
     /* index2: cinematic hero — full-bleed background video, title revealed on end */
     .hero--cinematic {
@@ -148,8 +148,10 @@
          Nothing overlaps the video here, so it would only wash out the frame. */
       .hero__scrim { display: none; }
 
+      /* the trust bar's top wave rises 3.5rem into the hero (see .trustbar
+         --tb-wave), so reserve that on top of the regular bottom padding */
       .hero__overlay {
-        padding-block: clamp(1.75rem, 8vw, 3rem);
+        padding-block: clamp(1.75rem, 8vw, 3rem) calc(clamp(1.75rem, 8vw, 3rem) + 3.5rem);
       }
 
       /* Freed from competing with the video, the copy can breathe a little. */
@@ -364,7 +366,7 @@
         <div class="stats__grid" data-reveal-group>
           <div class="stat"><span class="stat__num" data-count="30" data-suffix="+">30+</span><span class="stat__label">Jahre Erfahrung</span></div>
           <div class="stat"><span class="stat__num" data-count="14">14</span><span class="stat__label">Vertriebsniederlassungen</span></div>
-          <div class="stat"><span class="stat__num" data-count="7">7</span><span class="stat__label">Europäische Länder</span></div>
+          <div class="stat stat--desktop"><span class="stat__num" data-count="7">7</span><span class="stat__label">Europäische Länder</span></div>
           <div class="stat"><span class="stat__num" data-count="15000" data-suffix="+">15.000+</span><span class="stat__label">Verkaufsstellen</span></div>
           <div class="stat"><span class="stat__num" data-count="800">800</span><span class="stat__label">Aktive Produkte</span></div>
         </div>
@@ -407,13 +409,13 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
         </div>
-        <div class="story__media" data-reveal="scale">
+        <div class="story__media story__media--bleed" data-reveal="scale">
           <div class="story__photo" role="img" aria-label="Junge Frau genießt Schokolade"></div>
         </div>
       </div>
 
       <div class="container">
-        <div class="values" data-reveal-group>
+        <div class="values values--story" data-reveal-group>
           <article class="card">
             <span class="card__icon card__icon--teal">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg>
@@ -529,7 +531,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </button>
         </div>
-        <p class="logo-marquee__note"><span aria-hidden="true">✳</span> Und viele weitere Partner in ganz Europa <span aria-hidden="true">✳</span></p>
+        <p class="logo-marquee__note">Und viele weitere Partner in ganz Europa</p>
       </div>
     </section>
 
@@ -949,7 +951,7 @@
                 skalierbare Distribution. Unser Vertriebsnetz erstreckt sich über Deutschland,
                 Frankreich, Belgien, die Niederlande, Österreich, die Schweiz und Schweden.
                 Unsere Infrastruktur ermöglicht eine effiziente Belieferung und hohe
-                Warenverfügbarkeit in unseren europäischen Absatzmärkten mit über 600 aktiven
+                Warenverfügbarkeit in unseren europäischen Absatzmärkten mit über 800 aktiven
                 Produkten.
               </p>
             </div>
