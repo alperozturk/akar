@@ -7,7 +7,7 @@
   <meta name="description" content="AKAR GmbH - Ihr Full-Service-Partner für türkische und internationale Lebensmittel und Distribution in Europa. Über 30 Jahre Erfahrung." />
   <link rel="preload" href="fonts/montserrat-variable-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="css/fonts.css?v=20260910a" />
-  <link rel="stylesheet" href="css/styles.css?v=20260924g" />
+  <link rel="stylesheet" href="css/styles.css?v=20260924h" />
   <style>
     /* index2: cinematic hero — full-bleed background video, title revealed on end */
     .hero--cinematic {
@@ -33,7 +33,9 @@
       object-fit: cover;
       object-position: center center;
       z-index: 0;
-      transform: none;
+      /* the clip's opening seconds carry a 1px dark border; a 1% zoom pushes
+         it past the panel edges */
+      transform: scale(1.01);
     }
 
     /* dark scrim fades in with the title to keep it legible over the freeze-frame */
@@ -117,45 +119,31 @@
     .hero--cinematic.is-revealed .hero__title--reveal .hero__word { transition-delay: .18s; }
     .hero--cinematic.is-revealed .hero__lead-reveal { transition-delay: .31s; }
 
-    /* ---- Mobile hero: show the whole 3:2 frame instead of cropping it ----
-       At 100svh with object-fit:cover a 3:2 video on a portrait phone renders
-       ~1264px wide inside a 390px viewport, so ~69% of the frame - including
-       every brand pack in the outer thirds - is cropped away. On phones the
-       hero therefore stops being a full-screen panel: the video becomes a
-       full-width band at its natural aspect ratio and the copy sits beneath
-       it, against the same pale backdrop the footage itself fades to. */
+    /* ---- Mobile hero: same timing as desktop - the title fades in over the
+       footage once it has played - but the 3:2 frame is never cropped: it
+       sits uncut as a full-width band in the middle of the panel, and the
+       space above and below is filled with the footage's own pale peach
+       edge colour, the band's top and bottom edges fading into it. The
+       hero stops a little short of full height so the next section peeks in. */
     @media (max-width: 767px) {
-      .hero--cinematic {
-        display: block;
-        min-height: 0;
-        height: auto;
-        background: #fff;
-        /* The header is fixed, so without this it would cover the top ~29% of
-           a 260px-tall video band - exactly the strip the products fly through.
-           Mirrors .site-header's own box: 44px of nav + its vertical padding. */
-        padding-top: calc(2.75rem + 2 * clamp(1rem, 2.4vw, 1.6rem));
-      }
-
+      .hero--cinematic { min-height: 0; height: 78svh; background: #fdefe6; }
+      /* the element is sized to the band itself (not the whole panel) so the
+         fade works on the frame's own edges: the opening seconds of the clip
+         carry a 1px dark border, and the band is 2% wider than the screen so
+         its side edges fall outside, while top and bottom fade out */
       .hero__bg-video {
-        position: static;
-        width: 100%;
+        top: 50%;
+        left: -1%;
+        width: 102%;
+        max-width: none;
         height: auto;
-        aspect-ratio: 3524 / 2352;
-        object-fit: contain;
+        aspect-ratio: 1280 / 854;
+        transform: translateY(-50%);
+        object-fit: cover;
+        -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 14%, #000 86%, transparent 100%);
+                mask-image: linear-gradient(180deg, transparent 0, #000 14%, #000 86%, transparent 100%);
       }
-
-      /* The scrim exists to keep the overlaid title legible over the footage.
-         Nothing overlaps the video here, so it would only wash out the frame. */
-      .hero__scrim { display: none; }
-
-      /* the trust bar's top wave rises 3.5rem into the hero (see .trustbar
-         --tb-wave), so reserve that on top of the regular bottom padding */
-      .hero__overlay {
-        padding-block: clamp(1.75rem, 8vw, 3rem) calc(clamp(1.75rem, 8vw, 3rem) + 3.5rem);
-      }
-
-      /* Freed from competing with the video, the copy can breathe a little. */
-      .hero__title--reveal { text-shadow: none; }
+      .hero__overlay { padding-inline: 1.25rem; }
       .hero__lead-reveal { margin-top: 1.1rem; }
     }
 
@@ -342,7 +330,7 @@
       <div class="hero__overlay">
         <p class="hero__eyebrow hero__word">EUROPÄISCHE FMCG-DISTRIBUTION</p>
         <h1 class="hero__title hero__title--reveal" id="hero-title">
-          <span class="hero__word">Passion for the <span class="hero__title-script">Best .</span><span class="hero__title-dot"></span></span>
+          <span class="hero__word">Passion for the <span class="hero__title-script">Best&nbsp;.</span><span class="hero__title-dot"></span></span>
         </h1>
         <p class="hero__lead-reveal hero__word">
           Ihr Full-Service-Partner für türkische und internationale
@@ -1384,11 +1372,6 @@
       };
 
       if (!video) { reveal(); return; }
-
-      // On phones the copy sits below the video rather than over its freeze
-      // frame, so there is nothing to wait for - holding it hidden for 15s
-      // would just leave an empty block under the clip.
-      if (window.matchMedia('(max-width: 767px)').matches) reveal();
 
       // Reveal the title once playback reaches the 17s mark.
       var REVEAL_AT = 15; // seconds
