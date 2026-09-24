@@ -2037,6 +2037,10 @@ body.nav--burger .menu-pill { display: flex !important; }
   /* the story's value cards repeat what the copy above already says */
   .values--story { display: none; }
   .story__inner:has(.story__media--bleed) { margin-bottom: 0; }
+  /* with the cards gone the photo ends the section: drop the bottom padding
+     so the next section's wave rises just over the photo's bottom edge. The
+     wave's lowest point (left edge) sits .3 wave-heights above the seam. */
+  .story:has(.story__media--bleed) { padding-bottom: calc(var(--wave-height) * .3 - .5rem); }
   .kpis { grid-template-columns: 1fr 1fr; }
   .footer__cols { grid-template-columns: repeat(2, 1fr); }
   .footer__legal { margin-left: 0; }
@@ -2763,7 +2767,10 @@ select.form__input:invalid { color: rgba(20,20,20,.5); }
   /* the building photo is the hero's background: tall enough to read as a
      full-width image, heading on the sky with a soft lavender fade behind it */
   min-height: clamp(34rem, 88vh, 54rem);
-  padding-top: clamp(9rem, 18vh, 12rem);
+  /* the photo scales with the viewport width, so the heading's offset does
+     too: it starts just below the Akar sign on the facade, keeping the logo
+     clear of the heading's glow */
+  padding-top: calc(10rem + 15vw);
   padding-bottom: clamp(3.5rem, 7vh, 5.5rem);
   overflow: hidden;
 }
@@ -2774,18 +2781,35 @@ select.form__input:invalid { color: rgba(20,20,20,.5); }
   position: absolute;
   inset: 0;
   pointer-events: none;
-  /* a soft glow right behind the heading plus a light wash under the fixed
-     header — the rest of the building stays at full strength */
-  background:
-    radial-gradient(ellipse 54% 32% at 50% 30%, color-mix(in srgb, var(--lav) 86%, transparent), transparent 100%),
-    linear-gradient(180deg, color-mix(in srgb, var(--lav) 80%, transparent) 0%, transparent 20%);
+  /* a light wash under the fixed header — the heading's own glow is on
+     .section-head below, so the rest of the building stays at full strength */
+  background: linear-gradient(180deg, color-mix(in srgb, var(--lav) 80%, transparent) 0%, transparent 20%);
+}
+/* the heading sits on the facade and its dark windows, not on sky: a lavender
+   cloud attached to the text block itself (so it follows it at every width),
+   near-solid under the letters and dissolving well before its edges, plus a
+   tight halo that lifts each glyph off whatever window is behind it */
+.about-hero .section-head { position: relative; isolation: isolate; }
+.about-hero .section-head::before {
+  content: '';
+  position: absolute;
+  inset: -3.5rem -6rem;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--lav) 90%, transparent) 55%, color-mix(in srgb, var(--lav) 55%, transparent) 78%, transparent 100%);
+  filter: blur(8px);
+}
+.about-hero .section-head .h2 {
+  text-shadow: 0 0 .5em color-mix(in srgb, var(--lav) 85%, transparent), 0 0 .15em color-mix(in srgb, var(--lav) 90%, transparent);
 }
 .about-hero__photo {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 70%;
+  /* anchored near the top: the whole building (roof sits ~21% down the
+     image) stays in frame and the crop eats the empty road below instead */
+  object-position: center 25%;
 }
 /* "SEIT 1992" seal on the photo's lower right, clear of the next section's wave */
 .about-hero__seal {
@@ -2799,6 +2823,12 @@ select.form__input:invalid { color: rgba(20,20,20,.5); }
 }
 .about-hero__seal:hover { transform: rotate(9deg); }
 .about-hero__seal .seal__text strong { font-size: 1.7rem; }
+/* narrower desktops: the lowered heading runs nearly full width and would
+   hit the seal on the lower right — lift it onto the tree, above the heading */
+@media (min-width: 861px) and (max-width: 1280px) {
+  .about-hero__seal { top: 6.5rem; bottom: auto; width: 7rem; height: 7rem; }
+  .about-hero__seal .seal__text strong { font-size: 1.45rem; }
+}
 
 .about-story   { --section-bg: var(--section-surface-a); }
 .about-usp     { --section-bg: var(--section-surface-b); }
@@ -3147,7 +3177,7 @@ select.form__input:invalid { color: rgba(20,20,20,.5); }
   /* phones/tablets: a portrait screen crops the wide photo down to the road,
      so stack instead — heading first, then the photo as a full-width band
      that runs into the next section's wave */
-  .about-hero { display: flex; flex-direction: column; min-height: 0; padding-bottom: 0; }
+  .about-hero { display: flex; flex-direction: column; min-height: 0; padding-top: clamp(9rem, 18vh, 12rem); padding-bottom: 0; }
   .about-hero > .container { order: 1; margin-bottom: 2rem; }
   .about-hero__media { order: 2; position: relative; inset: auto; }
   .about-hero__media::after { content: none; }
