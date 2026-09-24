@@ -860,6 +860,28 @@ body.nav--burger .menu-pill { display: flex !important; }
   -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 32%, #000 100%);
           mask-image: linear-gradient(to right, transparent 0%, #000 32%, #000 100%);
 }
+/* desktop: the photo reaches up under the section's top wave and is cut to the
+   same curve, so the wave itself is the photo's upper edge — no strip of plain
+   section colour between the wave and the picture. Three mask layers: the left
+   fade, intersected with (wave on top + solid rectangle below). The section's
+   own wave (::after) drops beneath the copy container so the photo covers it. */
+@media (min-width: 861px) {
+  .story::after { z-index: 0; }
+  .story__photo {
+    margin-top: calc(-1 * (var(--section-pad) + var(--wave-height)));
+    height: calc(100% + var(--section-pad) + var(--wave-height));
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 32%, #000 100%), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 160' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0 112C162 92 268 58 444 58c180 0 250 42 416 42 186 0 252-46 418-46 78 0 122 10 162 18v88H0Z'/%3E%3C/svg%3E"), linear-gradient(#000, #000);
+            mask-image: linear-gradient(to right, transparent 0%, #000 32%, #000 100%), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 160' preserveAspectRatio='none'%3E%3Cpath fill='black' d='M0 112C162 92 268 58 444 58c180 0 250 42 416 42 186 0 252-46 418-46 78 0 122 10 162 18v88H0Z'/%3E%3C/svg%3E"), linear-gradient(#000, #000);
+    -webkit-mask-size: 100% 100%, 100% calc(var(--wave-height) + 3px), 100% calc(100% - var(--wave-height));
+            mask-size: 100% 100%, 100% calc(var(--wave-height) + 3px), 100% calc(100% - var(--wave-height));
+    -webkit-mask-position: 0 0, 0 0, 0 var(--wave-height);
+            mask-position: 0 0, 0 0, 0 var(--wave-height);
+    -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+    -webkit-mask-composite: source-in, source-over;
+            mask-composite: intersect, add;
+  }
+}
 /* soft bottom dissolve into the section colour — an overlay (not a second mask
    layer) so the left fade keeps working in browsers without mask-composite */
 .story__photo::after {
@@ -1201,9 +1223,32 @@ body.nav--burger .menu-pill { display: flex !important; }
   color: var(--muted);
 }
 
+/* desktop: the shelf photo is a large full-bleed panel — it starts a clear
+   gap right of the copy, runs out to the viewport's right edge (square there,
+   no card corners) and the stat cards sit in its lower-right corner */
+@media (min-width: 861px) {
+  .cust-card {
+    --edge-bleed: calc((100vw - min(100vw, 77.5rem)) / 2 + clamp(1.25rem, 5vw, 3rem));
+    grid-template-columns: minmax(18rem, 46%) 1fr;
+    min-height: clamp(28rem, 42vw, 38rem);
+  }
+  .cust-card__photo {
+    inset: 0 calc(-1 * var(--edge-bleed)) 0 50%;
+    border-radius: 0;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, rgba(0,0,0,.45) 14%, #000 32%);
+            mask-image: linear-gradient(90deg, transparent 0, rgba(0,0,0,.45) 14%, #000 32%);
+  }
+  .cust-card__stats {
+    left: auto;
+    right: 0;
+    top: auto;
+    bottom: clamp(1.2rem, 2.5vw, 2rem);
+    transform: none;
+  }
+}
+
 @media (max-width: 1100px) {
   .logo-carousel__track { --per-view: 4; }
-  .cust-card__stats { left: 71%; }
   .cust-stat { min-width: 6.4rem; padding: .85rem .6rem; }
 }
 @media (max-width: 860px) {
@@ -1248,6 +1293,10 @@ body.nav--burger .menu-pill { display: flex !important; }
 /* === C) CATEGORIES === */
 .categories { overflow: hidden; } /* decorative floaters live outside the container */
 .categories .container { position: relative; }
+/* the sortiment intro is long — run it wider so it reads as a short block
+   under the heading instead of a narrow column */
+.categories .section-head { max-width: 68rem; }
+.categories .section-head .lead { max-width: 64rem; }
 .realms {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1881,13 +1930,10 @@ body.nav--burger .menu-pill { display: flex !important; }
   border-bottom: 2px solid rgba(40,28,70,.1);
 }
 .footer__logo {
-  font-family: var(--disp);
-  font-weight: 800;
-  font-size: 2.2rem;
-  letter-spacing: .04em;
-  color: var(--ink);
   display: block;
-  margin-bottom: .9rem;
+  width: auto;
+  height: 3.25rem;
+  margin-bottom: 1rem;
 }
 .footer__tag { font-family: var(--disp); font-weight: 600; color: var(--ink); margin-bottom: .5rem; }
 .footer__desc { color: var(--ink-soft); font-size: .95rem; max-width: 22rem; }
@@ -2712,26 +2758,39 @@ select.form__input:invalid { color: rgba(20,20,20,.5); }
    so blobs and floaters are placed fully inside their sections instead. */
 .about-hero {
   --section-bg: var(--lav);
+  /* the building photo is the hero's background: tall enough to read as a
+     full-width image, heading on the sky with a soft lavender fade behind it */
+  min-height: clamp(34rem, 88vh, 54rem);
   padding-top: clamp(9rem, 18vh, 12rem);
   padding-bottom: clamp(3.5rem, 7vh, 5.5rem);
   overflow: hidden;
 }
-.about-hero .section-head { max-width: 58rem; margin-bottom: clamp(2rem, 4vw, 3rem); }
-.about-hero__media { position: relative; margin: 0; }
-.about-hero__photo {
-  width: 100%;
-  height: auto; /* the height attribute would otherwise beat aspect-ratio */
-  aspect-ratio: 2 / 1;
-  object-fit: cover;
-  object-position: center 32%;
-  border-radius: 2.375rem;
-  box-shadow: var(--shadow-card);
+.about-hero .section-head { max-width: 58rem; margin-bottom: 0; }
+.about-hero__media { position: absolute; inset: 0; z-index: 0; margin: 0; }
+.about-hero__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  /* a soft glow right behind the heading plus a light wash under the fixed
+     header — the rest of the building stays at full strength */
+  background:
+    radial-gradient(ellipse 54% 32% at 50% 30%, color-mix(in srgb, var(--lav) 86%, transparent), transparent 100%),
+    linear-gradient(180deg, color-mix(in srgb, var(--lav) 80%, transparent) 0%, transparent 20%);
 }
-/* "SEIT 1992" seal pinned over the photo's top-right corner */
+.about-hero__photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 70%;
+}
+/* "SEIT 1992" seal on the photo's lower right, clear of the next section's wave */
 .about-hero__seal {
-  top: -2.875rem;
-  right: clamp(1rem, 5vw, 4rem);
-  bottom: auto;
+  z-index: 1;
+  top: auto;
+  bottom: calc(var(--wave-height, 4rem) + clamp(1.5rem, 4vw, 3rem));
+  right: clamp(1.25rem, 6vw, 5rem);
   width: 8.25rem;
   height: 8.25rem;
   transform: rotate(9deg);
@@ -2745,7 +2804,7 @@ select.form__input:invalid { color: rgba(20,20,20,.5); }
 .about-vm      { --section-bg: var(--section-surface-a); }
 .about-werte   { --section-bg: var(--section-surface-b); }
 .about-expertise { --section-bg: var(--lav); }
-.about-timeline  { --section-bg: var(--section-surface-a); }
+.about-timeline  { --section-bg: var(--lav); } /* sits between story (a) and USPs (b) */
 
 /* --- story: copy beside a photo card, second row mirrored --- */
 .about-row {
@@ -2791,6 +2850,12 @@ select.form__input:invalid { color: rgba(20,20,20,.5); }
 }
 .about-photo--portrait img { aspect-ratio: 4 / 5; object-position: center 60%; }
 .about-photo--landscape img { aspect-ratio: 4 / 3; }
+/* desktop: the portrait photo beside the opening story runs exactly as tall
+   as the copy, so its top and bottom edges line up with the text block */
+@media (min-width: 861px) {
+  .about-row:not(.about-row--mirror) { align-items: stretch; }
+  .about-row:not(.about-row--mirror) .about-photo--portrait img { height: 100%; aspect-ratio: auto; }
+}
 
 /* then → now panels: the story's three closing sentences */
 .then-now {
@@ -3077,8 +3142,15 @@ select.form__input:invalid { color: rgba(20,20,20,.5); }
   .about-photo--portrait img { aspect-ratio: 1 / 1; }
   .then-now { grid-template-columns: 1fr; }
   .vm-grid { grid-template-columns: 1fr; }
-  .about-hero__photo { aspect-ratio: 3 / 2; border-radius: 1.75rem; }
-  .about-hero__seal { width: 6rem; height: 6rem; top: -2.125rem; }
+  /* phones/tablets: a portrait screen crops the wide photo down to the road,
+     so stack instead — heading first, then the photo as a full-width band
+     that runs into the next section's wave */
+  .about-hero { display: flex; flex-direction: column; min-height: 0; padding-bottom: 0; }
+  .about-hero > .container { order: 1; margin-bottom: 2rem; }
+  .about-hero__media { order: 2; position: relative; inset: auto; }
+  .about-hero__media::after { content: none; }
+  .about-hero__photo { height: auto; aspect-ratio: 4 / 3; object-position: center; }
+  .about-hero__seal { width: 6rem; height: 6rem; bottom: calc(var(--wave-height, 3rem) + 1rem); }
   .about-hero__seal .seal__text strong { font-size: 1.2rem; }
   .about-hero__seal .seal__text small { font-size: .62rem; }
 }

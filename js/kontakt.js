@@ -10,13 +10,13 @@
 (() => {
   const INTENTS = {
     kunde: {
-      title: 'Kunde werden — AKAR GmbH',
+      title: 'Kunde werden - AKAR GmbH',
       eyebrow: 'KUNDE WERDEN',
       headline: 'Werden Sie <span class="pink">AKAR-Kunde.</span>',
       lead: 'Sie führen einen Supermarkt, einen Großhandel oder einen Gastronomiebetrieb und möchten unser Sortiment beziehen? Schreiben Sie uns kurz, wer Sie sind und was Sie suchen. Unser Vertrieb meldet sich zeitnah mit allen Informationen bei Ihnen.'
     },
     lieferant: {
-      title: 'Lieferant werden — AKAR GmbH',
+      title: 'Lieferant werden - AKAR GmbH',
       eyebrow: 'LIEFERANT WERDEN',
       headline: 'Werden Sie <span class="pink">AKAR-Lieferant.</span>',
       lead: 'Sie sind Hersteller oder Markeninhaber und suchen einen starken Vertriebspartner für Europa? Stellen Sie uns Ihr Unternehmen und Ihre Produkte vor. Unser Einkauf prüft Ihre Anfrage und meldet sich bei Ihnen.'
