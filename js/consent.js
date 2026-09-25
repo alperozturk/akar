@@ -1,4 +1,4 @@
-/* Cookie consent + Google Tag Manager (GTM-TQQF5RL4) with Consent Mode v2.
+/* Cookie consent + Google Tag Manager (GTM-M4MQRNH8) with Consent Mode v2.
 
    Loaded synchronously in <head>, before anything else, so that:
    1. every Google consent signal defaults to "denied",
@@ -20,7 +20,7 @@
 (function () {
   'use strict';
 
-  var GTM_ID = 'GTM-TQQF5RL4';
+  var GTM_ID = 'GTM-M4MQRNH8';
   var COOKIE = 'akar_consent';
   var VERSION = 1;           // bump to ask everyone again (e.g. new category)
   var MAX_AGE = 60 * 60 * 24 * 365;
