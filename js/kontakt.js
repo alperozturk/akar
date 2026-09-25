@@ -141,6 +141,13 @@
         say(`Senden fehlgeschlagen. ${hint}Sie erreichen uns auch direkt unter ${CONTACT}.`, 'error');
         return;
       }
+      /* GTM: the form never reloads the page, so GTM's own form trigger can't
+         see a successful send — this event is what GA4 / Google Ads listen to */
+      (window.dataLayer = window.dataLayer || []).push({
+        event: 'form_submitted',
+        form_id: 'kontakt',
+        form_topic: form.querySelector('[name="fi-select-anliegen"]')?.value || '' // the chosen "Anliegen", no personal data
+      });
       form.reset();
       say('Vielen Dank! Ihre Nachricht ist bei uns eingegangen. Wir melden uns so schnell wie möglich.', 'ok');
     } catch (err) {
