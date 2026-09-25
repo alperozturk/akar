@@ -3207,3 +3207,171 @@ select.form__input:invalid { color: rgba(20,20,20,.5); }
   .expertise-tile .card__icon { margin-bottom: 0; flex: none; }
   .expertise-tile__name { font-size: 1.1rem; }
 }
+
+/* === COOKIE CONSENT (js/consent.js) ===
+   A floating card on the site's lavender/ink/pink palette with the same pill
+   buttons. "Nur notwendige" and "Alle akzeptieren" share size and weight —
+   refusing must be as easy as agreeing. */
+.cc-banner {
+  position: fixed;
+  left: 50%;
+  bottom: clamp(1rem, 3vw, 1.75rem);
+  z-index: 900;
+  width: min(46rem, calc(100% - 2rem));
+  display: flex;
+  flex-direction: column;
+  gap: 1.125rem;
+  padding: clamp(1.25rem, 2.5vw, 1.75rem) clamp(1.25rem, 3vw, 2.25rem);
+  background: #fff;
+  border: 1px solid color-mix(in srgb, var(--card-lav) 70%, transparent);
+  border-radius: 1.75rem;
+  box-shadow: 0 1.75rem 3.5rem -1.5rem rgba(40, 28, 70, .45);
+  color: var(--ink-soft);
+  font-size: .9rem;
+  line-height: 1.55;
+  opacity: 0;
+  transform: translate(-50%, 1.5rem);
+  transition: opacity .35s ease, transform .35s cubic-bezier(.2, .8, .2, 1);
+}
+.cc-banner.is-visible { opacity: 1; transform: translate(-50%, 0); }
+/* pink edge accent, like the site's section lines */
+.cc-banner::before {
+  content: '';
+  position: absolute;
+  left: 1.75rem; right: 1.75rem; top: -1px;
+  height: 3px;
+  border-radius: 0 0 3px 3px;
+  background: linear-gradient(90deg, var(--pink), var(--teal));
+}
+.cc-banner__text { flex: 1 1 auto; min-width: 0; }
+.cc-banner p { margin: 0; }
+.cc-title {
+  font-family: var(--disp);
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--ink);
+  margin-bottom: .3rem !important;
+}
+.cc-banner a,
+.cc-dialog a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--pink); text-underline-offset: 3px; }
+.cc-banner a:hover,
+.cc-dialog a:hover { color: var(--pink); }
+
+.cc-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .625rem; }
+.cc-banner .cc-actions .cc-btn--ink,
+.cc-banner .cc-actions .cc-btn--pink { flex: 1 1 11rem; }
+.cc-banner .cc-btn--settings { margin-right: auto; }
+.cc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.875rem;
+  padding: .8rem 1.4rem;
+  border-radius: 62.4375rem;
+  border: 2px solid transparent;
+  font-family: var(--disp);
+  font-weight: 700;
+  font-size: .8rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color .25s ease, color .25s ease, border-color .25s ease, transform .25s ease;
+}
+.cc-btn:hover { transform: translateY(-2px); }
+.cc-btn:focus-visible,
+.cc-switch:focus-visible,
+.cc-close:focus-visible { outline: 3px solid var(--pink); outline-offset: 3px; }
+.cc-btn--ink  { background: var(--ink); color: #fff; }
+.cc-btn--ink:hover { background: #000; }
+.cc-btn--pink { background: var(--pink); color: #fff; }
+.cc-btn--pink:hover { background: #e8306f; }
+.cc-btn--settings { background: transparent; color: var(--ink); border-color: var(--card-lav); }
+.cc-btn--settings:hover { border-color: var(--pink); }
+
+/* settings dialog */
+.cc-dialog {
+  width: min(40rem, calc(100% - 2rem));
+  max-height: calc(100dvh - 2rem);
+  margin: auto; /* the global reset zeroes it — restore native centring */
+  padding: 0;
+  border: 0;
+  border-radius: 1.75rem;
+  background: #fff;
+  color: var(--ink-soft);
+  box-shadow: 0 2rem 4rem -1.5rem rgba(40, 28, 70, .5);
+  overflow: auto;
+}
+.cc-dialog::backdrop { background: rgba(40, 28, 70, .35); backdrop-filter: blur(3px); }
+.cc-dialog__inner { position: relative; padding: clamp(1.5rem, 4vw, 2.25rem); font-size: .92rem; line-height: 1.55; }
+.cc-dialog .eyebrow { margin-bottom: .35rem; }
+.cc-dialog__title { font-family: var(--disp); font-weight: 800; font-size: clamp(1.4rem, 3vw, 1.75rem); color: var(--ink); margin: 0 0 .6rem; }
+.cc-dialog__lead { margin: 0 0 1.25rem; }
+.cc-close {
+  position: absolute;
+  top: 1rem; right: 1rem;
+  width: 2.5rem; height: 2.5rem;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: var(--lav);
+  color: var(--ink);
+  cursor: pointer;
+  transition: background-color .25s ease;
+}
+.cc-close:hover { background: var(--card-lav); }
+.cc-close svg { width: 1.1rem; height: 1.1rem; }
+
+.cc-cat {
+  padding: 1rem 1.15rem;
+  margin-bottom: .625rem;
+  border-radius: 1.125rem;
+  background: var(--lav);
+}
+.cc-cat p { margin: .35rem 0 0; font-size: .85rem; }
+.cc-cat__head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.cc-cat__title { font-family: var(--disp); font-weight: 700; color: var(--ink); }
+.cc-cat__always { font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+
+/* toggle switch */
+.cc-switch {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: 0 0 auto;
+  position: relative;
+  width: 2.875rem; height: 1.625rem;
+  margin: 0;
+  border-radius: 62.4375rem;
+  background: #cfc9dd;
+  cursor: pointer;
+  transition: background-color .25s ease;
+}
+.cc-switch::after {
+  content: '';
+  position: absolute;
+  top: .1875rem; left: .1875rem;
+  width: 1.25rem; height: 1.25rem;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+  transition: transform .25s ease;
+}
+.cc-switch:checked { background: var(--pink); }
+.cc-switch:checked::after { transform: translateX(1.25rem); }
+
+.cc-actions--dialog { margin-top: 1.25rem; }
+.cc-actions--dialog .cc-btn { flex: 1 1 auto; }
+
+/* footer trigger — looks like the Impressum/Datenschutz links next to it */
+.footer__cookie { font: inherit; color: inherit; padding: 0; cursor: pointer; }
+.footer__cookie:hover { color: var(--pink); }
+
+@media (max-width: 600px) {
+  .cc-banner .cc-btn--settings { order: 3; flex: 1 1 100%; margin-right: 0; }
+}
+@media (max-width: 480px) {
+  .cc-banner { font-size: .84rem; }
+  .cc-actions--dialog .cc-btn { flex: 1 1 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cc-banner, .cc-btn, .cc-switch, .cc-switch::after { transition: none; }
+}
